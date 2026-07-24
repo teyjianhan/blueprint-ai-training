@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-23T18:20:00+08:00",
+  "title": "Design System: Blueprint AI Training",
+  "extensions": {
+    "colorMeta": {
+      "blue-deep": { "role": "primary", "displayName": "Deep Blue", "canonical": "#0b2161", "tonalRamp": ["#06103a", "#0b2161", "#10298c", "#1230a0", "#1e40c9", "#4f7df0", "#7fa4ff", "#bcd2ff"] },
+      "pill": { "role": "primary", "displayName": "Pill Blue", "canonical": "#bcd2ff", "tonalRamp": ["#0b2161", "#1e40c9", "#4f7df0", "#7fa4ff", "#a7c3ff", "#bcd2ff", "#dbe7ff", "#eef3ff"] },
+      "blue": { "role": "secondary", "displayName": "Accent Blue", "canonical": "#1e40c9", "tonalRamp": ["#06103a", "#0b2161", "#10298c", "#1e40c9", "#4f7df0", "#7fa4ff", "#bcd2ff", "#e4ecff"] },
+      "panel-light": { "role": "secondary", "displayName": "Panel Light", "canonical": "#e4ecff", "tonalRamp": ["#0b2161", "#1e40c9", "#4f7df0", "#7fa4ff", "#bcd2ff", "#dbe7ff", "#e4ecff", "#f5f8ff"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f4f4f2", "tonalRamp": ["#1a1a1a", "#4d4d4d", "#7a7a78", "#a5a5a3", "#d8d8d6", "#e8e8e6", "#f4f4f2", "#ffffff"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Centered serif statements opening every page; weight 500, never bold." },
+      "quote": { "displayName": "Pull Quote", "purpose": "Source Serif 4 italic, one per article, thin blue left rule." },
+      "action": { "displayName": "Pill Label", "purpose": "Uppercase tracked button text with a sliding arrow." }
+    },
+    "shadows": [
+      { "name": "float", "value": "0 18px 44px rgba(11,33,97,0.22)", "purpose": "The hero's floating white card; floats above a panel." },
+      { "name": "card-hover", "value": "0 14px 34px rgba(26,26,26,0.12)", "purpose": "Card hover with 3px lift; never at rest." },
+      { "name": "nav-scrolled", "value": "0 4px 18px rgba(26,26,26,0.06)", "purpose": "Sticky header once scrolled." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All transitions; hero float rises once on load; arrows slide 4px on hover." }
+    ],
+    "breakpoints": [
+      { "name": "cards-2up", "value": "1080px" },
+      { "name": "mosaic-stack", "value": "900px" },
+      { "name": "split-collapse", "value": "860px" },
+      { "name": "nav-drawer", "value": "800px" },
+      { "name": "cards-1up", "value": "620px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Pill Button",
+      "kind": "button",
+      "refersTo": "button-pill",
+      "description": "The signature action: light blue pill, uppercase, arrow slides on hover.",
+      "html": "<a class=\"ds-pill\" href=\"#\">Explore the workshop <span class=\"ds-arrow\">&rarr;</span></a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.6rem; background: #bcd2ff; color: #0b2161; padding: 0.85rem 1.6rem; font-family: Archivo, Arial, sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 999px; transition: background-color 0.2s cubic-bezier(0.16,1,0.3,1); } .ds-pill:hover { background: #a7c3ff; } .ds-pill .ds-arrow { transition: transform 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-pill:hover .ds-arrow { transform: translateX(4px); } .ds-pill:focus-visible { outline: 2px solid #1e40c9; outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary pill; fills with ink on hover.",
+      "html": "<a class=\"ds-outline\" href=\"#\">About us <span class=\"ds-arrow\">&rarr;</span></a>",
+      "css": ".ds-outline { display: inline-flex; align-items: center; gap: 0.6rem; background: transparent; color: #1a1a1a; border: 1px solid #1a1a1a; padding: 0.85rem 1.6rem; font-family: Archivo, Arial, sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 999px; transition: background-color 0.2s, color 0.2s; } .ds-outline:hover { background: #1a1a1a; color: #fff; }"
+    },
+    {
+      "name": "Editorial Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Rounded card with gradient or photo cover and sans body; lifts on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-cover\"><span class=\"ds-card-tag\">Strategy</span></span><span class=\"ds-card-body\"><span class=\"ds-card-title\">AI readiness is an owner decision</span><span class=\"ds-card-meta\">Tey Jian Han &middot; July 2026</span></span></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; width: 300px; background: #fff; border: 1px solid #d8d8d6; border-radius: 16px; overflow: hidden; text-decoration: none; font-family: Archivo, Arial, sans-serif; transition: box-shadow 0.25s cubic-bezier(0.16,1,0.3,1), transform 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-card:hover { box-shadow: 0 14px 34px rgba(26,26,26,0.12); transform: translateY(-3px); } .ds-card-cover { display: flex; align-items: flex-start; padding: 0.9rem; aspect-ratio: 16/10; background: radial-gradient(60% 80% at 80% 20%, rgba(255,179,92,0.45), transparent 60%), radial-gradient(70% 90% at 20% 80%, #4f7df0, transparent 70%), linear-gradient(135deg, #0b2161, #1230a0); } .ds-card-tag { background: #fff; color: #1a1a1a; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 999px; } .ds-card-body { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.4rem; } .ds-card-title { font-size: 1.1875rem; font-weight: 600; line-height: 1.3; color: #1a1a1a; } .ds-card-meta { font-size: 0.8125rem; color: #4d4d4d; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "description": "Pill chips in a hairline tray; the active chip is deep blue.",
+      "html": "<span class=\"ds-chip-row\"><a class=\"ds-chip is-active\" href=\"#\">General AI Workshop</a><a class=\"ds-chip\" href=\"#\">AI for Data Analysis</a></span>",
+      "css": ".ds-chip-row { display: inline-flex; gap: 0.5rem; padding: 0.5rem; border: 1px solid #d8d8d6; border-radius: 999px; font-family: Archivo, Arial, sans-serif; } .ds-chip { display: inline-flex; padding: 0.5rem 1.1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4d4d4d; text-decoration: none; border-radius: 999px; transition: background-color 0.2s, color 0.2s; } .ds-chip:hover { background: #f4f4f2; color: #1a1a1a; } .ds-chip.is-active { background: #0b2161; color: #fff; }"
+    },
+    {
+      "name": "Gradient Art",
+      "kind": "custom",
+      "description": "The signature surface: deep blue field with one amber and one red Malaysian glint. Never flags or flowers.",
+      "html": "<span class=\"ds-art\"></span>",
+      "css": ".ds-art { display: block; width: 320px; aspect-ratio: 16/9; border-radius: 24px; background: radial-gradient(52% 68% at 82% 18%, rgba(255,179,92,0.45), transparent 62%), radial-gradient(44% 60% at 12% 88%, rgba(226,59,59,0.4), transparent 60%), radial-gradient(70% 90% at 28% 22%, #7fa4ff, transparent 70%), radial-gradient(80% 100% at 78% 78%, #4f7df0, transparent 72%), linear-gradient(135deg, #0b2161 0%, #1230a0 55%, #0b2161 100%); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Blueprint Blue",
+    "overview": "Blueprint AI Training carries itself the way today's bcg.com does, a reference the user pinned with screenshots: a calm white ground on which everything interesting happens inside inset, rounded panels. Serif display type gives statements their authority; Archivo does the working text; actions are uppercase pill buttons with a sliding arrow. Malaysia is present but never literal: the national colors live inside the gradient art as soft glints of red and amber inside deep blue fields.",
+    "keyCharacteristics": [
+      "White page ground; all color arrives inside rounded inset panels and cards",
+      "Serif display over sans working text, the consulting-firm pairing",
+      "Pill buttons, uppercase with arrows; chips for facts and filters",
+      "Gradient art carries the Malaysian palette as glints, never as flat national color",
+      "The insights mosaic: one tall photo card, one gradient card, one dark view-all card",
+      "Footer in two layers: light paper columns over a deep blue bar"
+    ],
+    "rules": [
+      { "name": "The Inset Rule", "body": "Color never runs edge to edge. Every colored surface is a rounded panel or card floating inside the container; the only full-width surfaces are the header and the footer layers.", "section": "colors" },
+      { "name": "The Glint Rule", "body": "Malaysian red and amber exist only inside gradients, as radial glints in a blue field. They never appear as solid UI colors, borders, or text.", "section": "colors" },
+      { "name": "The Quiet Serif Rule", "body": "The serif never goes bold and never shouts; authority comes from size and space, not weight.", "section": "typography" },
+      { "name": "The Float Rule", "body": "A shadow means the element floats above a panel (hero card, hover, sticky nav). Nothing at rest inside the page column carries one.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every colored surface inset and rounded (The Inset Rule); the white ground breathes between panels.",
+      "Do set statements in Source Serif 4 at weight 400 to 500 and let size carry authority.",
+      "Do use pill buttons with uppercase labels and arrows for every action.",
+      "Do carry the Malaysian palette only as gradient glints inside blue fields (The Glint Rule).",
+      "Do write copy like a person: plain sentences, no em dashes, no slogan cadence."
+    ],
+    "donts": [
+      "Don't run color bands edge to edge; the v1 full-bleed grammar is retired.",
+      "Don't use literal national imagery: no hibiscus, no flags, no patriotic motifs.",
+      "Don't bold the serif or use it for body text.",
+      "Don't use AI clichés: neon circuits, glowing brains, particle fields.",
+      "Don't put red or amber on UI chrome; they exist only inside the art."
+    ]
+  }
+}

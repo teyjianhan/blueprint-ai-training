@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "css/styles.css"
+        ],
+        "createdAt": "2026-07-23T13:39:28.803Z",
+        "reason": "Founder-pinned reference screenshot uses large gradient numerals; strength-num is the deliberate translation, documented in DESIGN.md"
+      }
+    ]
+  }
+}
