@@ -23,7 +23,8 @@ Blueprint AI Training is a HRDCorp Training Provider founded by Tey Jian Han and
 
 - **Practical, not just theory.** Courses are designed so employees leave able to actually use AI in their work; the founders aim to bring real value to organizations from each course.
 - **HRDCorp registered training provider** — training is claimable under the HRD levy, a material factor in the Malaysian purchase decision.
-- Flagship offer: the **AI-Ready Workshop** (public name since 2026-07-23; previously presented as "General AI Workshop"), a 2-day workshop whose main aim is making employees comfortable with AI. It is conducted with Claude — Claude may be mentioned in course descriptions, but course names and lead positioning stay on practical AI readiness, not a specific tool.
+- Core offer: the **2 Day AI-Ready Workshop** (public name since 2026-07-23; previously presented as "General AI Workshop"), whose main aim is making employees comfortable with AI. It is conducted with Claude — Claude may be mentioned in course descriptions, but course names and lead positioning stay on practical AI readiness, not a specific tool.
+- **Never call it a "flagship"** (founder ruling, 2026-07-25): there is no flagship course. Describe the route instead: businesses most commonly send their team to the 2 day AI-Ready Workshop first, then go into specific department units. On the landing page, department destinations are shown as department names only, never as course names.
 - **Differentiators (founder-stated, 2026-07-23):**
   1. The founders are AI engineers who came out of industry leading companies (companies not yet named publicly; keep general until they confirm).
   2. Unlike many training providers, they have actually implemented AI in corporate settings; keep this comparative claim general, never naming competitors.
@@ -55,11 +56,11 @@ Blueprint AI Training is a HRDCorp Training Provider founded by Tey Jian Han and
 
 Confirmed to exist, but content not yet provided — request from the founders before publishing, never fabricate specifics:
 
-- HRDCorp registered / claimable status.
+- HRDCorp registered / claimable status (founders also accept the shorthand "HRDF claimable" in copy, 2026-07-25).
 - Founder and trainer credentials for Tey Jian Han and Daniel Chua.
-- Past clients and/or testimonials.
+- Testimonials (real quotes pending).
 
-The repository currently contains only [company_description.txt](company_description.txt); no logos, photos, or documents yet.
+**Past clients — provided 2026-07-25** as logo files in `assets/img/credentials/`: Weil Hotel, Silentnight, Dormiflex, Masterfoam, Rest-Pedic, NLY Foam (names inferred from filenames; confirm spelling with the founders). Shown on the landing page under "We work with notable modern & traditional businesses in Malaysia".
 
 ## Product Principles
 

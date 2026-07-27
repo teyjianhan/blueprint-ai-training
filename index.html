@@ -4,7 +4,7 @@ DIRECTION CONTRACT (v2, replaces bunga-raya v1)
 THESIS: Malaysian AI training firm in today's BCG grammar: white ground, inset rounded panels, pill actions. Refuses full-width color bands and literal national iconography.
 OWN-WORLD: Source Serif 4 display over Archivo; blue family (deep #0b2161, pill #bcd2ff, accent #1e40c9); Malaysian red/amber appear only as glints inside gradient art; radii 16/24px; chips; KL dusk photo.
 STORY: An HR lead or owner recognises consulting-grade calm, sees practical claimable training, taps WhatsApp.
-FIRST VIEWPORT: Centered serif statement over white, then an inset gradient hero card carrying a floating white flagship card with pill CTA.
+FIRST VIEWPORT: Centered serif statement over white, then an inset hero card (sketched Malaysian team over gradient art) carrying a floating white workshop card with pill CTA.
 FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic with view-all card, pill buttons, panels never full-bleed.
 -->
 <html lang="en">
@@ -49,16 +49,15 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
 
   <!-- Centered intro -->
   <section class="intro container">
-    <!-- VERIFY: confirm exact HRD Corp registration wording before launch -->
-    <span class="label label--slate">HRD Corp Registered Training Provider</span>
-    <h1 class="display">Practical AI training for Malaysian companies</h1>
+    <h1 class="display display-xl intro-rise">We train people in Malaysian organisations to be <span class="dim">AI&#8209;ready</span>.</h1>
   </section>
 
-  <!-- Hero card: gradient art carries the Malaysian colors -->
-  <section class="container" aria-label="The flagship workshop">
+  <!-- Hero card: sketched cover over the gradient art (art shows if the image fails) -->
+  <section class="container" aria-label="The 2 day workshop">
     <div class="hero-card panel art">
+      <img class="hero-bg" src="assets/img/2day-cover.webp" alt="Sketch of a Malaysian team working on laptops together, with the Kuala Lumpur skyline behind them">
       <div class="hero-float" data-rise>
-        <span class="label label--blue">The flagship</span>
+        <span class="label label--blue">Where teams start</span>
         <h2>The 2 Day AI-Ready Workshop</h2>
         <p>Two hands-on days that take a team from unsure to comfortable with AI. Built for every department, not just IT.</p>
         <a class="btn btn--pill" href="workshop.html">Explore the workshop <span class="arrow" aria-hidden="true">&rarr;</span></a>
@@ -88,44 +87,45 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
     </div>
   </section>
 
-  <!-- Workshops: the flagship on the left, branching out to departments on the right -->
+  <!-- Workshops: the two day workshop routing into departments, drawn on the white ground -->
   <section class="section container" aria-label="Our workshops">
-    <div class="panel art tree-panel">
-      <div class="tree-intro">
-        <span class="label label--light">Our workshops</span>
-        <h2 class="headline">One flagship, then deeper by department</h2>
-        <a class="tree-root" href="workshop.html">
-          <span class="label label--blue">The flagship</span>
-          <h3>The 2 Day AI-Ready Workshop</h3>
-          <span class="arrow-link">See the curriculum <span class="arrow" aria-hidden="true">&rarr;</span></span>
-        </a>
+    <div class="route">
+      <div class="route-intro">
+        <span class="label label--blue">Our workshops</span>
+        <h2 class="headline">Two days first, then deeper by department</h2>
+        <p>The most common route: a team does the 2 day AI-Ready Workshop together, then goes further with units built for specific departments.</p>
         <a class="btn btn--pill" href="workshops.html">View all workshops <span class="arrow" aria-hidden="true">&rarr;</span></a>
-        <p class="tree-note">The three AI courses are in development now. The rest is where the flagship can branch next, so tell us what your team needs.</p>
       </div>
-      <div class="tree-map">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <path d="M0 50 C 14 50, 16 14, 30 14" />
-          <path d="M0 50 C 22 50, 38 33, 56 33" />
-          <path d="M0 50 C 16 50, 18 64, 34 64" />
-          <path d="M0 50 C 30 50, 52 10, 76 10" />
-          <path d="M0 50 C 26 50, 40 84, 58 84" />
-          <path d="M0 50 C 34 50, 60 50, 82 50" />
-          <path d="M0 50 C 8 50, 10 28, 16 28" />
-          <path d="M0 50 C 14 50, 10 86, 22 86" />
-          <path d="M0 50 C 36 50, 60 24, 86 24" />
-          <path d="M0 50 C 36 50, 60 72, 84 72" />
+      <div class="route-map" data-route>
+        <svg viewBox="0 0 160 100" aria-hidden="true" focusable="false">
+          <path d="M0 50 C 30 50, 50 14, 78 14" pathLength="1" />
+          <path d="M0 50 C 40 50, 80 26, 120 26" pathLength="1" />
+          <path d="M0 50 C 18 44, 30 26, 52 26" pathLength="1" />
+          <path d="M0 50 C 30 50, 60 48, 96 48" pathLength="1" />
+          <path d="M0 50 C 45 50, 90 44, 140 44" pathLength="1" />
+          <path d="M0 50 C 22 50, 40 64, 64 64" pathLength="1" />
+          <path d="M0 50 C 36 50, 72 70, 116 70" pathLength="1" />
+          <path d="M0 50 C 12 50, 20 84, 36 84" pathLength="1" />
+          <path d="M0 50 C 28 50, 55 88, 88 88" pathLength="1" />
+          <circle class="pulse" r="1.1" cx="0" cy="50"><animateMotion dur="4s" repeatCount="indefinite" path="M0 0 C 30 0, 50 -36, 78 -36" /></circle>
+          <circle class="pulse" r="1.1" cx="0" cy="50"><animateMotion dur="4.6s" begin="1.4s" repeatCount="indefinite" path="M0 0 C 45 0, 90 -6, 140 -6" /></circle>
+          <circle class="pulse" r="1.1" cx="0" cy="50"><animateMotion dur="4.3s" begin="2.5s" repeatCount="indefinite" path="M0 0 C 28 0, 55 38, 88 38" /></circle>
         </svg>
-        <!-- EDIT: add, rename or reposition department nodes freely; each pill is placed by its left/top -->
-        <span class="dept dept--soon" style="left: 30%; top: 14%;">AI for Data Analysis</span>
-        <span class="dept dept--soon" style="left: 56%; top: 33%;">Advanced AI for Procurement</span>
-        <span class="dept dept--soon" style="left: 34%; top: 64%;">Advanced AI for Marketing</span>
-        <span class="dept" style="left: 76%; top: 10%;">Human Resources</span>
-        <span class="dept" style="left: 58%; top: 84%;">Finance</span>
-        <span class="dept" style="left: 82%; top: 50%;">Operations</span>
-        <span class="dept" style="left: 16%; top: 28%;">Sales</span>
-        <span class="dept" style="left: 22%; top: 86%;">Legal</span>
-        <span class="dept" style="left: 86%; top: 24%;">Customer Service</span>
-        <a class="dept dept--ask" style="left: 84%; top: 72%;" href="workshops.html#coming-soon">Your department <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <div class="route-origin">
+          <span class="label label--light">Most teams start here</span>
+          <h3>The 2 Day AI-Ready Workshop</h3>
+          <a class="arrow-link" href="workshop.html">See the curriculum <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <!-- EDIT: add, rename or reposition department nodes freely; each is placed by its left/top -->
+        <span class="route-node" style="left: 48.75%; top: 14%;">Human Resources</span>
+        <span class="route-node" style="left: 75%; top: 26%;">Data &amp; Analytics</span>
+        <span class="route-node" style="left: 32.5%; top: 26%;">Marketing</span>
+        <span class="route-node" style="left: 60%; top: 48%;">Finance</span>
+        <span class="route-node" style="left: 87.5%; top: 44%;">Customer Service</span>
+        <span class="route-node" style="left: 40%; top: 64%;">Operations</span>
+        <span class="route-node" style="left: 72.5%; top: 70%;">Procurement</span>
+        <span class="route-node" style="left: 22.5%; top: 84%;">Sales</span>
+        <span class="route-node" style="left: 55%; top: 88%;">Legal</span>
       </div>
     </div>
   </section>
@@ -149,37 +149,54 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
     -->
   </section>
 
+  <!-- Past clients -->
+  <section class="section container" aria-label="Past clients">
+    <div class="section-head">
+      <span class="label label--blue">Past clients</span>
+      <h2 class="headline">We work with notable modern &amp; traditional businesses in Malaysia</h2>
+    </div>
+    <!-- EDIT: confirm the client names below; add or remove logos in assets/img/credentials (4 per row on desktop) -->
+    <ul class="logo-grid" data-in>
+      <li class="logo-tile" style="--i: 0;"><img src="assets/img/credentials/weil.png" alt="Weil Hotel"></li>
+      <li class="logo-tile" style="--i: 1;"><img src="assets/img/credentials/cropped-Silent-Night-Favicon.png" alt="Silentnight"></li>
+      <li class="logo-tile" style="--i: 2;"><img src="assets/img/credentials/brand-dormiflex.png" alt="Dormiflex"></li>
+      <li class="logo-tile" style="--i: 3;"><img src="assets/img/credentials/brand-masterfoam01-2.png" alt="Masterfoam"></li>
+      <li class="logo-tile" style="--i: 4;"><img src="assets/img/credentials/brand-rest-pedic.png" alt="Rest-Pedic"></li>
+      <li class="logo-tile" style="--i: 5;"><img src="assets/img/credentials/nly-logo.png" alt="NLY Foam"></li>
+    </ul>
+  </section>
+
   <!-- Why us -->
   <section class="section container" aria-label="Why companies pick us">
-    <div class="section-head">
-      <span class="label label--blue">Why us</span>
-      <h2 class="headline">Trainers who have actually done the work</h2>
+    <div class="section-head section-head--feature" data-in>
+      <h2 class="display">Why <span class="mark-sweep">these brands</span> work with us</h2>
     </div>
     <div class="strengths">
       <article class="strength">
-        <svg class="strength-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
-        <h3>Engineers first, trainers second</h3>
-        <!-- EDIT: name the companies here if you want to; kept general until you confirm -->
-        <p>We're AI engineers who came out of industry leading companies. We still build with these tools every week, and we teach the way practitioners actually work.</p>
-        <p class="strength-stat"><span class="strength-num">2</span><span class="strength-stat-label">AI engineers behind every course</span></p>
-      </article>
-      <article class="strength">
         <svg class="strength-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-        <h3>We've implemented, not just presented</h3>
-        <p>Plenty of providers teach AI they have never rolled out. We've put AI to work inside real corporate settings, so we know what sticks after the trainer goes home.</p>
-        <p class="strength-stat"><span class="strength-num">1<small>st</small></span><span class="strength-stat-label">hand experience implementing AI in companies</span></p>
+        <h3>AI implementors, not career trainers</h3>
+        <!-- EDIT: name the companies here if you want to; kept general until you confirm -->
+        <p>Your trainers actually implemented AI inside big corporate companies. What we teach is what worked there, not what a slide deck says should work.</p>
+        <p class="strength-stat"><span class="strength-num">2</span><span class="strength-stat-label">AI implementors behind every course</span></p>
       </article>
       <article class="strength">
-        <svg class="strength-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>
-        <h3>Everyone brings something home</h3>
-        <p>Each session ends with every participant applying AI to their own workflow and use case, not watching a demo of someone else's job.</p>
-        <p class="strength-stat"><span class="strength-num">1</span><span class="strength-stat-label">use case built by each person, on their own work</span></p>
+        <svg class="strength-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <h3>Everyone works on their own problem</h3>
+        <p>The courses are designed so that during the workshop, each person works on a specific problem from their own job and leaves with it solved, or close to it.</p>
+        <p class="strength-stat"><span class="strength-num">1</span><span class="strength-stat-label">real problem from your own job, per person</span></p>
       </article>
       <article class="strength">
         <svg class="strength-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <h3>Built for IT and non-IT alike</h3>
         <p>The curriculum suits people from both IT and non-IT backgrounds. If your team can write an email, they can do everything we cover.</p>
         <p class="strength-stat"><span class="strength-num">0</span><span class="strength-stat-label">coding skills required</span></p>
+      </article>
+      <article class="strength">
+        <svg class="strength-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Claimable under HRDF</h3>
+        <!-- VERIFY: confirm claim wording against your HRD Corp registration before launch -->
+        <p>Blueprint is a registered training provider, so the levy your company already pays can cover this training. We'll walk you through the claim.</p>
+        <p class="strength-stat"><span class="strength-num strength-num--word">HRDF</span><span class="strength-stat-label">claimable through your existing levy</span></p>
       </article>
     </div>
   </section>
