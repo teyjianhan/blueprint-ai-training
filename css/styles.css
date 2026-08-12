@@ -434,14 +434,19 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
   letter-spacing: -0.01em;
   line-height: 1;
 }
-.brand-mark {
-  width: 11px; height: 11px;
-  border-radius: 3px;
-  background: var(--blue);
+.brand-logo {
+  display: block;
+  height: 26px;
+  width: auto;
   flex: 0 0 auto;
 }
 .brand strong { font-weight: 700; }
 .brand span { font-weight: 400; color: var(--slate); }
+/* Hairline between the wordmark and the descriptor */
+.brand-logo + span {
+  padding-left: 0.6rem;
+  border-left: 1px solid var(--silver);
+}
 
 .site-nav { display: flex; align-items: center; gap: 2rem; }
 .site-nav a:not(.btn) {
@@ -614,6 +619,201 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
   .strength { border-left: 0; }
   .strength:nth-child(n+2) { border-top: 1px solid var(--silver); }
 }
+
+/* ---------- Training planner (home) ----------
+   One paper panel that swaps a question at a time. Options are white cards on
+   the paper ground so the choice, not the panel, is the loudest thing here. */
+
+.planner-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.planner {
+  max-width: 940px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 3.4vw, 2.75rem);
+}
+.planner-progress { display: flex; flex-direction: column; gap: 0.7rem; }
+.planner-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.planner-bar {
+  height: 3px;
+  border-radius: var(--r-pill);
+  background: var(--silver);
+  overflow: hidden;
+}
+/* Scaled rather than widened, so advancing a step never triggers layout */
+.planner-bar span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  border-radius: inherit;
+  background: var(--blue);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.planner-body { margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+.planner-step { display: none; }
+.planner-step.is-active { display: block; animation: planner-in 0.35s var(--ease-out) both; }
+@keyframes planner-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.planner-q {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+  margin-bottom: clamp(1.25rem, 2.4vw, 1.75rem);
+}
+/* The question takes focus when a step changes, so screen readers announce it.
+   That focus is never user-initiated, so it should not draw a ring. */
+.planner-q:focus, .planner-q:focus-visible { outline: none; }
+
+.planner-opts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.planner-opts--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 720px) { .planner-opts--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .planner-opts, .planner-opts--3 { grid-template-columns: 1fr; } }
+
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 1.05rem 1.2rem;
+  text-align: left;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--silver);
+  border-radius: var(--r-card);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.25s var(--ease-out),
+              transform 0.25s var(--ease-out), background-color 0.2s var(--ease-out);
+}
+.opt:hover {
+  border-color: var(--blue);
+  box-shadow: 0 10px 26px rgba(26, 26, 26, 0.1);
+  transform: translateY(-2px);
+}
+.opt.is-picked { background: var(--panel-light); border-color: var(--blue); }
+.opt--compact { align-items: center; }
+.opt-icon { width: 24px; height: 24px; color: var(--blue); flex: 0 0 auto; }
+.opt-label { display: block; font-size: 0.9375rem; font-weight: 600; line-height: 1.3; }
+.opt-note {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--slate);
+}
+
+/* Result */
+.planner-result .label { display: block; margin-bottom: 0.8rem; }
+.planner-rec-note { color: var(--slate); max-width: 56ch; margin-top: -0.6rem; }
+.planner-summary {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.planner-summary button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font);
+  font-size: 0.8125rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--silver);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+.planner-summary button:hover { border-color: var(--blue); color: var(--blue); }
+.planner-summary .planner-summary-key {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.planner-send {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+.planner-field { flex: 1 1 260px; display: block; }
+.planner-field > span {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.planner-field em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.planner-field input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--silver);
+  border-radius: var(--r-pill);
+  transition: border-color 0.2s var(--ease-out);
+}
+.planner-field input:focus { border-color: var(--blue); outline: none; }
+.planner-field input::placeholder { color: var(--slate); opacity: 0.75; }
+.planner-cta { background: var(--blue-deep); color: var(--white); flex: 0 0 auto; }
+.planner-cta:hover { background: var(--blue); }
+.planner-note { margin-top: 1rem; font-size: 0.8125rem; color: var(--slate); max-width: 60ch; }
+
+.planner-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--silver);
+}
+.planner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  font-family: var(--font);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--slate);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s var(--ease-out);
+}
+.planner-link:hover { color: var(--blue); }
+.planner-link .arrow--back { transition: transform 0.25s var(--ease-out); }
+.planner-link:hover .arrow--back { transform: translateX(-4px); }
+.planner-nav[hidden] { display: none; }
 
 /* ---------- Cards ---------- */
 
@@ -1217,3 +1417,7 @@ a.profile:hover .arrow-link .arrow { transform: translateX(4px); }
 }
 .footer-bar .brand { color: var(--white); font-size: 0.9375rem; }
 .footer-bar .brand span { color: rgba(255, 255, 255, 0.6); }
+/* Navy wordmark would vanish on the deep-blue bar: knock it out to white */
+.footer-bar .brand-logo { height: 22px; filter: brightness(0) invert(1); }
+.footer-bar .brand-logo + span { border-left-color: rgba(255, 255, 255, 0.4); }
+.footer-legal { margin-top: 0.9rem; color: var(--slate); font-size: 0.8125rem; }
