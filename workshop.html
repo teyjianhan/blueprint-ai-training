@@ -1,13 +1,20 @@
 <!doctype html>
 <html lang="en">
+<!--
+DIRECTION CONTRACT (workshops, inside Blueprint Blue v2)
+THESIS: Sells the method, not the syllabus. A company should be able to judge whether Blueprint can train their people without ever seeing a session list.
+STORY: An owner or HR lead recognises their own situation, sees a format that fits their budget and appetite, and asks for the detailed outline on WhatsApp.
+FIRST VIEWPORT: Centered serif intro, then the three delivery formats as the page's spine.
+NOTE: The session-by-session detail lives on module.html, which is unlisted while accreditation is pending. Do not restate it here. Keep durations as ranges and keep HRD Corp claims at provider level.
+-->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The 2 Day AI-Ready Workshop | Blueprint AI Training</title>
-  <meta name="description" content="A hands-on, HRD Corp claimable two day workshop that gets your whole team comfortable and productive with AI. Built for every department, run on your company's real work.">
+  <title>Workshops | Blueprint AI Training</title>
+  <meta name="description" content="Practical AI training for Malaysian companies, delivered in three formats: briefing, workshop or lab. Built for non-technical teams and run on your company's real work.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="The 2 Day AI-Ready Workshop | Blueprint AI Training">
-  <meta property="og:description" content="Two hands-on days that get your whole team using AI at work. HRD Corp claimable.">
+  <meta property="og:title" content="Workshops | Blueprint AI Training">
+  <meta property="og:description" content="Three formats, from a half-day leadership briefing to a fully hands-on lab. Built for non-technical teams.">
   <!-- REPLACE: set your live domain in og:image so WhatsApp link previews show the image -->
   <meta property="og:image" content="https://REPLACE-WITH-DOMAIN/assets/img/kl-dusk.jpg">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -28,7 +35,7 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
-      <a href="workshops.html" aria-current="true">Workshops</a>
+      <a href="workshop.html" aria-current="page">Workshops</a>
       <a href="insights.html">Insights</a>
       <a href="about.html">About</a>
       <!-- REPLACE: WhatsApp number -->
@@ -39,101 +46,128 @@
 
 <main>
 
-  <section class="intro container">
-    <span class="label label--blue">The 2 Day AI-Ready Workshop</span>
-    <h1 class="display">Two days that get your whole team using AI</h1>
-    <p class="lede">Most people are still unsure around AI. Over two hands-on days, your team practices on their own work until using AI feels normal.</p>
-  </section>
-
-  <section class="section--tight container" aria-label="Key facts">
-    <div class="facts-row">
-      <span class="chip chip--static is-active">2 full days</span>
-      <span class="chip chip--static">Hands-on, in person</span>
-      <span class="chip chip--static">All departments</span>
-      <span class="chip chip--static">HRD Corp claimable</span>
+  <!-- Animated gradient opener. Motion is decorative only; it freezes to a still
+       gradient under prefers-reduced-motion. -->
+  <section class="container">
+    <div class="hero-art">
+      <div class="intro">
+        <span class="label label--blue">Workshops</span>
+        <h1 class="display">Training shaped to how your team actually learns</h1>
+        <p class="lede">Some teams need to be convinced before they'll try. Some need to be shown. Some just need time to practise. We run all three, and the right one depends on where your people are today.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Who it's for -->
+  <!-- The three formats: the spine of this page -->
+  <section class="section container" aria-label="How we deliver">
+    <div class="section-head">
+      <span class="label label--blue">How we deliver</span>
+      <h2 class="headline">Three formats, one aim</h2>
+      <p class="lede">Everything we run is built to end the same way: people reaching for AI on their own, without being told to. What changes is how much of the time is talking and how much is doing.</p>
+    </div>
+    <!-- EDIT: these three formats are the founders' to reshape. Keep durations as ranges. -->
+    <div class="days days--3">
+      <div class="day">
+        <div class="day-head">
+          <h3>Briefing</h3>
+          <span class="label">Fully theory</span>
+        </div>
+        <ol>
+          <li>
+            <h4>What it is</h4>
+            <p>A talk-led session with no laptops. We explain what AI is doing to work in Malaysia, what it means for your industry, and what a realistic plan looks like.</p>
+          </li>
+          <li>
+            <h4>Who it suits</h4>
+            <p>Leadership teams deciding whether to invest, or a whole company that needs the same starting picture before anyone is trained.</p>
+          </li>
+          <li>
+            <h4>Shape</h4>
+            <p>Short. Works with a large room. Often the step that gets budget approved for the hands-on training that follows.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="day">
+        <div class="day-head">
+          <h3>Workshop</h3>
+          <span class="label">Theory + practical</span>
+        </div>
+        <ol>
+          <li>
+            <h4>What it is</h4>
+            <p>The default. Each concept is explained, then practised immediately on the participant's own work, so nothing stays abstract.</p>
+          </li>
+          <li>
+            <h4>Who it suits</h4>
+            <p>Teams starting from zero. Most companies begin here, because most people have never been shown how to work with AI properly.</p>
+          </li>
+          <li>
+            <h4>Shape</h4>
+            <p>One to two days, laptops required, capped so every person gets attention. Everyone leaves having finished something real.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="day">
+        <div class="day-head">
+          <h3>Lab</h3>
+          <span class="label">Fully practical</span>
+        </div>
+        <ol>
+          <li>
+            <h4>What it is</h4>
+            <p>Almost no lecture. Your team brings live work and we sit with them while they do it, fixing what goes wrong as it goes wrong.</p>
+          </li>
+          <li>
+            <h4>Who it suits</h4>
+            <p>Teams already past the basics whose habits haven't stuck yet, or a department with one specific process they want rebuilt around AI.</p>
+          </li>
+          <li>
+            <h4>Shape</h4>
+            <p>Half-day sessions, often repeated. The format that turns a good training day into a change you can still see months later.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <p class="lede" style="margin-top: 1.5rem; font-size: 0.9375rem;">These stack. A briefing gets leadership aligned, a workshop trains the team, and labs keep it alive afterwards. Each one also stands on its own if that's all you need.</p>
+  </section>
+
+  <!-- Themes, at topic level rather than session level -->
+  <section class="section container" aria-label="What we cover">
+    <div class="section-head section-head--center">
+      <span class="label label--blue">What we cover</span>
+      <h2 class="headline">The ground every format covers</h2>
+    </div>
+    <!-- facts-row, not chip-row: these are topic labels, so they must not sit in a
+         pill bar with one highlighted, which reads as a filter control. -->
+    <div class="facts-row">
+      <span class="chip chip--static">Working with AI assistants</span>
+      <span class="chip chip--static">Documents &amp; writing</span>
+      <span class="chip chip--static">Analysis &amp; decisions</span>
+      <span class="chip chip--static">Research &amp; summarising</span>
+      <span class="chip chip--static">Data safety &amp; guardrails</span>
+      <span class="chip chip--static">Checking AI's work</span>
+    </div>
+    <p class="lede" style="margin-top: 1.5rem; text-align: center; font-size: 0.9375rem;">The emphasis is set per company. A finance-heavy team and a sales-heavy team leave with different sessions under the same headings.</p>
+  </section>
+
+  <!-- Method: the real differentiator -->
   <section class="section container">
     <div class="panel panel--deep panel-split">
-      <h2 class="headline">Made for people who don't call themselves technical</h2>
+      <h2 class="headline">Run on your work, not our examples</h2>
       <div>
-        <p>This is not a course for programmers. It's for the account manager, the HR executive and the finance team, the people whose week is emails, documents, spreadsheets and meetings. That's where AI helps most, and that's who usually gets left out of AI training.</p>
-        <!-- EDIT: course description. Claude is named here by design; never in the course title. -->
-        <p style="margin-top: 0.9rem;">Participants work with <strong style="color: var(--white);">Claude</strong>, one of the world's leading AI assistants, from the first hour. Everyone brings a laptop and their own backlog, so the exercises are your company's real tasks rather than our sample data.</p>
+        <p>Participants bring their own reports, emails and spreadsheets. The exercises are your company's real tasks, which is why people keep using what they learned. They didn't practise on our sample data, they practised on Monday's actual job.</p>
+        <p style="margin-top: 0.9rem;">It's built for people who don't call themselves technical: the account manager, the HR executive, the finance team. <strong style="color: var(--white);">No coding, anywhere.</strong> We're not a translated franchise or a licensed curriculum from somewhere else, and we don't hand out vendor certificates. What you get is a team that works differently.</p>
         <!-- REPLACE: WhatsApp number -->
-        <a class="btn btn--pill" href="https://wa.me/60XXXXXXXXX">Ask about running it <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn--pill" href="https://wa.me/60XXXXXXXXX">Talk to us about your team <span class="arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
-  </section>
-
-  <!-- Curriculum -->
-  <section class="section container">
-    <div class="section-head">
-      <span class="label label--blue">Curriculum</span>
-      <h2 class="headline">What the two days cover</h2>
-      <p class="lede">This is the working outline. We adjust the emphasis to your company before every run.</p>
-    </div>
-    <!-- EDIT: session blocks below are the founders' to reshape per run -->
-    <div class="days">
-      <div class="day">
-        <div class="day-head">
-          <h3>Day 1</h3>
-          <span class="label">Comfort and foundations</span>
-        </div>
-        <ol>
-          <li>
-            <h4>What AI is (and what it isn't)</h4>
-            <p>A plain-language grounding. What today's AI does well, where it fails, and why nobody in the room is being replaced by it.</p>
-          </li>
-          <li>
-            <h4>First conversations</h4>
-            <p>Everyone gets hands on with Claude. Asking, refining, pushing back, treating AI like a capable junior instead of a search box.</p>
-          </li>
-          <li>
-            <h4>Delegating properly</h4>
-            <p>The skill that separates casual users from fluent ones: giving AI the context, examples and standards it needs to do real work.</p>
-          </li>
-          <li>
-            <h4>Your own backlog</h4>
-            <p>Participants pick a task from their actual week (a report, a difficult email, a summary) and finish it with AI before the day ends.</p>
-          </li>
-        </ol>
-      </div>
-      <div class="day">
-        <div class="day-head">
-          <h3>Day 2</h3>
-          <span class="label">Applied, by department</span>
-        </div>
-        <ol>
-          <li>
-            <h4>Documents and writing</h4>
-            <p>Reports, proposals, minutes and translations, drafted, sharpened and checked against your company's tone.</p>
-          </li>
-          <li>
-            <h4>Analysis and decisions</h4>
-            <p>Reading long documents fast, comparing options, and preparing for meetings with a brief that took minutes instead of hours.</p>
-          </li>
-          <li>
-            <h4>Department deep-dives</h4>
-            <p>Breakout exercises tailored to the roles in the room (HR, finance, operations, sales) using scenarios from that function.</p>
-          </li>
-          <li>
-            <h4>Guardrails and habits</h4>
-            <p>Company data safety, checking AI output, and each participant leaving with a personal AI workflow for their role.</p>
-          </li>
-        </ol>
-      </div>
-    </div>
-    <p class="lede" style="margin-top: 1.5rem; font-size: 0.9375rem;">Group size, venue and scheduling are arranged per company. Message us and we'll work it out around your operations.</p>
   </section>
 
   <!-- Outcomes -->
   <section class="section container">
     <div class="panel panel--paper" style="padding: clamp(2rem, 4.5vw, 3.5rem);">
       <div class="section-head">
-        <span class="label label--blue">After the workshop</span>
+        <span class="label label--blue">Afterwards</span>
         <h2 class="headline">What your team takes away</h2>
       </div>
       <ul class="outcomes">
@@ -145,14 +179,15 @@
     </div>
   </section>
 
-  <!-- Claiming -->
+  <!-- HRD Corp: provider-level only while module accreditation is pending -->
   <section class="section container" id="claiming">
     <div class="panel panel--light panel-split">
-      <h2 class="headline">Claiming with HRD Corp</h2>
+      <h2 class="headline">Using your HRD levy</h2>
       <div>
-        <!-- VERIFY: keep this section general until registration details and claim scheme wording are confirmed -->
-        <p style="color: var(--slate);">Blueprint AI Training is a registered HRD Corp training provider. If your company contributes to the HRD levy, there's a good chance you've already paid for this training. The levy exists exactly for upskilling like this.</p>
-        <p style="color: var(--slate); margin-top: 0.9rem;">Claims run through the usual HRD Corp process. When you enquire, we'll walk you through what's needed for our courses and how it works for your company's situation.</p>
+        <!-- VERIFY: keep this at provider level. Do not state that a specific course is claimable
+             until that module is through HRD Corp, then update this section and the FAQ below. -->
+        <p style="color: var(--slate);">Blueprint AI Training is a registered HRD Corp training provider. If your company contributes to the HRD levy, that money leaves your account whether you use it or not, and upskilling like this is exactly what it exists for.</p>
+        <p style="color: var(--slate); margin-top: 0.9rem;">What you can claim depends on the scheme your company is on and how the training is scoped. Tell us your situation and we'll walk you through what applies and what we can support.</p>
         <!-- REPLACE: WhatsApp number -->
         <a class="btn btn--pill" href="https://wa.me/60XXXXXXXXX" style="background: var(--blue-deep); color: var(--white);">Ask us about claiming <span class="arrow" aria-hidden="true">&rarr;</span></a>
       </div>
@@ -160,20 +195,21 @@
   </section>
 
   <!-- Coming soon -->
-  <section class="section container" id="next">
+  <section class="section container" id="coming-soon">
     <div class="section-head">
-      <span class="label label--blue">Going further</span>
-      <h2 class="headline">Where your team goes next</h2>
-      <p class="lede">Specialist courses that take one function deeper. They're in development now, so tell us which one your company needs first.</p>
+      <span class="label label--blue">In development</span>
+      <h2 class="headline">Specialist courses, one department at a time</h2>
+      <p class="lede">These go deeper into a single function. They're being built now, so tell us which one your company needs first.</p>
     </div>
-    <div class="card-grid card-grid--3">
+    <div class="card-grid">
+      <!-- EDIT: add a card here for each new course; move it above this row when it goes live -->
       <article class="card">
         <div class="card-cover cover-b">
           <span class="tag tag--ghost" style="background: rgba(255,255,255,0.9);">Coming soon</span>
         </div>
         <div class="card-body">
-          <h3 class="title">AI for Data Analysis</h3>
-          <p>Turn spreadsheets and reports into answers. For finance, operations and anyone who lives in Excel.</p>
+          <h3 class="title">Generic AI course with Claude</h3>
+          <p>A broad grounding in working with Claude, for teams that want general capability before picking a department to go deeper in.</p>
         </div>
       </article>
       <article class="card">
@@ -181,8 +217,8 @@
           <span class="tag tag--ghost" style="background: rgba(255,255,255,0.9);">Coming soon</span>
         </div>
         <div class="card-body">
-          <h3 class="title">Advanced AI for Procurement</h3>
-          <p>Supplier comparisons, tender documents and contract review, with AI doing the heavy reading.</p>
+          <h3 class="title">Advanced AI for Content Creation</h3>
+          <p>Articles, social posts, scripts and visuals, produced consistently without needing a bigger team.</p>
         </div>
       </article>
       <article class="card">
@@ -191,10 +227,38 @@
         </div>
         <div class="card-body">
           <h3 class="title">Advanced AI for Marketing</h3>
-          <p>Campaign copy, customer research and content production at a pace a small team can keep up with.</p>
+          <p>Campaign planning, customer research and positioning, with AI doing the groundwork.</p>
         </div>
       </article>
+      <!-- REPLACE: WhatsApp number -->
+      <a class="card" href="https://wa.me/60XXXXXXXXX">
+        <div class="card-cover art--soft">
+          <span class="tag">You choose</span>
+        </div>
+        <div class="card-body">
+          <h3 class="title">The course your team needs</h3>
+          <p>Message us which department you want covered next and we'll tell you what's already on the way.</p>
+          <span class="arrow-link">WhatsApp us <span class="arrow" aria-hidden="true">&rarr;</span></span>
+        </div>
+      </a>
     </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container" aria-label="Common questions">
+    <div class="section-head">
+      <span class="label label--blue">Common questions</span>
+      <h2 class="headline">What companies ask us first</h2>
+    </div>
+    <!-- EDIT: answer these in the founders' own words; keep the claiming answer at provider level -->
+    <ul class="outcomes">
+      <li><div><strong>How long does it take?</strong><span>Anywhere from a half-day briefing to two full days, depending on the format. We'll recommend a length once we know your team.</span></div></li>
+      <li><div><strong>Do our people need to be technical?</strong><span>No. It's designed for the opposite: the departments that usually get left out of AI training.</span></div></li>
+      <li><div><strong>What does it cost?</strong><span>It depends on format, group size and travel. You'll get a figure with the outline, before you commit to anything.</span></div></li>
+      <li><div><strong>Can we use our HRD levy?</strong><span>We're a registered HRD Corp training provider. What's claimable depends on your scheme and scope, so ask us and we'll go through it.</span></div></li>
+      <li><div><strong>Can we see a detailed outline?</strong><span>Yes. We write one for your company rather than publishing a generic syllabus. Message us and we'll send it.</span></div></li>
+      <li><div><strong>Where do you run it?</strong><span>At your office, or a venue you arrange. Scheduling works around your operations.</span></div></li>
+    </ul>
   </section>
 
   <!-- Assist -->
@@ -202,7 +266,7 @@
     <div class="panel panel--deep panel-split">
       <h2 class="headline">Ready when your team is</h2>
       <div>
-        <p>Tell us your company size, your industry and what your people struggle with. We'll come back with how the two days should run for you.</p>
+        <p>Tell us your company size, your industry and what your people struggle with. We'll come back with the format we'd recommend and a written outline of how it would run for you.</p>
         <!-- REPLACE: WhatsApp number -->
         <a class="btn btn--pill" href="https://wa.me/60XXXXXXXXX">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3 0-.2 0-.3-.1-.4l-.7-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.3 3.9 1.6.7 2.2.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.4-.3Z"/></svg>
@@ -228,7 +292,7 @@
         <div>
           <h4>Pages</h4>
           <ul>
-            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="workshop.html">Workshops</a></li>
             <li><a href="insights.html">Insights</a></li>
             <li><a href="about.html">About</a></li>
           </ul>

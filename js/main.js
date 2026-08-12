@@ -1,4 +1,4 @@
-// Blueprint AI Training — shared behavior
+// Blueprint AI Training: shared behavior
 (function () {
   document.documentElement.classList.add("js");
 
