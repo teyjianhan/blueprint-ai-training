@@ -49,25 +49,6 @@
     // REPLACE: WhatsApp number, digits only, country code first
     var WA_NUMBER = "601153238181";
 
-    // The three formats, worded to match workshop.html
-    var FORMATS = {
-      briefing: {
-        title: "A briefing",
-        short: "Briefing (fully theory)",
-        note: "Talk-led, no laptops. We explain what AI is doing to work in your industry and what a realistic plan looks like. Usually the step that gets leadership aligned before anyone is trained."
-      },
-      workshop: {
-        title: "A workshop",
-        short: "Workshop (theory + practical)",
-        note: "Each idea is explained, then practised straight away on your team's own reports, emails and spreadsheets. Where most companies start, because most people have never been shown how to work with AI properly."
-      },
-      lab: {
-        title: "A lab",
-        short: "Lab (fully practical)",
-        note: "Almost no lecture. Your team brings live work and we sit with them while they do it, fixing what goes wrong as it goes wrong. The format that makes new habits stick."
-      }
-    };
-
     var steps = [].slice.call(planner.querySelectorAll("[data-step]"));
     var result = planner.querySelector("[data-result]");
     var countEl = planner.querySelector("[data-planner-count]");
@@ -76,13 +57,10 @@
     var backBtn = planner.querySelector("[data-back]");
     var restartBtn = planner.querySelector("[data-restart]");
     var summaryList = planner.querySelector("[data-summary-list]");
-    var recTitle = planner.querySelector("[data-rec-title]");
-    var recNote = planner.querySelector("[data-rec-note]");
     var companyInput = planner.querySelector("[data-company]");
     var waLink = planner.querySelector("[data-wa]");
 
     var answers = {};   // key -> chosen text
-    var recs = {};      // key -> format hint carried by the chosen option
     var index = 0;      // which question is showing; steps.length means the result
 
     var show = function (next, focusIt) {
@@ -119,21 +97,11 @@
         var key = step.getAttribute("data-key");
         if (answers[key]) { lines.push(step.getAttribute("data-summary") + ": " + answers[key]); }
       });
-      lines.push("", "Your site suggested: " + FORMATS[format()].short, "",
-                 "Could you send an outline and a rough cost for this?");
+      lines.push("", "Could you tell me which format you'd run for us, with an outline and a rough cost?");
       return lines.join("\n");
     };
 
-    // An audience answer that carries a format wins; otherwise the readiness answer decides.
-    var format = function () {
-      return recs.audience || recs.readiness || "workshop";
-    };
-
     var render = function () {
-      var chosen = FORMATS[format()];
-      recTitle.textContent = chosen.title;
-      recNote.textContent = chosen.note;
-
       summaryList.innerHTML = "";
       steps.forEach(function (step, i) {
         var key = step.getAttribute("data-key");
@@ -166,8 +134,6 @@
             o.setAttribute("aria-pressed", o === opt ? "true" : "false");
           });
           answers[key] = opt.getAttribute("data-value");
-          if (opt.hasAttribute("data-rec")) { recs[key] = opt.getAttribute("data-rec"); }
-          else { delete recs[key]; }
           // Once every question has an answer, editing one returns to the result
           var complete = steps.every(function (s) { return answers[s.getAttribute("data-key")]; });
           // Let the picked state register before moving on
@@ -179,7 +145,6 @@
     backBtn.addEventListener("click", function () { show(index - 1, true); });
     restartBtn.addEventListener("click", function () {
       answers = {};
-      recs = {};
       planner.querySelectorAll(".opt").forEach(function (o) {
         o.classList.remove("is-picked");
         o.removeAttribute("aria-pressed");

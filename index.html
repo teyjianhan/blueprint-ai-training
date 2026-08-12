@@ -206,8 +206,8 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
        presses send themselves inside WhatsApp.
        EDIT: questions and answers live in the markup below, so they can be reworded here.
        Each option's data-value is the exact wording that lands in the WhatsApp message.
-       data-rec on an option ("briefing" | "workshop" | "lab") decides the suggested format;
-       an audience answer with data-rec wins over the readiness answer. -->
+       It deliberately makes no course recommendation: the answers go to the founders,
+       who reply with the format they'd run. -->
   <section class="section container" id="planner" aria-label="Plan your training">
 
     <!-- Icon sprite for the options below. Hidden; referenced with <use>. -->
@@ -237,9 +237,9 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
     </svg>
 
     <div class="section-head section-head--center">
-      <span class="label label--blue">Find your starting point</span>
+      <span class="label label--blue">Tell us about your team</span>
       <h2 class="headline">Five questions to kickstart your AI journey</h2>
-      <p class="lede">Tap through the answers. We'll recommend a format and hand you a WhatsApp message with your answers already written out.</p>
+      <p class="lede">Tap through the answers and we'll hand you a WhatsApp message with them already written out, so we can reply with something useful straight away.</p>
     </div>
 
     <div class="planner panel panel--paper" data-planner>
@@ -261,7 +261,7 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
               <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-layers"/></svg>
               <span><span class="opt-label">One department first</span><span class="opt-note">Prove it somewhere, then widen</span></span>
             </button>
-            <button type="button" class="opt" data-value="The leadership team" data-rec="briefing">
+            <button type="button" class="opt" data-value="The leadership team">
               <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-presentation"/></svg>
               <span><span class="opt-label">The leadership team</span><span class="opt-note">We're still deciding whether to invest</span></span>
             </button>
@@ -309,19 +309,19 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
         <div class="planner-step" data-step data-key="readiness" data-summary="Where they are with AI" role="group" aria-labelledby="pq-readiness">
           <h3 class="planner-q" id="pq-readiness">Where is your team with AI today?</h3>
           <div class="planner-opts">
-            <button type="button" class="opt" data-value="Barely started, and some are wary" data-rec="workshop">
+            <button type="button" class="opt" data-value="Barely started, and some are wary">
               <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-seed"/></svg>
               <span><span class="opt-label">Barely started</span><span class="opt-note">Some of them are wary of it</span></span>
             </button>
-            <button type="button" class="opt" data-value="A few people use it on their own" data-rec="workshop">
+            <button type="button" class="opt" data-value="A few people use it on their own">
               <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-user"/></svg>
               <span><span class="opt-label">A few use it on their own</span><span class="opt-note">Nothing consistent across the team</span></span>
             </button>
-            <button type="button" class="opt" data-value="Tried it, but the habits didn't stick" data-rec="lab">
+            <button type="button" class="opt" data-value="Tried it, but the habits didn't stick">
               <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-repeat"/></svg>
               <span><span class="opt-label">Tried it, didn't stick</span><span class="opt-note">Interest faded after the novelty</span></span>
             </button>
-            <button type="button" class="opt" data-value="Comfortable already, we want to go deeper" data-rec="lab">
+            <button type="button" class="opt" data-value="Comfortable already, we want to go deeper">
               <svg class="opt-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-gauge"/></svg>
               <span><span class="opt-label">Comfortable already</span><span class="opt-note">We want to go deeper on real work</span></span>
             </button>
@@ -370,11 +370,11 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
           </div>
         </div>
 
-        <!-- Result. The three formats and their descriptions match workshop.html. -->
+        <!-- Result: the answers, ready to send. No course is suggested here. -->
         <div class="planner-step planner-result" data-result>
-          <span class="label label--blue">What we'd suggest</span>
-          <h3 class="planner-q" data-rec-title>A workshop</h3>
-          <p class="planner-rec-note" data-rec-note></p>
+          <span class="label label--blue">Ready to send</span>
+          <h3 class="planner-q">Here's what we'll get</h3>
+          <p class="planner-rec-note">Check it over and change anything by tapping an answer. We'll read it and come back with the format we'd run for you, an outline and a rough cost.</p>
           <ul class="planner-summary" data-summary-list></ul>
           <div class="planner-send">
             <label class="planner-field">
