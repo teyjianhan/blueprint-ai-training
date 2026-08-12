@@ -47,7 +47,7 @@
   var planner = document.querySelector("[data-planner]");
   if (planner) {
     // REPLACE: WhatsApp number, digits only, country code first
-    var WA_NUMBER = "60126286586";
+    var WA_NUMBER = "601153238181";
 
     // The three formats, worded to match workshop.html
     var FORMATS = {
