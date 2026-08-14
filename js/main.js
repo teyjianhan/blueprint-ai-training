@@ -6,21 +6,24 @@
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
 
-  // Workshop route diagram: draw the lines when it scrolls into view
-  var routeMap = document.querySelector("[data-route]");
-  if (routeMap) {
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            routeMap.classList.add("is-live");
-            io.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
-      io.observe(routeMap);
-    } else {
-      routeMap.classList.add("is-live");
+  // Department marquee: clone the rows into a blurred twin sitting behind the
+  // crisp one. CSS masks the pair so the sharp copy shows only through the
+  // middle and the blurred copy only at the edges, which puts focus on screen
+  // position instead of on particular words. Both copies must run off the same
+  // clock or the offset reads as a permanent ghost, so reset them together.
+  var deptMarquee = document.querySelector("[data-dept-marquee]");
+  var deptField = deptMarquee && deptMarquee.querySelector("[data-dept-field]");
+  if (deptField) {
+    var softField = deptField.cloneNode(true);
+    softField.removeAttribute("data-dept-field");
+    softField.classList.add("dept-field--soft");
+    softField.setAttribute("aria-hidden", "true");
+    deptMarquee.insertBefore(softField, deptField);
+
+    if (deptMarquee.getAnimations) {
+      deptMarquee.getAnimations({ subtree: true }).forEach(function (a) {
+        a.currentTime = 0;
+      });
     }
   }
 

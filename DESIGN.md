@@ -41,6 +41,12 @@ typography:
     fontWeight: 600
     lineHeight: 1.18
     letterSpacing: "-0.01em"
+  marquee-display:
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.75rem, 3.1vw, 2.75rem)"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.03em"
   headline:
     fontFamily: "Source Serif 4, Georgia, serif"
     fontSize: "clamp(1.625rem, 2.6vw, 2.25rem)"
@@ -178,6 +184,11 @@ components:
     textColor: "{colors.white}"
     rounded: "{rounded.pill}"
     padding: "0.85rem 1.6rem"
+  button-band:
+    backgroundColor: "{colors.band}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.pill}"
+    padding: "0.85rem 1.6rem"
   button-outline:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -228,7 +239,7 @@ Normative values live in the frontmatter.
 
 ### Secondary
 - **Panel Light** (`panel-light`): the light blue panel ground for assist and claiming sections.
-- **Blue Mid / Blue Soft** (`blue-mid`, `blue-soft`): gradient art only, never UI chrome.
+- **Blue Mid / Blue Soft** (`blue-mid`, `blue-soft`): gradient art, plus `blue-mid` on the out-of-focus twin in the home department marquee (2026-08-15), where it only ever appears blurred and every word it touches comes back to `blue-deep` as it reaches the centre. Never UI chrome.
 
 ### Malaysian glints
 - Red `rgba(226,59,59,…)` and amber `rgba(255,179,92,…)` appear only inside gradient art (`.art`, `.art--soft`, `.cover-a/b/c`). They are atmosphere, not identity blocks.
@@ -265,22 +276,22 @@ The insights mosaic is a 2-column grid where the lead article spans two rows as 
 
 ## Elevation & Depth
 
-Flat surfaces with soft, deep shadows reserved for floating elements: the route origin card (`0 14px 34px rgba(11,33,97,0.28)`), card hover (`0 14px 34px rgba(26,26,26,0.12)` with a 3px lift), and the sticky header once scrolled. Photo cards darken toward their caption edge with a deep-blue gradient scrim. The header carries an 8px backdrop blur: translucent white on every page, and the `site-header--band` variant on home, solid over the hero and glass once scrolled, all-white with the wordmark knocked out exactly as it is on the footer bar.
+Flat surfaces with soft, deep shadows reserved for floating elements: card hover (`0 14px 34px rgba(26,26,26,0.12)` with a 3px lift) and the sticky header once scrolled. Photo cards darken toward their caption edge with a deep-blue gradient scrim. The header carries an 8px backdrop blur: translucent white on every page, and the `site-header--band` variant on home, solid over the hero and glass once scrolled, all-white with the wordmark knocked out exactly as it is on the footer bar.
 
 ### Named Rules
-**The Float Rule.** A shadow means the element floats above a panel (route origin, hover, sticky nav). Nothing at rest inside the page column carries one.
+**The Float Rule.** A shadow means the element floats above a panel (card hover, sticky nav). Nothing at rest inside the page column carries one.
 
 ## Motion
 
 All motion runs on `ease-out` (cubic-bezier(0.16, 1, 0.3, 1)) and dies under `prefers-reduced-motion`. Content is never hidden without JS: initial hidden states are gated behind `html.js`.
 
 - **Opening sequence (home, once per load):** the hero statement settles from an 8px blur and 14px rise (0.75s) while the eyebrow and lede step in behind it (16px rises delayed 0.08/0.2s) and the team cutout rises at 0.3s.
-- **Route draw (home):** curves draw via pathLength dash transition with a 60ms-per-path cascade when the section enters the viewport; three SMIL pulses then travel the lines continuously (hidden entirely under reduced motion).
+- **Department marquee (home):** three rows of department names roll horizontally at 26s, 32s and 38s through a tilted perspective box, alternating direction, each name pulling into focus as it crosses the centre. It is the one continuous loop on the page after the client logo rail, and it holds still under reduced motion. Nothing in it may animate a filter: the focus pull is two masked copies at fixed blur, so each row composites as one finished layer.
 - **Marker sweep (home):** the highlight sweep scales in from the left like a real marker stroke (0.55s) when its head enters the viewport.
 - **Logo wall (home):** tiles fade-scale in as a list with a 55ms sibling stagger, total under 350ms.
 - **Micro feedback (site-wide):** button arrows slide 4px, cards lift 3px, the header gains its shadow on scroll.
 
-Budget: transform, opacity, and one bounded blur on load; nothing loops except the route pulses. Do not add per-section scroll reveals; the four authored moments above are the allowance.
+Budget: transform, opacity, and one bounded blur on load; the only continuous loops are the department marquee and the client logo rail, both of which move type or logos, never the page around them. Do not add per-section scroll reveals; the authored moments above are the allowance.
 
 ## Shapes
 
@@ -290,6 +301,7 @@ Rounded and soft: 24px panels, 16px cards, full pills for buttons and chips, 3px
 
 ### Buttons
 - **Pill** (`btn--pill`): pill-blue ground, deep-blue text, uppercase 0.8125rem, arrow slides 4px on hover. The dark variant inverts (deep blue ground, white text) for light panels.
+- **Band** (`btn--band`): solid `band` indigo with white text, the same field the header sits on. For a primary action on the white ground that needs to weigh as much as the nav pill does on the band; hovers to `blue-royal`.
 - **Outline** (`btn--outline`, `btn--outline-light`): 1px border pill, fills on hover.
 
 ### Chips
@@ -310,8 +322,14 @@ The full-bleed indigo `band` field the header sits on, at the reference's propor
 ### Strengths band (home)
 One white 24px panel divided into four hairline columns: a 30px stroke icon in accent blue (inline Lucide-style SVG, stroke-width 2, round caps), a sans title, plain copy, then a large serif numeral pinned to the bottom beside a small slate label. Numerals (`strength-num`) are Source Serif 4 weight 500 with a blue gradient fill running blue-deep to blue-mid; the gradient stays inside the blue family, never red or amber, so the Glint Rule holds. Only truthful numbers appear here; never invent a stat to fill a cell. When no honest number exists, the slot carries a short word instead (e.g. HRDF) at the smaller `strength-num-word` size.
 
-### Workshop route (home)
-Drawn directly on the white page ground, no panel: intro column on the left, and on the right an 8/5 map where a deep-blue origin card (The 2 Day AI-Ready Workshop, shadow earned under the Float Rule) routes out along thin accent-blue curves to department dot-nodes (11px blue dot with a soft ring, centered sans label below). Department names only, never course names. The curves draw in when the section scrolls into view and three small pulses travel the lines afterwards (the section's one motion moment; pulses hide and reveals become instant under reduced motion). Node positions are inline left/top percentages matched to the SVG viewBox (160x100, same 8/5 aspect, so scaling stays uniform). Below 1080px the map becomes a wrapped chip cloud with the curves hidden.
+### Course range and department marquee (home)
+One statement holds the left third, the departments roll through a tilted marquee on the right two thirds (founder-pinned 2026-08-15, replacing the v2 route diagram). Left: the serif headline and a single `btn--band` action, no eyebrow and no supporting paragraph. Right: no panel at all, drawn straight on the white page ground, where three rows of department names set at `marquee-display` (Archivo 700, the one place the working sans goes bold, earned because these are graphic objects moving through a field rather than text being read) scroll horizontally inside a 1200px perspective box. Rows alternate direction at 26s, 32s and 38s. Each row carries its own list twice and travels exactly 50%, so the loop never jumps; the duplicate set is `aria-hidden` so each department is announced once. Department names only, never course names.
+
+**Focus belongs to the middle of the frame, not to particular words.** The rows exist twice: the crisp field, masked to show only through the centre (`--focus-in` 36% to `--focus-out` 64%, ramping from 6% and 94%), and a blurred twin cloned by `main.js`, masked with the exact complement. A name therefore cross-dissolves from soft to sharp as it reaches the middle and back out again, and no name is ever permanently unreadable. Ink is `blue-deep` with `blue` as a second colour so a row is not monotone; both are AA-safe on white, and the blurred twin recolours to `blue-mid`.
+
+**The steadiness rule: no filter may ever change.** The blur is a fixed radius on the moving rows, so each row rasterizes once with the blur baked in and the browser only slides the finished layer; the masks sit on the still wrappers, where compositing is a cheap alpha multiply. The tilt lives on each row rather than a shared parent, and the roll is a `translate3d` inside that same transform, for the same reason. Never rebuild this with `backdrop-filter` or a per-frame JS filter: both re-blur moving content every frame and boil visibly. The two fields must also share a clock, or the offset reads as a permanent ghost, so `main.js` zeroes every animation in the marquee after cloning. The white page ground then closes in on all four sides so names arrive and leave out of nothing.
+
+The mask on the crisp field is gated behind `html.js`, because without the twin it would crop the row to its middle; with no JS the marquee simply runs whole and sharp. Under reduced motion the twin is dropped and the mask removed for the same reason, and the rows hold still. Below 900px the section stacks, the tilt eases to `rotateY(-14deg)`, the type steps up so a row never shows its own repeat at once, and blur and edge fade both scale down (`--defocus`, `--edge`), because a blur radius tuned to 44px type turns 28px type to mush and a phone cannot spare a fifth of its width per side.
 
 ### Client logo grid (home)
 Real client logos on paper tiles: 16/9 cells, card radius, logo centered with `object-fit: contain` (capped at 104px tall), four across on desktop with any remainder row centered (flex, not grid), three across under 900px, two across on phones. Logos keep their own colors; tiles never carry borders or shadows. Only genuine clients appear here.

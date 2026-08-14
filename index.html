@@ -85,46 +85,39 @@ FORM: User-pinned v2 (BCG screenshots 2026-07-23) + hero reference (2026-08-14).
     </div>
   </section>
 
-  <!-- Workshops: the shared starting course routing into departments, drawn on the white ground -->
+  <!-- Workshops: one statement on the left, the departments rolling through a
+       3D perspective marquee on the right. The marquee is CSS only; each row
+       repeats its own list once so the loop is seamless, and the duplicate set
+       is aria-hidden so screen readers read each department a single time.
+       Focus depends on where a name is, not which name it is: main.js clones
+       this field into a blurred twin, and the two are masked so the sharp one
+       shows through the middle and the soft one at the edges. Without JS the
+       marquee simply runs sharp all the way across.
+       EDIT: add, rename or move departments freely, but keep every row's two
+       halves identical, classes included, or the loop will visibly jump.
+       `alt` is only a second ink colour, nothing to do with focus. -->
 
   <section class="section container" aria-label="Our workshops">
-    <div class="route">
-      <div class="route-intro">
-        <span class="label label--blue">Our workshops</span>
-        <h2 class="headline">Start together, then go deeper by department</h2>
-        <p>The most common route: a team trains together first, then goes further with units built for specific departments.</p>
-        <a class="btn btn--pill" href="workshop.html">View all workshops <span class="arrow" aria-hidden="true">&rarr;</span></a>
+    <div class="course-range">
+      <div class="course-range-copy">
+        <h2 class="headline">We offer basic to advanced AI courses suitable for all departments.</h2>
+        <a class="btn btn--band" href="workshop.html">View all workshops <span class="arrow" aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="route-map" data-route>
-        <svg viewBox="0 0 160 100" aria-hidden="true" focusable="false">
-          <path d="M0 50 C 30 50, 50 14, 78 14" pathLength="1" />
-          <path d="M0 50 C 40 50, 80 26, 120 26" pathLength="1" />
-          <path d="M0 50 C 18 44, 30 26, 52 26" pathLength="1" />
-          <path d="M0 50 C 30 50, 60 48, 96 48" pathLength="1" />
-          <path d="M0 50 C 45 50, 90 44, 140 44" pathLength="1" />
-          <path d="M0 50 C 22 50, 40 64, 64 64" pathLength="1" />
-          <path d="M0 50 C 36 50, 72 70, 116 70" pathLength="1" />
-          <path d="M0 50 C 12 50, 20 84, 36 84" pathLength="1" />
-          <path d="M0 50 C 28 50, 55 88, 88 88" pathLength="1" />
-          <circle class="pulse" r="1.1" cx="0" cy="50"><animateMotion dur="4s" repeatCount="indefinite" path="M0 0 C 30 0, 50 -36, 78 -36" /></circle>
-          <circle class="pulse" r="1.1" cx="0" cy="50"><animateMotion dur="4.6s" begin="1.4s" repeatCount="indefinite" path="M0 0 C 45 0, 90 -6, 140 -6" /></circle>
-          <circle class="pulse" r="1.1" cx="0" cy="50"><animateMotion dur="4.3s" begin="2.5s" repeatCount="indefinite" path="M0 0 C 28 0, 55 38, 88 38" /></circle>
-        </svg>
-        <div class="route-origin">
-          <span class="label label--light">Most teams start here</span>
-          <h3>A workshop for the whole team</h3>
-          <a class="arrow-link" href="workshop.html">See how we run them <span class="arrow" aria-hidden="true">&rarr;</span></a>
+      <div class="dept-marquee" data-dept-marquee>
+        <div class="dept-field" data-dept-field>
+          <div class="dept-track">
+            <span>Human Resources</span><span class="alt">Data &amp; Analytics</span><span>Marketing</span>
+            <span aria-hidden="true">Human Resources</span><span class="alt" aria-hidden="true">Data &amp; Analytics</span><span aria-hidden="true">Marketing</span>
+          </div>
+          <div class="dept-track dept-track--reverse">
+            <span class="alt">Finance</span><span>Customer Service</span><span class="alt">Operations</span>
+            <span class="alt" aria-hidden="true">Finance</span><span aria-hidden="true">Customer Service</span><span class="alt" aria-hidden="true">Operations</span>
+          </div>
+          <div class="dept-track dept-track--slow">
+            <span>Procurement</span><span class="alt">Sales</span><span>Legal</span>
+            <span aria-hidden="true">Procurement</span><span class="alt" aria-hidden="true">Sales</span><span aria-hidden="true">Legal</span>
+          </div>
         </div>
-        <!-- EDIT: add, rename or reposition department nodes freely; each is placed by its left/top -->
-        <span class="route-node" style="left: 48.75%; top: 14%;">Human Resources</span>
-        <span class="route-node" style="left: 75%; top: 26%;">Data &amp; Analytics</span>
-        <span class="route-node" style="left: 32.5%; top: 26%;">Marketing</span>
-        <span class="route-node" style="left: 60%; top: 48%;">Finance</span>
-        <span class="route-node" style="left: 87.5%; top: 44%;">Customer Service</span>
-        <span class="route-node" style="left: 40%; top: 64%;">Operations</span>
-        <span class="route-node" style="left: 72.5%; top: 70%;">Procurement</span>
-        <span class="route-node" style="left: 22.5%; top: 84%;">Sales</span>
-        <span class="route-node" style="left: 55%; top: 88%;">Legal</span>
       </div>
     </div>
   </section>
