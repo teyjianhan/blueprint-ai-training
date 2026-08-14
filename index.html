@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
-DIRECTION CONTRACT (v2, replaces bunga-raya v1)
-THESIS: Malaysian AI training firm in today's BCG grammar: white ground, inset rounded panels, pill actions. Refuses full-width color bands and literal national iconography.
-OWN-WORLD: Source Serif 4 display over Archivo; blue family (deep #0b2161, pill #bcd2ff, accent #1e40c9); Malaysian red/amber appear only as glints inside gradient art; radii 16/24px; chips; KL dusk photo.
-STORY: An HR lead or owner recognises consulting-grade calm, sees practical training they could actually run, taps WhatsApp.
-FIRST VIEWPORT: Centered serif statement over white, then an inset hero card (sketched Malaysian team over gradient art) carrying a floating white workshop card with pill CTA.
-FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic with view-all card, pill buttons, panels never full-bleed.
+DIRECTION CONTRACT (v2.4: hero band in the reference's type, founder-pinned 2026-08-14)
+THESIS: Malaysian AI training firm in today's BCG grammar: white ground, inset rounded panels, pill actions, no literal national iconography. One sanctioned exception: home opens on a full-bleed indigo field (band #2b1e9c, sampled from the founder's reference screenshot) shared by the header and hero.
+OWN-WORLD: Source Serif 4 display over Archivo site-wide; the band alone speaks Poppins per the reference. Blue family (band #2b1e9c, deep #0b2161, pill #bcd2ff, accent #1e40c9); all-white type on the band; radii 16/24px; chips.
+STORY: An HR lead or owner recognises consulting-grade calm, sees practical claimable training, taps WhatsApp (the nav pill; the hero carries no buttons).
+FIRST VIEWPORT: The band at the reference's proportions: HRD Corp eyebrow, "Human first, AI second." in white Poppins 600, one-line lede on the left; the founder's full-frame team photo (never cropped) anchored large to the band's bottom edge on the right, no backdrop element.
+FORM: User-pinned v2 (BCG screenshots 2026-07-23) + hero reference (2026-08-14).
 -->
 <html lang="en">
 <head>
@@ -21,12 +21,12 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Poppins:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header site-header--band">
   <div class="container">
     <a class="brand" href="index.html" aria-label="Blueprint AI Training home">
       <img class="brand-logo" src="assets/img/blueprint-logo.png" alt="Blueprint" width="590" height="128">
@@ -46,21 +46,20 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
 
 <main>
 
-  <!-- Centered intro -->
-  <section class="intro container">
-    <h1 class="display display-xl intro-rise">We train people in Malaysian organisations to be <span class="dim">AI&#8209;ready</span>.</h1>
-  </section>
-
-  <!-- Hero card: sketched cover over the gradient art (art shows if the image fails).
-       Deliberately does not name a specific module; the detail lives on module.html while accreditation is pending. -->
-  <section class="container" aria-label="Our workshops">
-    <div class="hero-card panel art">
-      <img class="hero-bg" src="assets/img/2day-cover.webp" alt="Sketch of a Malaysian team working on laptops together, with the Kuala Lumpur skyline behind them">
-      <div class="hero-float" data-rise>
-        <span class="label label--blue">Where teams start</span>
-        <h2>Workshops that get your team using AI</h2>
-        <p>Hands-on training that takes a team from unsure to comfortable with AI. Built for every department, not just IT.</p>
-        <a class="btn btn--pill" href="workshop.html">See how we run them <span class="arrow" aria-hidden="true">&rarr;</span></a>
+  <!-- The hero band: the header and hero share one full-bleed indigo field
+       matched to the founder's reference (2026-08-14). Button-free; the nav
+       pill carries the conversion. The team photo anchors to the band's
+       bottom edge. EDIT: eyebrow, headline and lede are plain text below. -->
+  <section class="hero-band">
+    <div class="container hero-band-inner">
+      <div class="hero-band-copy">
+        <span class="label">HRD Corp registered training provider</span>
+        <h1 class="display display-xl intro-rise">Human first,<br>AI second.</h1>
+        <p class="hero-band-lede">We train people in Malaysian organisations to be AI&#8209;ready.</p>
+      </div>
+      <div class="hero-band-media">
+        <!-- Source file: assets/img/cover_group.png (cover_group.webp is the same frame at full resolution, webp-encoded) -->
+        <img src="assets/img/cover_group.webp" alt="Four Malaysian teammates gathered around one laptop, talking through what is on the screen" width="1920" height="1080" fetchpriority="high">
       </div>
     </div>
   </section>
@@ -87,6 +86,7 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
   </section>
 
   <!-- Workshops: the shared starting course routing into departments, drawn on the white ground -->
+
   <section class="section container" aria-label="Our workshops">
     <div class="route">
       <div class="route-intro">
@@ -149,20 +149,27 @@ FORM: User-pinned v2 (BCG homepage screenshots, 2026-07-23): insights mosaic wit
   </section>
 
   <!-- Past clients -->
-  <section class="section container" aria-label="Past clients">
+  <section class="section container" aria-label="Trusted by businesses for AI Upskilling">
     <div class="section-head">
-      <span class="label label--blue">Past clients</span>
-      <h2 class="headline">We work with notable modern &amp; traditional businesses in Malaysia</h2>
+      <h2 class="headline">Trusted by businesses for AI Upskilling</h2>
     </div>
-    <!-- EDIT: confirm the client names below; add or remove logos in assets/img/credentials (4 per row on desktop) -->
-    <ul class="logo-grid" data-in>
-      <li class="logo-tile" style="--i: 0;"><img src="assets/img/credentials/weil.png" alt="Weil Hotel"></li>
-      <li class="logo-tile" style="--i: 1;"><img src="assets/img/credentials/cropped-Silent-Night-Favicon.png" alt="Silentnight"></li>
-      <li class="logo-tile" style="--i: 2;"><img src="assets/img/credentials/brand-dormiflex.png" alt="Dormiflex"></li>
-      <li class="logo-tile" style="--i: 3;"><img src="assets/img/credentials/brand-masterfoam01-2.png" alt="Masterfoam"></li>
-      <li class="logo-tile" style="--i: 4;"><img src="assets/img/credentials/brand-rest-pedic.png" alt="Rest-Pedic"></li>
-      <li class="logo-tile" style="--i: 5;"><img src="assets/img/credentials/nly-logo.png" alt="NLY Foam"></li>
-    </ul>
+    <!-- EDIT: confirm the client names below; add or remove logos in assets/img/credentials -->
+    <div class="client-marquee" data-in>
+      <div class="client-marquee-track">
+        <div class="client-marquee-tile"><img src="assets/img/credentials/weil.png" alt="Weil Hotel"></div>
+        <div class="client-marquee-tile"><img src="assets/img/credentials/cropped-Silent-Night-Favicon.png" alt="Silentnight"></div>
+        <div class="client-marquee-tile"><img src="assets/img/credentials/brand-dormiflex.png" alt="Dormiflex"></div>
+        <div class="client-marquee-tile"><img src="assets/img/credentials/brand-masterfoam01-2.png" alt="Masterfoam"></div>
+        <div class="client-marquee-tile"><img src="assets/img/credentials/brand-rest-pedic.png" alt="Rest-Pedic"></div>
+        <div class="client-marquee-tile"><img src="assets/img/credentials/nly-logo.png" alt="NLY Foam"></div>
+        <div class="client-marquee-tile" aria-hidden="true"><img src="assets/img/credentials/weil.png" alt=""></div>
+        <div class="client-marquee-tile" aria-hidden="true"><img src="assets/img/credentials/cropped-Silent-Night-Favicon.png" alt=""></div>
+        <div class="client-marquee-tile" aria-hidden="true"><img src="assets/img/credentials/brand-dormiflex.png" alt=""></div>
+        <div class="client-marquee-tile" aria-hidden="true"><img src="assets/img/credentials/brand-masterfoam01-2.png" alt=""></div>
+        <div class="client-marquee-tile" aria-hidden="true"><img src="assets/img/credentials/brand-rest-pedic.png" alt=""></div>
+        <div class="client-marquee-tile" aria-hidden="true"><img src="assets/img/credentials/nly-logo.png" alt=""></div>
+      </div>
+    </div>
   </section>
 
   <!-- Why us -->

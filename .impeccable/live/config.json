@@ -1,0 +1,10 @@
+{
+  "files": [
+    "*.html",
+    "insights/**/*.html",
+    "team/**/*.html"
+  ],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

@@ -8,6 +8,7 @@
 
 :root {
   /* Blue accent family */
+  --band: #2b1e9c;           /* home header + hero field, matched to the founder's reference */
   --blue-deep: #0b2161;      /* dark panels, footer bar */
   --blue-deeper: #06103a;    /* footer bottom bar */
   --blue: #1e40c9;           /* links, small accents (AA on white) */
@@ -36,6 +37,8 @@
   /* Type */
   --font: "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Source Serif 4", Georgia, serif;
+  /* Hero band only, after the founder's reference; loaded on index.html */
+  --font-hero: "Poppins", "Archivo", "Helvetica Neue", Arial, sans-serif;
 
   --measure: 68ch;
   --container: 1280px;
@@ -72,6 +75,12 @@ ul, ol { padding: 0; }
   outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
+/* Accent blue vanishes on the indigo surfaces; the ring switches to pill blue */
+.hero-band :focus-visible,
+.site-header--band :focus-visible,
+.site-nav.is-open :focus-visible {
+  outline-color: var(--pill);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -94,29 +103,7 @@ ul, ol { padding: 0; }
 }
 .display-xl { font-size: clamp(2.5rem, 4.6vw, 3.875rem); }
 
-/* The dimensional word: the promise word extrudes in pill-blue steps.
-   Hero only, one word per site. */
-.dim {
-  color: var(--blue-deep);
-  text-shadow:
-    0.018em 0.018em 0 var(--pill),
-    0.036em 0.036em 0 var(--pill),
-    0.054em 0.054em 0 var(--pill),
-    0.072em 0.072em 0 var(--pill);
-  animation: dim-pop 0.5s var(--ease-out) 0.7s both;
-}
-@keyframes dim-pop {
-  from {
-    color: var(--ink);
-    text-shadow:
-      0 0 0 var(--pill),
-      0 0 0 var(--pill),
-      0 0 0 var(--pill),
-      0 0 0 var(--pill);
-  }
-}
-
-/* Opening sequence: the statement settles from a blur, then the word pops */
+/* Opening sequence: the hero statement settles from a blur */
 .intro-rise { animation: intro-blur 0.75s var(--ease-out) both; }
 @keyframes intro-blur {
   from { opacity: 0; transform: translateY(14px); filter: blur(8px); }
@@ -477,6 +464,26 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
   transition: transform 0.25s var(--ease-out), opacity 0.2s;
 }
 
+/* Band header variant: sits on the home hero field, all-white on indigo.
+   The wordmark knocks out to white exactly as it does on the footer bar.
+   Solid at rest so header and hero read as one seamless field; the glass
+   alpha returns once scrolled. */
+.site-header--band {
+  background: var(--band);
+}
+.site-header--band .site-nav a:not(.btn) { color: var(--white); }
+.site-header--band .site-nav a:not(.btn):hover { border-bottom-color: rgba(255, 255, 255, 0.45); }
+.site-header--band .site-nav a[aria-current] { border-bottom-color: var(--pill); }
+.site-header--band .brand span { color: rgba(255, 255, 255, 0.8); }
+.site-header--band .brand-logo { filter: brightness(0) invert(1); }
+.site-header--band .brand-logo + span { border-left-color: rgba(255, 255, 255, 0.4); }
+.site-header--band .nav-toggle span { background: var(--white); }
+.site-header--band.is-scrolled {
+  background: rgba(43, 30, 156, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(11, 33, 97, 0.3);
+}
+
 @media (max-width: 800px) {
   .nav-toggle { display: block; }
   .site-nav {
@@ -506,52 +513,156 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
   .nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
 
-/* ---------- Hero card (home) ---------- */
+/* ---------- Hero band (home) ----------
+   The one full-bleed color surface besides the footer bar, founder-pinned
+   to the reference screenshot (2026-08-14): the header and hero share the
+   indigo field, the white statement sits left, and the team cutout anchors
+   to the band's bottom edge, sized to the reference. Button-free; the nav
+   pill carries the conversion. The Inset Rule resumes below. */
 
-.hero-card {
-  border-radius: var(--r-panel);
-  min-height: min(62vh, 560px);
-  display: flex;
-  align-items: flex-end;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 75% 30%;
-  animation: bg-settle 1.5s var(--ease-out) both;
-}
-@keyframes bg-settle {
-  from { transform: scale(1.045); }
-}
-.hero-float {
+.hero-band {
   position: relative;
-  background: var(--white);
-  border-radius: var(--r-card);
-  padding: clamp(1.5rem, 2.5vw, 2rem);
-  max-width: 420px;
-  box-shadow: 0 18px 44px rgba(11, 33, 97, 0.22);
+  overflow: hidden;
+  background: var(--band);
+  color: var(--white);
 }
-.hero-float .label { display: block; margin-bottom: 0.7rem; }
-.hero-float h2 {
-  font-family: var(--font-serif);
-  font-size: 1.375rem;
-  font-weight: 500;
-  line-height: 1.25;
+.hero-band-inner {
+  display: grid;
+  /* Even split with a tight gap: the media column starts further left, so
+     the image (pinned to its column start once it overflows) sits further
+     left too (founder request) */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 2.25rem);
+  align-items: end;
+  /* The band's height comes from the image, not a fixed viewport fraction
+     (live-tuned 2026-08-14): no dead air above the statement */
+  min-height: 0;
 }
-.hero-float p { color: var(--slate); font-size: 0.9375rem; margin-top: 0.6rem; }
-.hero-float .btn { margin-top: 1.25rem; }
+.hero-band-copy {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  padding-block: 1.5rem 2rem;
+}
+.hero-band-copy .label {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--white);
+  font-family: var(--font-hero);
+}
+.hero-band-copy h1 { max-width: 14ch; }
+/* The band speaks in the reference's geometric sans, not the site serif */
+.hero-band .display-xl {
+  font-family: var(--font-hero);
+  font-size: clamp(2.375rem, 4.2vw, 3.875rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+.hero-band-lede {
+  margin-top: 1.2rem;
+  font-family: var(--font-hero);
+  font-size: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 56ch;
+}
 
-.hero-card [data-rise] {
-  opacity: 0;
-  transform: translateY(22px);
-  animation: rise 0.9s var(--ease-out) 0.35s forwards;
+.hero-band-media {
+  position: relative;
+  align-self: end;
 }
-@keyframes rise {
-  to { opacity: 1; transform: translateY(0); }
+.hero-band-media img {
+  /* Full uncropped frame at full resolution, sized against the viewport
+     rather than the column so the team keeps the reference's presence.
+     Wider than its column, it pins to the column start and bleeds off the
+     right edge, where the band clips the frame's own arc art. */
+  position: relative;
+  z-index: 1;
+  width: min(58vw, 880px);
+  max-width: none;
+  height: auto;
+  margin: 0;
+  /* Settles in from a soft blur and scale, like a lens racking into focus */
+  filter: blur(10px);
+  transform: scale(1.05);
+  animation: hero-band-settle 0.9s var(--ease-out) 0.25s both;
+}
+@keyframes hero-band-settle { to { filter: blur(0); transform: scale(1); } }
+
+/* Depth glow (live-tuned 2026-08-14): a soft aura breathes behind the photo,
+   tied to the hero's own on-screen visibility (animation-timeline: view())
+   so it costs nothing off-screen. */
+.hero-band-media::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -10%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(127, 164, 255, 0.3), rgba(255, 179, 92, 0.12) 70%, transparent 85%);
+  filter: blur(36px);
+}
+@keyframes hero-band-glow-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+@supports (animation-timeline: view()) {
+  .hero-band-media::before {
+    animation: hero-band-glow-breathe 3.2s ease-in-out infinite;
+    animation-timeline: view();
+  }
+}
+
+/* Opening sequence: statement settles (intro-rise), the rest steps in behind it */
+.hero-band-copy .label,
+.hero-band-lede { animation: hero-step 0.8s var(--ease-out) both; }
+.hero-band-copy .label { animation-delay: 0.08s; }
+.hero-band-lede { animation-delay: 0.2s; }
+@keyframes hero-step {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+/* Scroll parallax (live-tuned 2026-08-14): the photo drifts down 160px and
+   the statement counter-drifts up 36px over the first 120vh of scroll, the
+   glow trailing at 40% of the photo's depth for a layered feel. CSS
+   scroll-driven animation; Chrome/Edge today, Safari/Firefox fall back to
+   the static settle above. */
+@keyframes hero-band-parallax { to { translate: 0 160px; } }
+@keyframes hero-band-glow-parallax { to { translate: 0 64px; } }
+@keyframes hero-band-counter-lift { to { translate: 0 -36px; } }
+@supports (animation-timeline: scroll()) {
+  .hero-band-media img {
+    animation: hero-band-settle 0.9s var(--ease-out) 0.25s both, hero-band-parallax linear both;
+    animation-timeline: auto, scroll(root block);
+    animation-range: normal, 0px 120vh;
+  }
+  .hero-band-media::before {
+    animation-name: hero-band-glow-breathe, hero-band-glow-parallax;
+    animation-timeline: view(), scroll(root block);
+    animation-range: normal, 0px 120vh;
+  }
+  .hero-band-copy {
+    animation: hero-band-counter-lift linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0px 120vh;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-band-media img,
+  .hero-band-media::before,
+  .hero-band-copy { animation: none; translate: none; filter: none; transform: none; }
+}
+
+@media (max-width: 900px) {
+  .hero-band-inner { grid-template-columns: 1fr; }
+  .hero-band-copy {
+    text-align: center;
+    padding-block: 2rem 0.5rem;
+  }
+  .hero-band-copy h1,
+  .hero-band-lede { margin-inline: auto; }
+  .hero-band-media { margin-top: 1.5rem; }
+  .hero-band-media img { width: min(88%, 520px); margin-inline: auto; }
 }
 
 /* ---------- Strengths band (home) ----------
@@ -1021,40 +1132,47 @@ html.js .route-map.is-live .route-node { opacity: 1; }
   html.js .route-node { opacity: 1; transition: none; }
 }
 
-/* ---------- Client logo grid (home) ---------- */
+/* ---------- Client logo marquee (home) ---------- */
 
-.logo-grid {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
+.client-marquee {
+  overflow: hidden;
+  margin-top: 1.75rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
-.logo-tile {
-  flex: 0 0 calc((100% - 3 * 1.25rem) / 4);
+html.js .client-marquee {
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+}
+html.js .client-marquee.is-in { opacity: 1; transform: none; }
+.client-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  animation: client-marquee-scroll 15s linear infinite;
+}
+.client-marquee:hover .client-marquee-track,
+.client-marquee:focus-within .client-marquee-track { animation-play-state: paused; }
+.client-marquee-tile {
+  flex: 0 0 auto;
   background: var(--paper);
   border-radius: var(--r-card);
-  aspect-ratio: 16 / 9;
+  height: clamp(88px, 9vw, 112px);
+  width: clamp(180px, 17vw, 230px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1.25rem, 2.4vw, 2rem);
+  padding: 1.1rem clamp(2rem, 2.6vw, 2.6rem);
 }
-.logo-tile img { max-width: 100%; max-height: min(100%, 104px); object-fit: contain; }
-/* Tiles arrive as a list: tight stagger, capped around 300ms total */
-html.js .logo-grid .logo-tile {
-  opacity: 0;
-  transform: translateY(10px) scale(0.97);
-  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
-  transition-delay: calc(var(--i, 0) * 55ms);
-}
-html.js .logo-grid.is-in .logo-tile { opacity: 1; transform: none; }
-@media (max-width: 900px) {
-  .logo-tile { flex-basis: calc((100% - 2 * 1.25rem) / 3); }
+.client-marquee-tile img { max-width: 100%; max-height: 100%; object-fit: contain; }
+@keyframes client-marquee-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .client-marquee-track { animation: none; overflow-x: auto; }
 }
 @media (max-width: 620px) {
-  .logo-grid { gap: 0.75rem; }
-  .logo-tile { flex-basis: calc((100% - 0.75rem) / 2); }
+  .client-marquee-tile { width: clamp(140px, 40vw, 180px); padding-inline: 1.5rem; }
 }
 
 /* ---------- Insights mosaic (home) ---------- */

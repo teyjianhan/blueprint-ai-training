@@ -11,6 +11,12 @@
         ],
         "createdAt": "2026-07-23T13:39:28.803Z",
         "reason": "Founder-pinned reference screenshot uses large gradient numerals; strength-num is the deliberate translation, documented in DESIGN.md"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(43, 30, 156, 0.92)",
+        "createdAt": "2026-08-13T18:09:44.968Z",
+        "reason": "Founder-pinned reference-indigo band header at the incumbent header's 0.92 glass alpha"
       }
     ]
   }

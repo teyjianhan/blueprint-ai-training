@@ -2,6 +2,7 @@
 name: Blueprint AI Training
 description: Consulting-grade calm in the BCG mold, with Malaysia in the gradients.
 colors:
+  band: "#2b1e9c"
   blue-deep: "#0b2161"
   blue-deeper: "#06103a"
   blue: "#1e40c9"
@@ -33,6 +34,12 @@ typography:
     fontSize: "clamp(2.5rem, 4.6vw, 3.875rem)"
     fontWeight: 500
     lineHeight: 1.14
+    letterSpacing: "-0.01em"
+  hero-display:
+    fontFamily: "Poppins, Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(2.375rem, 4.2vw, 3.875rem)"
+    fontWeight: 600
+    lineHeight: 1.18
     letterSpacing: "-0.01em"
   headline:
     fontFamily: "Source Serif 4, Georgia, serif"
@@ -80,6 +87,11 @@ typography:
   lede:
     fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
     fontSize: "clamp(1.0625rem, 1.4vw, 1.1875rem)"
+    fontWeight: 400
+    lineHeight: 1.6
+  hero-lede:
+    fontFamily: "Poppins, Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.0625rem, 1.3vw, 1.1875rem)"
     fontWeight: 400
     lineHeight: 1.6
   title:
@@ -190,12 +202,14 @@ components:
 
 **Creative North Star: "Blueprint Blue"**
 
-Blueprint AI Training carries itself the way today's bcg.com does, and the user pinned that reference with screenshots: a calm white ground on which everything interesting happens inside inset, rounded panels. Nothing floods edge to edge. Serif display type (Source Serif 4) gives statements their authority; Archivo does the working text; actions are uppercase pill buttons with a sliding arrow. The visual temperature is set by a blue family anchored on a deep royal blue, with a light-blue pill as the signature action color.
+Blueprint AI Training carries itself the way today's bcg.com does, and the user pinned that reference with screenshots: a calm white ground on which everything interesting happens inside inset, rounded panels. Nothing floods edge to edge below the home hero. Serif display type (Source Serif 4) gives statements their authority; Archivo does the working text; actions are uppercase pill buttons with a sliding arrow. The visual temperature is set by a blue family anchored on a deep royal blue, with a light-blue pill as the signature action color.
 
-Malaysia is present but never literal. The national colors (blue leads, with red and amber) live inside the gradient art that fills hero cards, card covers and placeholder media: soft radial glints of red and amber breathing inside deep blue fields. No flags, no hibiscus, no patriotic iconography. The one photograph in the system, Kuala Lumpur at dusk, carries the sense of place.
+The one sanctioned full-bleed moment is the hero band (founder-pinned 2026-08-14, matched to the founder's reference screenshot): the home header and hero share a single indigo `band` field where the all-white statement faces the team photo, cut out and anchored to the band's bottom edge with no backdrop element. Every other page keeps the white header and opens with the centered serif intro.
+
+Malaysia is present but never literal. The national colors (blue leads, with red and amber) live inside the gradient art that fills card covers and placeholder media: soft radial glints of red and amber breathing inside deep blue fields. No flags, no hibiscus, no patriotic iconography. The photographs in the system, the team at work and Kuala Lumpur at dusk, carry the sense of place.
 
 **Key Characteristics:**
-- White page ground; all color arrives inside rounded inset panels and cards
+- White page ground; all color arrives inside rounded inset panels and cards, with the home page's hero band as the one full-bleed exception
 - Serif display over sans working text, the consulting-firm pairing
 - Pill buttons, uppercase with arrows; chips for facts and filters
 - Gradient art carries the Malaysian palette as glints, never as flat national color
@@ -207,6 +221,7 @@ Malaysia is present but never literal. The national colors (blue leads, with red
 Normative values live in the frontmatter.
 
 ### Primary
+- **Band** (`band`): the home header + hero field, `#2b1e9c`, sampled from the founder's reference screenshot (swap the token if the founders supply an exact hex). All type on it is white; the field is deep enough that everything passes AA. The band header is solid at rest so the field is seamless, dropping to `rgba(43, 30, 156, 0.92)` glass once scrolled over white content.
 - **Deep Blue** (`blue-deep`): the dark panel ground and the text color on pill buttons. **Deeper Blue** (`blue-deeper`) is the footer bar and the view-all mosaic card.
 - **Accent Blue** (`blue`): links, active states, small accents, the brand mark. AA-safe on white.
 - **Pill Blue** (`pill`, hover `pill-hover`): the signature action ground; deep blue text on it.
@@ -222,7 +237,7 @@ Normative values live in the frontmatter.
 - **White**: the page ground. **Paper** (`paper`): light gray panels and the upper footer. **Silver** (`silver`): 1px hairlines. **Slate** (`slate`): secondary text. **Ink** (`ink`): text.
 
 ### Named Rules
-**The Inset Rule.** Color never runs edge to edge. Every colored surface is a rounded panel or card floating inside the container; the only full-width surfaces are the header and the footer layers.
+**The Inset Rule.** Color never runs edge to edge. Every colored surface is a rounded panel or card floating inside the container; the only full-width surfaces are the header, the footer layers, and the home page's hero band (header + hero on one `band` field, founder-pinned 2026-08-14). The rule resumes immediately below the hero.
 
 **The Glint Rule.** Malaysian red and amber exist only inside gradients, as radial glints in a blue field. They never appear as solid UI colors, borders, or text.
 
@@ -230,35 +245,36 @@ Normative values live in the frontmatter.
 
 **Display Font:** Source Serif 4 (Google Fonts; fallback Georgia)
 **Working Font:** Archivo (fallback Helvetica Neue, Arial)
+**Hero Band Font:** Poppins (Google Fonts, loaded on index.html only; fallback Archivo)
 
-**Character:** The serif speaks in headlines, card titles on imagery, day headers and pull quotes; it is always weight 400 or 500, never bold. Archivo handles body, UI, labels, chips and buttons. Pill buttons are uppercase Archivo 600 with tracked letters and an arrow.
+**Character:** The serif speaks in headlines, card titles on imagery, day headers and pull quotes; it is always weight 400 or 500, never bold. Archivo handles body, UI, labels, chips and buttons. Pill buttons are uppercase Archivo 600 with tracked letters and an arrow. The one exception is the home hero band, which speaks entirely in Poppins after the founder's reference (headline 600, eyebrow 600 uppercase, lede 400); the serif remains the display voice everywhere else.
 
 Roles are normative in the frontmatter. Eyebrow labels are uppercase tracked, blue on light grounds, translucent white on dark. Not every section gets an eyebrow.
 
-### The dimensional word
-The home hero statement sets at `display-xl` with no eyebrow, and its single promise word ("AI-ready") carries the `dim` device: deep-blue face extruded by four stacked pill-blue text-shadow steps (0.018em increments). One dimensional word per site, hero only; it is the loud moment the Quiet Serif Rule budget is spent on.
+### The band statement
+The home hero statement sets at `hero-display` — Poppins 600, the reference's geometric sans, not the site serif — in plain white over the band field, broken deliberately across two lines ("Human first, / AI second."), with a white Poppins eyebrow above and the `hero-lede` at `rgba(255,255,255,0.88)` below. Its authority is size and the field, nothing else. (The v2 dimensional-word device was retired with the old hero, 2026-08-14.)
 
 ### Named Rules
-**The Quiet Serif Rule.** The serif never goes bold and never shouts; authority comes from size and space, not weight. The one sanctioned exception is the hero's dimensional word, which gains depth, not weight.
+**The Quiet Serif Rule.** The serif never goes bold and never shouts; authority comes from size and space, not weight. This now holds without exception.
 
 ## Layout
 
-White ground, one column of inset panels and grids inside a 1280px container. The canonical page shape: centered serif intro (eyebrow, display, short lede), then a full-container rounded hero card (on home, the sketched team cover `assets/img/2day-cover.webp` over gradient art, which shows if the image fails, with a floating white card), then alternating grids and panels. Cards sit in 3- or 4-column grids (collapsing 2 then 1); splits are two-column panel interiors collapsing at 860px. Section rhythm is `section-y` (deliberately tight, per the founder's request; blocks sit close and the panels' own internal padding provides the air).
+White ground, one column of inset panels and grids inside a 1280px container. Home opens with the hero band (statement left, team cutout anchored to the band's bottom edge right), then alternating grids and panels on white. Every other page opens with the centered serif intro (eyebrow, display, short lede). Cards sit in 3- or 4-column grids (collapsing 2 then 1); splits are two-column panel interiors collapsing at 860px. Section rhythm is `section-y` (deliberately tight, per the founder's request; blocks sit close and the panels' own internal padding provides the air).
 
 The insights mosaic is a 2-column grid where the lead article spans two rows as a photo card; the second article is a gradient card; the third cell is the dark "view all articles" card.
 
 ## Elevation & Depth
 
-Flat surfaces with soft, deep shadows reserved for floating elements: the hero's white floating card (`0 18px 44px rgba(11,33,97,0.22)`), card hover (`0 14px 34px rgba(26,26,26,0.12)` with a 3px lift), and the sticky header once scrolled. Photo cards darken toward their caption edge with a deep-blue gradient scrim. The header is translucent white with an 8px backdrop blur.
+Flat surfaces with soft, deep shadows reserved for floating elements: the route origin card (`0 14px 34px rgba(11,33,97,0.28)`), card hover (`0 14px 34px rgba(26,26,26,0.12)` with a 3px lift), and the sticky header once scrolled. Photo cards darken toward their caption edge with a deep-blue gradient scrim. The header carries an 8px backdrop blur: translucent white on every page, and the `site-header--band` variant on home, solid over the hero and glass once scrolled, all-white with the wordmark knocked out exactly as it is on the footer bar.
 
 ### Named Rules
-**The Float Rule.** A shadow means the element floats above a panel (hero card, hover, sticky nav). Nothing at rest inside the page column carries one. (The dimensional word's text-shadow is type extrusion, not elevation; it sits outside this rule.)
+**The Float Rule.** A shadow means the element floats above a panel (route origin, hover, sticky nav). Nothing at rest inside the page column carries one.
 
 ## Motion
 
 All motion runs on `ease-out` (cubic-bezier(0.16, 1, 0.3, 1)) and dies under `prefers-reduced-motion`. Content is never hidden without JS: initial hidden states are gated behind `html.js`.
 
-- **Opening sequence (home, once per load):** the hero statement settles from an 8px blur and 14px rise (0.75s), the dimensional word pops its extrusion at 0.7s, the floating card rises at 0.35s, and the sketch cover eases from scale 1.045 over 1.5s.
+- **Opening sequence (home, once per load):** the hero statement settles from an 8px blur and 14px rise (0.75s) while the eyebrow and lede step in behind it (16px rises delayed 0.08/0.2s) and the team cutout rises at 0.3s.
 - **Route draw (home):** curves draw via pathLength dash transition with a 60ms-per-path cascade when the section enters the viewport; three SMIL pulses then travel the lines continuously (hidden entirely under reduced motion).
 - **Marker sweep (home):** the highlight sweep scales in from the left like a real marker stroke (0.55s) when its head enters the viewport.
 - **Logo wall (home):** tiles fade-scale in as a list with a 55ms sibling stagger, total under 350ms.
@@ -288,6 +304,9 @@ White ground, 1px silver border, 16px radius, 16:10 cover (photo or gradient `co
 ### Mosaic cards
 Photo or gradient ground, bottom-anchored: eyebrow, serif title, pill button. A deep-blue scrim rises from the bottom on photo cards. The dark variant (view-all) is flat `blue-deeper`.
 
+### Hero band (home)
+The full-bleed indigo `band` field the header sits on, at the reference's proportions (`min(68vh, 620px)`) and button-free; the nav pill is the band's action. All band type is Poppins. The inner grid is an even split with a tight gap, and the copy is top-aligned so the statement sits close under the nav (founder request). Left: white eyebrow, the two-line `hero-display` statement, the `hero-lede`. Right: the team photo (`assets/img/cover_group.webp`, the founder's full frame at full resolution, never cropped — founder ruling 2026-08-14; the frame carries its own pale arc art) anchored to the band's bottom edge, sized large against the viewport (`min(60vw, 900px)`); wider than its column, it pins to the column start and bleeds off the right edge. The CSS adds no backdrop element of its own. Below 900px the band stacks and centers. Focus rings on the band and in the drawer switch to `pill`.
+
 ### Strengths band (home)
 One white 24px panel divided into four hairline columns: a 30px stroke icon in accent blue (inline Lucide-style SVG, stroke-width 2, round caps), a sans title, plain copy, then a large serif numeral pinned to the bottom beside a small slate label. Numerals (`strength-num`) are Source Serif 4 weight 500 with a blue gradient fill running blue-deep to blue-mid; the gradient stays inside the blue family, never red or amber, so the Glint Rule holds. Only truthful numbers appear here; never invent a stat to fill a cell. When no honest number exists, the slot carries a short word instead (e.g. HRDF) at the smaller `strength-num-word` size.
 
@@ -306,14 +325,14 @@ Layered radial gradients on a deep blue base with one amber and one red glint (`
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep every colored surface inset and rounded (The Inset Rule); the white ground breathes between panels.
+- **Do** keep every colored surface inset and rounded (The Inset Rule); the white ground breathes between panels. The home hero band is the rule's one recorded exception.
 - **Do** set statements in Source Serif 4 at weight 400 to 500 and let size carry authority.
 - **Do** use pill buttons with uppercase labels and arrows for every action.
 - **Do** carry the Malaysian palette only as gradient glints inside blue fields (The Glint Rule).
 - **Do** write copy like a person: plain sentences, no em dashes, no slogan cadence.
 
 ### Don't:
-- **Don't** run color bands edge to edge; the v1 full-bleed grammar is retired.
+- **Don't** run color bands edge to edge anywhere except the home hero band; the v1 full-bleed grammar stays retired.
 - **Don't** use literal national imagery: no hibiscus, no flags, no patriotic motifs.
 - **Don't** bold the serif or use it for body text.
 - **Don't** use AI clichés: neon circuits, glowing brains, particle fields.
