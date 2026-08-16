@@ -26,7 +26,7 @@ FORM: User-pinned v2 (BCG screenshots 2026-07-23) + hero reference (2026-08-14).
 </head>
 <body>
 
-<header class="site-header site-header--band">
+<header class="site-header">
   <div class="container">
     <a class="brand" href="index.html" aria-label="Blueprint AI Training home">
       <img class="brand-logo" src="assets/img/blueprint-logo.png" alt="Blueprint" width="590" height="128">
@@ -89,13 +89,12 @@ FORM: User-pinned v2 (BCG screenshots 2026-07-23) + hero reference (2026-08-14).
        3D perspective marquee on the right. The marquee is CSS only; each row
        repeats its own list once so the loop is seamless, and the duplicate set
        is aria-hidden so screen readers read each department a single time.
-       Focus depends on where a name is, not which name it is: main.js clones
-       this field into a blurred twin, and the two are masked so the sharp one
-       shows through the middle and the soft one at the edges. Without JS the
+       Each name is blurred as a whole by main.js, by its own distance to the
+       centre, so it comes into focus as it crosses the middle. Without JS the
        marquee simply runs sharp all the way across.
        EDIT: add, rename or move departments freely, but keep every row's two
-       halves identical, classes included, or the loop will visibly jump.
-       `alt` is only a second ink colour, nothing to do with focus. -->
+       halves identical, emoji and classes included, or the loop will visibly
+       jump. `alt` is only a second ink colour, nothing to do with focus. -->
 
   <section class="section container" aria-label="Our workshops">
     <div class="course-range">
@@ -106,16 +105,16 @@ FORM: User-pinned v2 (BCG screenshots 2026-07-23) + hero reference (2026-08-14).
       <div class="dept-marquee" data-dept-marquee>
         <div class="dept-field" data-dept-field>
           <div class="dept-track">
-            <span>Human Resources</span><span class="alt">Data &amp; Analytics</span><span>Marketing</span>
-            <span aria-hidden="true">Human Resources</span><span class="alt" aria-hidden="true">Data &amp; Analytics</span><span aria-hidden="true">Marketing</span>
+            <span><i class="dept-emoji" aria-hidden="true">👥</i>Human Resources</span><span class="alt"><i class="dept-emoji" aria-hidden="true">📊</i>Data &amp; Analytics</span><span><i class="dept-emoji" aria-hidden="true">📣</i>Marketing</span>
+            <span aria-hidden="true"><i class="dept-emoji">👥</i>Human Resources</span><span class="alt" aria-hidden="true"><i class="dept-emoji">📊</i>Data &amp; Analytics</span><span aria-hidden="true"><i class="dept-emoji">📣</i>Marketing</span>
           </div>
           <div class="dept-track dept-track--reverse">
-            <span class="alt">Finance</span><span>Customer Service</span><span class="alt">Operations</span>
-            <span class="alt" aria-hidden="true">Finance</span><span aria-hidden="true">Customer Service</span><span class="alt" aria-hidden="true">Operations</span>
+            <span class="alt"><i class="dept-emoji" aria-hidden="true">💰</i>Finance</span><span><i class="dept-emoji" aria-hidden="true">🎧</i>Customer Service</span><span class="alt"><i class="dept-emoji" aria-hidden="true">⚙️</i>Operations</span>
+            <span class="alt" aria-hidden="true"><i class="dept-emoji">💰</i>Finance</span><span aria-hidden="true"><i class="dept-emoji">🎧</i>Customer Service</span><span class="alt" aria-hidden="true"><i class="dept-emoji">⚙️</i>Operations</span>
           </div>
           <div class="dept-track dept-track--slow">
-            <span>Procurement</span><span class="alt">Sales</span><span>Legal</span>
-            <span aria-hidden="true">Procurement</span><span class="alt" aria-hidden="true">Sales</span><span aria-hidden="true">Legal</span>
+            <span><i class="dept-emoji" aria-hidden="true">📦</i>Procurement</span><span class="alt"><i class="dept-emoji" aria-hidden="true">📈</i>Sales</span><span><i class="dept-emoji" aria-hidden="true">⚖️</i>Legal</span>
+            <span aria-hidden="true"><i class="dept-emoji">📦</i>Procurement</span><span class="alt" aria-hidden="true"><i class="dept-emoji">📈</i>Sales</span><span aria-hidden="true"><i class="dept-emoji">⚖️</i>Legal</span>
           </div>
         </div>
       </div>

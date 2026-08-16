@@ -6,24 +6,69 @@
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
 
-  // Department marquee: clone the rows into a blurred twin sitting behind the
-  // crisp one. CSS masks the pair so the sharp copy shows only through the
-  // middle and the blurred copy only at the edges, which puts focus on screen
-  // position instead of on particular words. Both copies must run off the same
-  // clock or the offset reads as a permanent ghost, so reset them together.
+  // Department marquee: give every name its own blur, from its own distance to
+  // the centre, so a name is sharp in the middle and soft at the edges.
+  //
+  // The blur belongs to the WORD, not to the region of screen it is crossing.
+  // Defocusing by region (a mask, a blurred copy underneath) cuts through the
+  // middle of a name and leaves one end sharp and the other soft, which reads
+  // as a glow around the word instead of depth.
+  //
+  // Steadiness comes from quantising. Blur is rounded to a step, so a name only
+  // gets a new filter at the few moments it crosses one, instead of every
+  // frame; a filter that changes every frame re-blurs moving content and boils.
+  // Reads are batched ahead of writes so measuring never forces a reflow
+  // mid-loop, and the whole thing idles while the section is off-screen.
   var deptMarquee = document.querySelector("[data-dept-marquee]");
-  var deptField = deptMarquee && deptMarquee.querySelector("[data-dept-field]");
-  if (deptField) {
-    var softField = deptField.cloneNode(true);
-    softField.removeAttribute("data-dept-field");
-    softField.classList.add("dept-field--soft");
-    softField.setAttribute("aria-hidden", "true");
-    deptMarquee.insertBefore(softField, deptField);
+  var stillPreferred = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (deptMarquee && !stillPreferred) {
+    var names = deptMarquee.querySelectorAll(".dept-track > span");
+    var css = getComputedStyle(deptMarquee);
+    var num = function (prop, fallback) {
+      var v = parseFloat(css.getPropertyValue(prop));
+      return isNaN(v) ? fallback : v;
+    };
+    var focus = num("--dept-focus", 0.25);      // share of width kept sharp
+    var maxBlur = num("--dept-blur-max", 5.5);  // px at the outer edge
+    var ease = num("--dept-blur-ease", 1.2);    // falloff curve past the focus
+    var step = num("--dept-blur-step", 0.4);    // px quantisation
+    var applied = new Array(names.length);
+    var pending = new Array(names.length);
+    var visible = true;
 
-    if (deptMarquee.getAnimations) {
-      deptMarquee.getAnimations({ subtree: true }).forEach(function (a) {
-        a.currentTime = 0;
-      });
+    var measure = function () {
+      var box = deptMarquee.getBoundingClientRect();
+      var mid = box.left + box.width / 2;
+      var half = box.width / 2 || 1;
+      for (var i = 0; i < names.length; i++) {
+        var r = names[i].getBoundingClientRect();
+        var d = Math.min(1, Math.abs(r.left + r.width / 2 - mid) / half);
+        // Hold focus across the middle, then ease outward. The exponent keeps
+        // the first part of the ramp gentle so names drift out of focus rather
+        // than snapping, while still reaching full blur at the edge.
+        var t = d <= focus ? 0 : (d - focus) / (1 - focus);
+        pending[i] = Math.round(Math.pow(t, ease) * maxBlur / step) * step;
+      }
+      for (var j = 0; j < names.length; j++) {
+        if (pending[j] !== applied[j]) {
+          applied[j] = pending[j];
+          names[j].style.setProperty("--b", pending[j]);
+        }
+      }
+    };
+
+    var last = 0;
+    var loop = function (now) {
+      if (visible && now - last > 90) { last = now; measure(); }
+      requestAnimationFrame(loop);
+    };
+    measure();
+    requestAnimationFrame(loop);
+
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+      }).observe(deptMarquee);
     }
   }
 

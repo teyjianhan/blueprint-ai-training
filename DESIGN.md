@@ -41,6 +41,12 @@ typography:
     fontWeight: 600
     lineHeight: 1.18
     letterSpacing: "-0.01em"
+  course-range-display:
+    fontFamily: "Poppins, Archivo, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.5rem, 2.1vw, 2rem)"
+    fontWeight: 600
+    lineHeight: 1.25
+    letterSpacing: "-0.01em"
   marquee-display:
     fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
     fontSize: "clamp(1.75rem, 3.1vw, 2.75rem)"
@@ -215,7 +221,7 @@ components:
 
 Blueprint AI Training carries itself the way today's bcg.com does, and the user pinned that reference with screenshots: a calm white ground on which everything interesting happens inside inset, rounded panels. Nothing floods edge to edge below the home hero. Serif display type (Source Serif 4) gives statements their authority; Archivo does the working text; actions are uppercase pill buttons with a sliding arrow. The visual temperature is set by a blue family anchored on a deep royal blue, with a light-blue pill as the signature action color.
 
-The one sanctioned full-bleed moment is the hero band (founder-pinned 2026-08-14, matched to the founder's reference screenshot): the home header and hero share a single indigo `band` field where the all-white statement faces the team photo, cut out and anchored to the band's bottom edge with no backdrop element. Every other page keeps the white header and opens with the centered serif intro.
+The header is one indigo `band` bar on every page (founder ruling 2026-08-16, replacing the white header that used to run everywhere but home), so the nav reads identically site-wide. On home it continues straight into the hero band (founder-pinned 2026-08-14, matched to the founder's reference screenshot): header and hero share a single `band` field where the all-white statement faces the team photo, cut out and anchored to the band's bottom edge with no backdrop element. Every other page opens with the centered serif intro directly under the bar.
 
 Malaysia is present but never literal. The national colors (blue leads, with red and amber) live inside the gradient art that fills card covers and placeholder media: soft radial glints of red and amber breathing inside deep blue fields. No flags, no hibiscus, no patriotic iconography. The photographs in the system, the team at work and Kuala Lumpur at dusk, carry the sense of place.
 
@@ -239,7 +245,7 @@ Normative values live in the frontmatter.
 
 ### Secondary
 - **Panel Light** (`panel-light`): the light blue panel ground for assist and claiming sections.
-- **Blue Mid / Blue Soft** (`blue-mid`, `blue-soft`): gradient art, plus `blue-mid` on the out-of-focus twin in the home department marquee (2026-08-15), where it only ever appears blurred and every word it touches comes back to `blue-deep` as it reaches the centre. Never UI chrome.
+- **Blue Mid / Blue Soft** (`blue-mid`, `blue-soft`): gradient art only, never UI chrome.
 
 ### Malaysian glints
 - Red `rgba(226,59,59,…)` and amber `rgba(255,179,92,…)` appear only inside gradient art (`.art`, `.art--soft`, `.cover-a/b/c`). They are atmosphere, not identity blocks.
@@ -248,7 +254,7 @@ Normative values live in the frontmatter.
 - **White**: the page ground. **Paper** (`paper`): light gray panels and the upper footer. **Silver** (`silver`): 1px hairlines. **Slate** (`slate`): secondary text. **Ink** (`ink`): text.
 
 ### Named Rules
-**The Inset Rule.** Color never runs edge to edge. Every colored surface is a rounded panel or card floating inside the container; the only full-width surfaces are the header, the footer layers, and the home page's hero band (header + hero on one `band` field, founder-pinned 2026-08-14). The rule resumes immediately below the hero.
+**The Inset Rule.** Color never runs edge to edge. Every colored surface is a rounded panel or card floating inside the container; the only full-width surfaces are the header (indigo on every page since 2026-08-16), the footer layers, and the home page's hero band, which is the header's field continuing down past the bar (founder-pinned 2026-08-14). The rule resumes immediately below the hero.
 
 **The Glint Rule.** Malaysian red and amber exist only inside gradients, as radial glints in a blue field. They never appear as solid UI colors, borders, or text.
 
@@ -256,9 +262,9 @@ Normative values live in the frontmatter.
 
 **Display Font:** Source Serif 4 (Google Fonts; fallback Georgia)
 **Working Font:** Archivo (fallback Helvetica Neue, Arial)
-**Hero Band Font:** Poppins (Google Fonts, loaded on index.html only; fallback Archivo)
+**Home Display Font:** Poppins (Google Fonts, loaded on index.html only; fallback Archivo)
 
-**Character:** The serif speaks in headlines, card titles on imagery, day headers and pull quotes; it is always weight 400 or 500, never bold. Archivo handles body, UI, labels, chips and buttons. Pill buttons are uppercase Archivo 600 with tracked letters and an arrow. The one exception is the home hero band, which speaks entirely in Poppins after the founder's reference (headline 600, eyebrow 600 uppercase, lede 400); the serif remains the display voice everywhere else.
+**Character:** The serif speaks in headlines, card titles on imagery, day headers and pull quotes; it is always weight 400 or 500, never bold. Archivo handles body, UI, labels, chips and buttons. Pill buttons are uppercase Archivo 600 with tracked letters and an arrow. Poppins is the home page's display voice: the hero band speaks entirely in it after the founder's reference (headline 600, eyebrow 600 uppercase, lede 400), and the course-range statement joined it at `course-range-display` (founder ruling 2026-08-16) so the two ends of the page rhyme. It stays on home only, and the serif remains the display voice on every other page. Adding a third Poppins moment on home needs a reason: the point of the pairing is that the serif still carries the middle of the page.
 
 Roles are normative in the frontmatter. Eyebrow labels are uppercase tracked, blue on light grounds, translucent white on dark. Not every section gets an eyebrow.
 
@@ -276,7 +282,9 @@ The insights mosaic is a 2-column grid where the lead article spans two rows as 
 
 ## Elevation & Depth
 
-Flat surfaces with soft, deep shadows reserved for floating elements: card hover (`0 14px 34px rgba(26,26,26,0.12)` with a 3px lift) and the sticky header once scrolled. Photo cards darken toward their caption edge with a deep-blue gradient scrim. The header carries an 8px backdrop blur: translucent white on every page, and the `site-header--band` variant on home, solid over the hero and glass once scrolled, all-white with the wordmark knocked out exactly as it is on the footer bar.
+Flat surfaces with soft, deep shadows reserved for floating elements: card hover (`0 14px 34px rgba(26,26,26,0.12)` with a 3px lift) and the sticky header once scrolled. Photo cards darken toward their caption edge with a deep-blue gradient scrim. The header is solid `band` indigo at rest and drops to `rgba(43,30,156,0.92)` glass with an 8px backdrop blur once scrolled, all-white with the wordmark knocked out exactly as it is on the footer bar.
+
+**The backdrop blur is dropped below 800px, and must stay dropped.** `backdrop-filter` makes an element a containing block for `position: fixed` descendants, and the mobile nav drawer is a fixed child of the header. With the blur on, the drawer resolved against the 76px header instead of the viewport and collapsed to an 80px sliver on every page. The header is solid indigo at that width, so the blur was buying nothing anyway. If a glass header on mobile is ever wanted, move the blur to a pseudo-element rather than putting it back on the header itself.
 
 ### Named Rules
 **The Float Rule.** A shadow means the element floats above a panel (card hover, sticky nav). Nothing at rest inside the page column carries one.
@@ -286,7 +294,7 @@ Flat surfaces with soft, deep shadows reserved for floating elements: card hover
 All motion runs on `ease-out` (cubic-bezier(0.16, 1, 0.3, 1)) and dies under `prefers-reduced-motion`. Content is never hidden without JS: initial hidden states are gated behind `html.js`.
 
 - **Opening sequence (home, once per load):** the hero statement settles from an 8px blur and 14px rise (0.75s) while the eyebrow and lede step in behind it (16px rises delayed 0.08/0.2s) and the team cutout rises at 0.3s.
-- **Department marquee (home):** three rows of department names roll horizontally at 26s, 32s and 38s through a tilted perspective box, alternating direction, each name pulling into focus as it crosses the centre. It is the one continuous loop on the page after the client logo rail, and it holds still under reduced motion. Nothing in it may animate a filter: the focus pull is two masked copies at fixed blur, so each row composites as one finished layer.
+- **Department marquee (home):** three rows of department names roll horizontally at 26s, 32s and 38s through a tilted perspective box, alternating direction, each name pulling into focus as it crosses the centre. It is the one continuous loop on the page after the client logo rail, and it holds still under reduced motion. Nothing in it may animate a filter, and nothing in it may hide a name: blur is set per name and quantised, so a name re-rasterizes only when it crosses a step, and every name stays at full ink from edge to edge.
 - **Marker sweep (home):** the highlight sweep scales in from the left like a real marker stroke (0.55s) when its head enters the viewport.
 - **Logo wall (home):** tiles fade-scale in as a list with a 55ms sibling stagger, total under 350ms.
 - **Micro feedback (site-wide):** button arrows slide 4px, cards lift 3px, the header gains its shadow on scroll.
@@ -323,11 +331,17 @@ The full-bleed indigo `band` field the header sits on, at the reference's propor
 One white 24px panel divided into four hairline columns: a 30px stroke icon in accent blue (inline Lucide-style SVG, stroke-width 2, round caps), a sans title, plain copy, then a large serif numeral pinned to the bottom beside a small slate label. Numerals (`strength-num`) are Source Serif 4 weight 500 with a blue gradient fill running blue-deep to blue-mid; the gradient stays inside the blue family, never red or amber, so the Glint Rule holds. Only truthful numbers appear here; never invent a stat to fill a cell. When no honest number exists, the slot carries a short word instead (e.g. HRDF) at the smaller `strength-num-word` size.
 
 ### Course range and department marquee (home)
-One statement holds the left third, the departments roll through a tilted marquee on the right two thirds (founder-pinned 2026-08-15, replacing the v2 route diagram). Left: the serif headline and a single `btn--band` action, no eyebrow and no supporting paragraph. Right: no panel at all, drawn straight on the white page ground, where three rows of department names set at `marquee-display` (Archivo 700, the one place the working sans goes bold, earned because these are graphic objects moving through a field rather than text being read) scroll horizontally inside a 1200px perspective box. Rows alternate direction at 26s, 32s and 38s. Each row carries its own list twice and travels exactly 50%, so the loop never jumps; the duplicate set is `aria-hidden` so each department is announced once. Department names only, never course names.
+The departments roll through a tilted marquee across the left two thirds, and one statement holds the right third (founder-pinned 2026-08-15, replacing the v2 route diagram; sides swapped 2026-08-16). Right: the `course-range-display` headline in Poppins and a single `btn--band` action, no eyebrow and no supporting paragraph. Left: no panel at all, drawn straight on the white page ground, where three rows of department names set at `marquee-display` (Archivo 700, the one place the working sans goes bold, earned because these are graphic objects moving through a field rather than text being read) scroll horizontally inside a 1200px perspective box. The copy stays first in the DOM and is placed right by `grid-column`, so the statement is still read before the nine department names; the marquee holds nothing focusable, so tab order is unaffected. Rows alternate direction at 26s, 32s and 38s. Each row carries its own list twice and travels exactly 50%, so the loop never jumps; the duplicate set is `aria-hidden` so each department is announced once. Department names only, never course names.
 
-**Focus belongs to the middle of the frame, not to particular words.** The rows exist twice: the crisp field, masked to show only through the centre (`--focus-in` 36% to `--focus-out` 64%, ramping from 6% and 94%), and a blurred twin cloned by `main.js`, masked with the exact complement. A name therefore cross-dissolves from soft to sharp as it reaches the middle and back out again, and no name is ever permanently unreadable. Ink is `blue-deep` with `blue` as a second colour so a row is not monotone; both are AA-safe on white, and the blurred twin recolours to `blue-mid`.
+**Blur belongs to the word, not to the region of screen it is crossing.** `main.js` gives each name a single blur value from its own distance to the centre, so a name is sharp through the middle and soft at the edges, and every part of it carries the same blur. Defocusing by region instead — a mask, or a blurred copy underneath — cuts through the middle of a name and leaves one end sharp and the other soft, which reads as a glow around the word rather than as depth. That mistake was shipped twice before this model replaced it. Ink is `blue-deep` with `blue` as a second colour so a row is not monotone; both are AA-safe on white, and a department carries an emoji set in `.dept-emoji`, `aria-hidden` so the name still reads cleanly.
 
-**The steadiness rule: no filter may ever change.** The blur is a fixed radius on the moving rows, so each row rasterizes once with the blur baked in and the browser only slides the finished layer; the masks sit on the still wrappers, where compositing is a cheap alpha multiply. The tilt lives on each row rather than a shared parent, and the roll is a `translate3d` inside that same transform, for the same reason. Never rebuild this with `backdrop-filter` or a per-frame JS filter: both re-blur moving content every frame and boil visibly. The two fields must also share a clock, or the offset reads as a permanent ghost, so `main.js` zeroes every animation in the marquee after cloning. The white page ground then closes in on all four sides so names arrive and leave out of nothing.
+**Nothing here may hide a name; it may only defocus one.** Every department stays at full ink the whole way across, and this is the invariant to check first if the effect ever stops looking right. It is harder than it sounds, because blurring dark type on a white ground spreads the ink and thins it; the reference this came from is white-on-black, where blur glows and stays present, and on white it evaporates instead. So `--edge` stays tiny and nothing is ever lightened to suggest distance: a lighter or more transparent name is a fade, and a fade is precisely what this must not look like. Confirm by sampling the darkest pixel per vertical strip across the marquee; it should stay near full ink edge to edge, not only through the middle.
+
+**Tuning lives in four custom properties on `.dept-marquee`.** `--dept-focus` is the share of the width held perfectly sharp, `--dept-blur-max` the radius at the outer edge, `--dept-blur-ease` the falloff curve, `--dept-blur-step` the quantisation. Only about two and a half names fit across, so the ramp has to do its work early: an ease much above 1.3 leaves the centre name's neighbours looking sharp and the whole field reads flat. Blur tops out near 10% of the type size; past that a glyph stops being a word and turns to smear, and it scales down below 900px because a radius tuned to 44px type destroys 28px type.
+
+**Steadiness comes from quantising, not from freezing.** Blur is rounded to `--dept-blur-step`, so a name only gets a new filter at the few moments it crosses a step rather than on every frame. Never animate or transition the filter, and never rebuild this with `backdrop-filter`: both re-blur moving content every frame and boil visibly. Measurement is batched ahead of writes so it cannot force a reflow mid-loop, and the loop idles while the section is off-screen.
+
+**The rows themselves never re-rasterize.** The tilt lives on each row rather than a shared parent, and the roll is a `translate3d` inside that same transform, so the browser slides a finished layer instead of redrawing tilted text every frame. The white page ground closes in at the edges, at `--edge` only, so names arrive and leave out of nothing.
 
 The mask on the crisp field is gated behind `html.js`, because without the twin it would crop the row to its middle; with no JS the marquee simply runs whole and sharp. Under reduced motion the twin is dropped and the mask removed for the same reason, and the rows hold still. Below 900px the section stacks, the tilt eases to `rotateY(-14deg)`, the type steps up so a row never shows its own repeat at once, and blur and edge fade both scale down (`--defocus`, `--edge`), because a blur radius tuned to 44px type turns 28px type to mush and a phone cannot spare a fifth of its width per side.
 

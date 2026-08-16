@@ -50,6 +50,8 @@
   --r-pill: 999px;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Header height, shared with the mobile drawer so the two cannot drift */
+  --header-h: 76px;
 }
 
 /* ---------- Reset ---------- */
@@ -77,7 +79,7 @@ ul, ol { padding: 0; }
 }
 /* Accent blue vanishes on the indigo surfaces; the ring switches to pill blue */
 .hero-band :focus-visible,
-.site-header--band :focus-visible,
+.site-header :focus-visible,
 .site-nav.is-open :focus-visible {
   outline-color: var(--pill);
 }
@@ -395,11 +397,15 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
 
 /* ---------- Header ---------- */
 
+/* One indigo header on every page (founder ruling 2026-08-16, replacing the
+   white header that used to run everywhere except home). Solid at rest so it
+   reads as one field with the home hero band underneath it, dropping to glass
+   once scrolled over content. */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.94);
+  background: var(--band);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
@@ -412,7 +418,7 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  height: var(--header-h);
 }
 
 .brand {
@@ -438,19 +444,24 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
   border-left: 1px solid var(--silver);
 }
 
+/* All header type is white on the indigo field; the wordmark knocks out
+   exactly as it does on the footer bar. */
 .site-nav { display: flex; align-items: center; gap: 2rem; }
 .site-nav a:not(.btn) {
   text-decoration: none;
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--white);
   padding-block: 0.4rem;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s var(--ease-out);
 }
-.site-nav a:not(.btn):hover { border-bottom-color: var(--silver); }
-.site-nav a[aria-current] { border-bottom-color: var(--blue); }
+.site-nav a:not(.btn):hover { border-bottom-color: rgba(255, 255, 255, 0.45); }
+.site-nav a[aria-current] { border-bottom-color: var(--pill); }
 .site-nav .btn { padding: 0.6rem 1.2rem; }
+.site-header .brand span { color: rgba(255, 255, 255, 0.8); }
+.site-header .brand-logo { filter: brightness(0) invert(1); }
+.site-header .brand-logo + span { border-left-color: rgba(255, 255, 255, 0.4); }
 
 .nav-toggle {
   display: none;
@@ -462,26 +473,12 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
 .nav-toggle span {
   display: block;
   width: 24px; height: 2px;
-  background: var(--ink);
+  background: var(--white);
   margin: 5px 0;
   transition: transform 0.25s var(--ease-out), opacity 0.2s;
 }
 
-/* Band header variant: sits on the home hero field, all-white on indigo.
-   The wordmark knocks out to white exactly as it does on the footer bar.
-   Solid at rest so header and hero read as one seamless field; the glass
-   alpha returns once scrolled. */
-.site-header--band {
-  background: var(--band);
-}
-.site-header--band .site-nav a:not(.btn) { color: var(--white); }
-.site-header--band .site-nav a:not(.btn):hover { border-bottom-color: rgba(255, 255, 255, 0.45); }
-.site-header--band .site-nav a[aria-current] { border-bottom-color: var(--pill); }
-.site-header--band .brand span { color: rgba(255, 255, 255, 0.8); }
-.site-header--band .brand-logo { filter: brightness(0) invert(1); }
-.site-header--band .brand-logo + span { border-left-color: rgba(255, 255, 255, 0.4); }
-.site-header--band .nav-toggle span { background: var(--white); }
-.site-header--band.is-scrolled {
+.site-header.is-scrolled {
   background: rgba(43, 30, 156, 0.92);
   border-bottom-color: rgba(255, 255, 255, 0.12);
   box-shadow: 0 4px 18px rgba(11, 33, 97, 0.3);
@@ -489,14 +486,20 @@ html.js [data-in].is-in .mark-sweep::before { transform: scaleX(1) rotate(-1.4de
 
 @media (max-width: 800px) {
   .nav-toggle { display: block; }
+  /* The drawer is position:fixed against the viewport, so the header must not
+     become its containing block. Any backdrop-filter other than none does
+     exactly that, which collapsed this drawer to the height of the header on
+     every page. The header is solid indigo here, so the blur costs nothing. */
+  .site-header { backdrop-filter: none; }
   .site-nav {
     position: fixed;
-    inset: 76px 0 0 0;
+    inset: var(--header-h) 0 0 0;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
-    background: var(--blue-deep);
+    background: var(--band);
     padding: 2.5rem var(--pad-x);
+    overflow-y: auto;
     transform: translateX(100%);
     transition: transform 0.35s var(--ease-out);
   }
@@ -1002,38 +1005,75 @@ a.card:hover .arrow-link .arrow { transform: translateX(4px); }
    The statement holds the left third; the departments roll through a tilted
    marquee on the right two thirds, drawn straight on the white page ground.
 
-   Focus depends on where a name is on screen, not which name it is. The rows
-   exist twice: a crisp field masked to show only through the middle, and a
-   blurred twin (cloned by main.js) masked to show only at the edges. The two
-   masks are complementary, so a name cross-dissolves from soft to sharp as it
-   reaches the centre and back out again.
+   Each name carries ONE blur value for its whole self, set from its own
+   distance to the centre by main.js. Blur must never vary across a single
+   word: a mask that defocuses by screen region cuts through the middle of a
+   name, leaving one end sharp and the other soft, which the eye reads as a
+   glow around the word rather than as depth. That is what this replaced.
 
-   The rule that keeps it steady: no filter ever changes. The blur is a fixed
-   radius on the moving rows, so each row rasterizes once with the blur baked
-   in and the browser only slides the finished layer; the masks sit on the
-   still wrappers, where compositing is a cheap alpha multiply. Do not rebuild
-   this with backdrop-filter or a per-frame filter: either one re-blurs moving
-   content every frame and boils visibly. */
+   Nothing here may HIDE a name either; it may only defocus one. Every name
+   stays at full ink the whole way across, so no layer is ever lightened and
+   the edge fade stays tiny. A lighter or more transparent name is a fade, and
+   a fade is the one thing this must not look like.
 
+   Steadiness comes from quantising, not from freezing. A filter that changes
+   every frame re-blurs moving content and boils; blur here is rounded to
+   --dept-blur-step, so a name only re-rasterizes at the handful of moments it
+   crosses a step. Never animate or transition the filter, and never rebuild
+   this with backdrop-filter. Blur tops out near 10% of the type size; past
+   that a glyph stops being a word and turns to smear. */
+
+/* The marquee holds the left two thirds, the statement the right third. The
+   copy still comes first in the DOM so the headline is read before the nine
+   department names; only the visual order is swapped, and the marquee has no
+   focusable children, so tab order is untouched. */
 .course-range {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
 }
-.course-range-copy .headline { max-width: 20ch; }
+.course-range-copy { grid-column: 2; grid-row: 1; }
+.dept-marquee { grid-column: 1; grid-row: 1; }
+/* The statement speaks in the hero's Poppins rather than the page serif, sized
+   for a third-width column */
+.course-range-copy .headline {
+  font-family: var(--font-hero);
+  font-size: clamp(1.5rem, 2.1vw, 2rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  max-width: 18ch;
+}
 .course-range-copy .btn { margin-top: 1.75rem; }
 
 .dept-marquee {
   --tilt-x: 6deg;
   --tilt-y: -22deg;
-  --defocus: 1;
-  --edge: 20%;
-  /* Where the sharp field has fully taken over, and where it starts handing
-     back to the blurred twin */
-  --focus-in: 36%;
-  --focus-out: 64%;
+  /* Blur model, read by main.js. --dept-focus is the share of the full width
+     that stays perfectly sharp in the middle; past it blur eases up to
+     --dept-blur-max at the edges on a --dept-blur-ease curve, rounded to
+     --dept-blur-step so a name only re-rasterizes a handful of times per pass.
+     Only about two and a half names fit across at this size, so the ramp has
+     to do its work early: an exponent much above ~1.3 leaves the neighbours of
+     the centre name looking sharp and the whole thing reads flat. */
+  --dept-focus: 0.25;
+  --dept-blur-max: 5.5;
+  --dept-blur-ease: 1.2;
+  --dept-blur-step: 0.4;
+  /* Barely enough to soften the clip at the edge, no more. Anything wider
+     hides the outer names instead of defocusing them, and hiding is exactly
+     what this must not do: every name stays fully present the whole way
+     across, it only goes out of focus. */
+  --edge: 4%;
+  /* The rows read as hanging low next to the statement, because the copy block
+     centres on its button while the eye centres on the headline. Lift the
+     whole box so the rows ride just above the headline's centre and the raised
+     end of the slant clears it. Lifting the box carries the rows with it, so
+     nothing clips against the overflow. */
+  --dept-lift: 2.5rem;
   position: relative;
+  top: calc(-1 * var(--dept-lift));
   height: clamp(260px, 24vw, 330px);
   overflow: hidden;
   perspective: 1200px;
@@ -1046,18 +1086,9 @@ a.card:hover .arrow-link .arrow { transform: translateX(4px); }
   justify-content: center;
   gap: clamp(0.6rem, 1.4vw, 1.25rem);
 }
-/* Only once the blurred twin exists is it safe to mask the crisp field down
-   to the middle; without JS there is no twin, so it stays whole and sharp. */
-html.js .dept-field[data-dept-field] {
-  -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 var(--focus-in), #000 var(--focus-out), transparent 94%);
-  mask-image: linear-gradient(90deg, transparent 6%, #000 var(--focus-in), #000 var(--focus-out), transparent 94%);
-}
-.dept-field--soft {
-  -webkit-mask-image: linear-gradient(90deg, #000 6%, transparent var(--focus-in), transparent var(--focus-out), #000 94%);
-  mask-image: linear-gradient(90deg, #000 6%, transparent var(--focus-in), transparent var(--focus-out), #000 94%);
-}
-.dept-field--soft .dept-track { filter: blur(calc(7px * var(--defocus))); }
-.dept-field--soft .dept-track span { color: var(--blue-mid); }
+/* main.js writes --b per name, in px, already quantised */
+.dept-track > span { filter: blur(calc(var(--b, 0) * 1px)); }
+.dept-emoji { font-style: normal; margin-right: 0.3em; }
 .dept-track {
   display: flex;
   width: max-content;
@@ -1097,7 +1128,7 @@ html.js .dept-field[data-dept-field] {
   pointer-events: none;
   background:
     linear-gradient(90deg, var(--white) 0%, transparent var(--edge), transparent calc(100% - var(--edge)), var(--white) 100%),
-    linear-gradient(180deg, var(--white) 0%, transparent 22%, transparent 78%, var(--white) 100%);
+    linear-gradient(180deg, var(--white) 0%, transparent 4%, transparent 96%, var(--white) 100%);
 }
 
 .leaf-tag {
@@ -1114,20 +1145,23 @@ html.js .dept-field[data-dept-field] {
 
 @media (prefers-reduced-motion: reduce) {
   .dept-track { animation: none; }
-  /* Standing still, a focus pull is meaningless and the mask would just crop
-     the row: drop the twin and show the whole thing sharp */
-  .dept-field--soft { display: none; }
-  html.js .dept-field[data-dept-field] { -webkit-mask-image: none; mask-image: none; }
+  /* Standing still, a focus pull is meaningless: show every name sharp */
+  .dept-track > span { filter: none; }
 }
 @media (max-width: 900px) {
+  /* Stacked, DOM order rules again: statement first, then the marquee */
   .course-range { grid-template-columns: 1fr; }
-  .course-range-copy .headline { max-width: 34ch; }
+  .course-range-copy,
+  .dept-marquee { grid-column: auto; grid-row: auto; }
+  .course-range-copy .headline { max-width: 34ch; font-size: clamp(1.5rem, 5.4vw, 2rem); }
   .dept-marquee {
     --tilt-y: -14deg;
     /* Smaller type takes proportionally less blur, and a narrow screen cannot
        spare a fifth of its width to a fade on each side */
-    --defocus: 0.65;
-    --edge: 11%;
+    --dept-blur-max: 3.2;
+    --edge: 8%;
+    /* Stacked there is nothing beside it to align to, so it sits where it falls */
+    --dept-lift: 0rem;
     height: clamp(200px, 46vw, 260px);
   }
   /* Stacked, the marquee runs full width: hold the type up so a row never
