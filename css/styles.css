@@ -1447,6 +1447,20 @@ html.js .client-marquee.is-in { opacity: 1; transform: none; }
   position: relative;
 }
 .profile-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* A portrait that carries its own background IS the card, so the card takes its
+   height from the image instead of imposing a ratio on it. Any fixed ratio here
+   crops top and bottom as soon as it disagrees with the file, and .profile is a
+   stretched grid item, so the image must drive the height rather than inherit
+   one. This also survives a future portrait that is not square. */
+.profile-portrait--photo {
+  aspect-ratio: auto;
+  display: block;
+}
+.profile-portrait--photo img {
+  position: static;
+  width: 100%;
+  height: auto;
+}
 .profile-initials {
   font-family: var(--font-serif);
   font-size: 3rem;
@@ -1519,9 +1533,14 @@ a.profile:hover .arrow-link .arrow { transform: translateX(4px); }
   object-position: 50% 0;
 }
 /* Exception to the note above: a portrait that already carries its own
-   background is the whole card, so it needs no gradient behind it and
-   keeps its native square ratio instead of being cropped to 4:5. */
-.portrait-frame--photo { aspect-ratio: 1 / 1; }
+   background is the whole card, so it needs no gradient behind it, and the
+   image drives the height rather than being cropped to the 4:5 default. */
+.portrait-frame--photo { aspect-ratio: auto; }
+.portrait-frame--photo img {
+  position: static;
+  width: 100%;
+  height: auto;
+}
 @media (max-width: 860px) { .portrait-frame { max-width: 340px; } }
 
 /* Bio column, same measure as an article so long-form reads the same way */
