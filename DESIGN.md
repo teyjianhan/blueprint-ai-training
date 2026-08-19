@@ -354,6 +354,16 @@ One phrase per page may carry `mark-sweep`: italic serif at weight 400 with a pi
 ### Signature: gradient art
 Layered radial gradients on a deep blue base with one amber and one red glint (`.art`; `.art--soft` for light panels; `cover-a/b/c` for cards). This is where Malaysia lives in the design. Never add flags, flowers, or literal national symbols.
 
+### Session timeline (course outlines)
+Added for course-productivity.html, 2026-08-19. A day runs as `day-run`: a sticky `day-brief` summary in a 300px column beside its own `track` of sessions. The summary carries the day's argument (eyebrow, serif day title, the participant's line in italic serif under a 3px blue rule, then the reasoning) so the rail beside it can stay a plain list of what happens. Below 940px the grid collapses and the summary stops being sticky.
+
+The rail is a 1px silver line with rounded-square markers in accent blue, the same 9px mark the outcome bullets use, so the timeline reads as part of the same family rather than a new dot-and-line idiom. Each session is a white hairline card: uppercase time, `session-title` heading, plain duration, and one `stype` pill for the kind of session. Working sessions close with a single `session-takeaway` line above a hairline, which is the one promise per session and must stay to one line of substance. Numbered sub-steps use `session-steps`, whose counters sit in small pill-blue discs.
+
+Session types are blue family and neutrals only: hairline ghost for talk-led, `panel-light` for guided practice, solid `blue-deep` for the sessions run on the participant's own work. Red and amber stay inside the gradient art (The Glint Rule), so a session type never borrows urgency from colour. Breaks are `session--break`: paper ground, one line, a silver marker, and no card weight, because a break is structure and not content.
+
+### Six jobs grid (course outlines)
+One white panel divided by a 1px grid gap over a silver ground, three across, collapsing to two then one. Blue numeral, serif word, one line of plain copy. Same hairline-column grammar as the strengths band on home, without the numerals or icons.
+
 ## Do's and Don'ts
 
 ### Do:

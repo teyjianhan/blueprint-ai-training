@@ -1372,6 +1372,210 @@ html.js .client-marquee.is-in { opacity: 1; transform: none; }
 .outcomes strong { display: block; font-weight: 600; }
 .outcomes span { color: var(--slate); font-size: 0.9375rem; }
 
+/* ---------- Course outline: the six jobs ---------- */
+
+/* One white panel divided by hairlines, the same grammar as the strengths band
+   on home. The 1px grid gap is the rule, so the cells own no borders. */
+.six {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--silver);
+  border: 1px solid var(--silver);
+  border-radius: var(--r-panel);
+  overflow: hidden;
+}
+@media (max-width: 760px) { .six { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .six { grid-template-columns: 1fr; } }
+.six > div { background: var(--white); padding: clamp(1.25rem, 2.4vw, 1.75rem); }
+.six .num {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+}
+.six h3 {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0.2rem 0 0.35rem;
+}
+.six p { font-size: 0.9375rem; color: var(--slate); line-height: 1.55; }
+
+/* ---------- Course outline: session timeline ---------- */
+
+/* A day runs as a sticky summary beside its own rail of sessions. The summary
+   holds the day's argument so the rail can stay a list of what happens. */
+.day-run {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+@media (max-width: 940px) { .day-run { grid-template-columns: 1fr; } }
+
+.day-brief { position: sticky; top: calc(var(--header-h) + 1.5rem); }
+@media (max-width: 940px) { .day-brief { position: static; } }
+.day-brief h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.625rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.18;
+  margin-bottom: 0.5rem;
+}
+.day-brief .label { display: block; margin-bottom: 0.9rem; }
+.day-brief .day-quote {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-style: italic;
+  color: var(--slate);
+  line-height: 1.45;
+  padding-top: 1rem;
+  border-top: 3px solid var(--blue);
+}
+.day-brief p { font-size: 0.9375rem; color: var(--slate); margin-top: 1rem; }
+
+.track { list-style: none; position: relative; padding-left: 1.75rem; }
+.track::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.7rem;
+  bottom: 0.7rem;
+  width: 1px;
+  background: var(--silver);
+}
+.track > li { position: relative; padding-bottom: 1rem; }
+.track > li:last-child { padding-bottom: 0; }
+/* Marker is the rounded square used for outcome bullets, not a dot, so the
+   timeline reads as part of the same family. */
+.track > li::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 0.9rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--blue);
+}
+.track > li.is-break::before { background: var(--silver); }
+
+.session {
+  background: var(--white);
+  border: 1px solid var(--silver);
+  border-radius: var(--r-card);
+  padding: clamp(1.1rem, 2.2vw, 1.6rem);
+}
+.session-time {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.4rem;
+}
+.session-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  margin-bottom: 0.6rem;
+}
+.session-head h4 { font-size: 1.0625rem; font-weight: 600; line-height: 1.3; }
+.session-dur { font-size: 0.8125rem; color: var(--slate); }
+.session p { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; }
+.session p + p { margin-top: 0.7rem; }
+.session strong { color: var(--ink); font-weight: 600; }
+
+/* Session type. Blue family and neutrals only: red and amber stay inside the
+   gradient art, never on a label (The Glint Rule). */
+.stype {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--silver);
+  color: var(--slate);
+  white-space: nowrap;
+}
+.stype--practice { background: var(--panel-light); border-color: transparent; color: var(--blue-deep); }
+.stype--own { background: var(--blue-deep); border-color: transparent; color: var(--white); }
+
+.session-steps {
+  list-style: none;
+  counter-reset: step;
+  margin-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+/* Not flex: a step often opens with a bold lead-in, and flex would make that
+   <strong> its own column with the rest of the sentence beside it. The counter
+   is taken out of flow instead so the text stays one paragraph. */
+.session-steps li {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 0.9375rem;
+  color: var(--slate);
+  line-height: 1.55;
+}
+.session-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--r-pill);
+  background: var(--panel-light);
+  color: var(--blue-deep);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+}
+
+.session-takeaway {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--silver);
+  font-size: 0.875rem;
+  color: var(--slate);
+  line-height: 1.55;
+}
+.session-takeaway::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  background: var(--blue);
+  margin-top: 0.5em;
+}
+.session-takeaway strong { color: var(--ink); font-weight: 600; }
+
+/* Breaks are structure, not content: paper ground, one line, no card weight. */
+.session--break {
+  background: var(--paper);
+  border-color: transparent;
+  padding: 0.7rem 1.1rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+}
+.session--break .session-time { margin-bottom: 0; }
+.session--break h4 { font-size: 0.9375rem; font-weight: 600; color: var(--slate); }
+
 /* ---------- Article pages ---------- */
 
 .article-head { padding-block: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2rem); }
