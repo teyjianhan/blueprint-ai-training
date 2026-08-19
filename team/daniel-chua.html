@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
-  <!-- VERIFY: keep this in step with the visible bio. Add sameAs (LinkedIn) once confirmed. -->
+  <!-- VERIFY: keep this in step with the visible bio. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,7 +25,24 @@
     "worksFor": {
       "@type": "Organization",
       "name": "Blueprint AI Training"
-    }
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/daniel-chua-430603149/"
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Sunway University" },
+      { "@type": "CollegeOrUniversity", "name": "Xiamen University" }
+    ],
+    "knowsAbout": [
+      "AI and software development",
+      "Data analysis and data science",
+      "Machine learning and generative AI"
+    ],
+    "award": [
+      "Sunway Scholastic Award (2025)",
+      "Xiamen University Chinese Ambassador Award (2020)",
+      "Xiamen University SFS High Achievers Award (2018)"
+    ]
   }
   </script>
 </head>
@@ -55,16 +72,100 @@
   <section class="director-hero container">
     <a class="back-link" href="../about.html"><span class="arrow" aria-hidden="true">&larr;</span> Back to About</a>
     <div class="director-split">
-      <div class="portrait-frame cover-b">
-        <img src="../assets/img/daniel-chua.png" alt="Daniel Chua speaking at a Blueprint AI Training session" width="742" height="928">
+      <div class="portrait-frame portrait-frame--photo">
+        <img src="../assets/img/daniel-chua.png" alt="Daniel Chua, co-founder and director of Blueprint AI Training" width="500" height="500">
       </div>
       <div>
         <span class="label label--blue">Co-founder &amp; Director</span>
         <h1 class="display">Daniel Chua</h1>
         <p class="lede">He builds AI tools inside a company and trains the staff to use them. That is more or less this job.</p>
-        <a class="btn btn--pill" href="https://wa.me/601153238181">WhatsApp us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <div class="btn-row">
+          <a class="btn btn--pill" href="https://wa.me/601153238181">WhatsApp us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--outline" href="https://www.linkedin.com/in/daniel-chua-430603149/" target="_blank" rel="noopener">Connect on LinkedIn <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Background: education, awards and skills supplied by Daniel, 19 Aug 2026.
+       Education and awards are one card on purpose: each award belongs to the
+       degree above it, so splitting them made the reader join them up again. -->
+  <section class="section container">
+    <div class="section-head">
+      <span class="label label--blue">Background</span>
+      <h2 class="headline">Where he trained, and what he works in</h2>
+    </div>
+    <div class="days">
+      <div class="day">
+        <div class="day-head">
+          <h3>Education and awards</h3>
+        </div>
+        <ol>
+          <li>
+            <h4>Master's degree in Business Analytics</h4>
+            <p class="edu-school">Sunway University</p>
+            <p class="edu-result">CGPA 3.91</p>
+            <ul class="edu-awards">
+              <li>Sunway Scholastic Award (2025)</li>
+            </ul>
+          </li>
+          <li>
+            <h4>Bachelor's degree in Computer Science</h4>
+            <p class="edu-school">Xiamen University</p>
+            <p class="edu-result">CGPA 3.87</p>
+            <ul class="edu-awards">
+              <li>Xiamen University Chinese Ambassador Award (2020)</li>
+              <li>Xiamen University SFS High Achievers Award (2018)</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div class="day">
+        <div class="day-head">
+          <h3>Professional skills</h3>
+        </div>
+        <ol>
+          <li>
+            <h4>AI and software development</h4>
+          </li>
+          <li>
+            <h4>Data analysis and data science</h4>
+          </li>
+          <li>
+            <h4>Machine learning and generative AI</h4>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past employers, supplied by Daniel 19 Aug 2026. Logos in assets/img/employers
+       are each brand's official light-background variant, except MoneyLion, which
+       ships white only and was recoloured to ink (note inside its SVG).
+       Not the client marquee: that component means "client" and these are jobs.
+       Founder ruling 19 Aug 2026: the CoinW logo stays here AND the bio stays
+       anonymous about the crypto employer. That split is deliberate, not an
+       oversight. Do not "reconcile" it by naming CoinW in the prose or by
+       pulling the logo. -->
+  <section class="section container">
+    <div class="section-head">
+      <span class="label label--blue">Previously</span>
+      <h2 class="headline">Where he worked before Blueprint</h2>
+    </div>
+    <ul class="employer-row">
+      <li class="employer-tile">
+        <img src="../assets/img/employers/moneylion.svg" alt="MoneyLion" width="167" height="50">
+        <span class="label label--slate">Data analyst</span>
+      </li>
+      <li class="employer-tile">
+        <img src="../assets/img/employers/coingecko.svg" alt="CoinGecko" width="2344" height="512">
+        <span class="label label--slate">Growth marketer</span>
+      </li>
+      <li class="employer-tile">
+        <img src="../assets/img/employers/coinw.svg" alt="CoinW" width="141" height="38">
+        <span class="label label--slate">AI developer</span>
+      </li>
+    </ul>
   </section>
 
   <!-- Bio -->
@@ -76,8 +177,11 @@
 
       <!-- EDIT: career content supplied by Daniel, 30 July 2026.
            Both the current employer and the agency are deliberately unnamed at the
-           founder's instruction (30 July 2026). Do not "correct" this by adding
-           company names. Still open: education is not mentioned. -->
+           founder's instruction (30 July 2026, reaffirmed 19 Aug 2026). Do not
+           "correct" this by adding company names. The CoinW logo in the Past
+           employers section above is a deliberate exception to that, not a
+           conflict with it. Education, awards and skills sit in the Background
+           section above this one. -->
       <p>Daniel is an AI developer at a crypto company, where he builds AI systems for internal use: a data agent, an SQL agent, an automated reporting system. Building them turned out to be half the job. The other half is getting colleagues to actually use them, which is the same problem Blueprint exists to solve, only inside one company instead of many.</p>
 
       <p>He has also run his own digital marketing agency since 2019, covering web design, SEO and SEM, Facebook ads, content, personal branding, and more recently software and AI development. One postnatal confinement centre returned RM500,000 on RM8,000 of ad spend in six months. He has since rebuilt that team around Claude and other AI tools, so when he tells a room this changes how the work gets done, he is describing something he has already been through as an employer.</p>
@@ -93,10 +197,6 @@
       <p>He teaches on the 2 day AI-Ready Workshop, the course most companies start with. It is conducted with Claude, and the aim is comfort rather than coverage.</p>
 
       <p>Most of his attention in a session goes to the people who did not particularly want to be there. Every group has a few, and they are often the ones whose work would change the most. The material is written for IT and non-IT backgrounds alike, no coding is required at any point, and everyone leaves having applied AI to a real task from their own job.</p>
-
-      <h2>What he writes about</h2>
-
-      <p>He writes about avoidance. Nobody announces that they are steering clear of AI, so it shows up indirectly: work that takes exactly as long as it always did, proposals still being written on a Sunday night. His argument is that avoiding AI is a perfectly rational choice for an employee, right up until leadership makes it safe not to.</p>
     </div>
   </section>
 

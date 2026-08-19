@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
-  <!-- VERIFY: keep this in step with the visible bio. Add sameAs (LinkedIn) once confirmed. -->
+  <!-- VERIFY: keep this in step with the visible bio. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,7 +25,23 @@
     "worksFor": {
       "@type": "Organization",
       "name": "Blueprint AI Training"
-    }
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/teyjh/"
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Imperial College London" },
+      { "@type": "CollegeOrUniversity", "name": "King's College London" }
+    ],
+    "award": [
+      "Dean's List - Distinction, Imperial College London",
+      "First Class Honours, King's College London"
+    ],
+    "knowsAbout": [
+      "AI and software development",
+      "Data analysis and data science",
+      "Machine learning and generative AI"
+    ]
   }
   </script>
 </head>
@@ -55,16 +71,98 @@
   <section class="director-hero container">
     <a class="back-link" href="../about.html"><span class="arrow" aria-hidden="true">&larr;</span> Back to About</a>
     <div class="director-split">
-      <div class="portrait-frame cover-a">
-        <img src="../assets/img/tey-jian-han.png" alt="Tey Jian Han speaking at a Blueprint AI Training session" width="742" height="928">
+      <div class="portrait-frame portrait-frame--photo">
+        <img src="../assets/img/tey-jian-han.png" alt="Tey Jian Han, co-founder and director of Blueprint AI Training" width="500" height="500">
       </div>
       <div>
         <span class="label label--blue">Co-founder &amp; Director</span>
         <h1 class="display">Tey Jian Han</h1>
         <p class="lede">An AI engineer by trade. He teaches the 2 day AI-Ready Workshop and writes about AI readiness as a leadership decision.</p>
-        <a class="btn btn--pill" href="https://wa.me/601153238181">WhatsApp us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <div class="btn-row">
+          <a class="btn btn--pill" href="https://wa.me/601153238181">WhatsApp us <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--outline" href="https://www.linkedin.com/in/teyjh/" target="_blank" rel="noopener">Connect on LinkedIn <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- Background: education and skills supplied by Jian Han, 19 Aug 2026.
+       Reuses the workshop .days / .day card, so no CSS of its own.
+       Education and awards are one card on purpose: each award belongs to the
+       degree above it. No .edu-result tier here: unlike Daniel's CGPAs, his
+       results are the distinctions themselves, so they sit in the award list. -->
+  <section class="section container">
+    <div class="section-head">
+      <span class="label label--blue">Background</span>
+      <h2 class="headline">Where he trained, and what he works in</h2>
+    </div>
+    <div class="days">
+      <div class="day">
+        <div class="day-head">
+          <h3>Education and awards</h3>
+        </div>
+        <ol>
+          <li>
+            <h4>MSc Business Analytics</h4>
+            <p class="edu-school">Imperial College London</p>
+            <ul class="edu-awards">
+              <li>Dean's List - Distinction</li>
+            </ul>
+          </li>
+          <li>
+            <h4>BSc Computer Science with Management</h4>
+            <p class="edu-school">King's College London</p>
+            <ul class="edu-awards">
+              <li>First Class Honours</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div class="day">
+        <div class="day-head">
+          <h3>Professional skills</h3>
+        </div>
+        <ol>
+          <li>
+            <h4>AI and software development</h4>
+          </li>
+          <li>
+            <h4>Data analysis and data science</h4>
+          </li>
+          <li>
+            <h4>Machine learning and generative AI</h4>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past employers, supplied by Jian Han 19 Aug 2026. Logos in
+       assets/img/employers are each brand's official light-background variant.
+       Roles supplied 19 Aug 2026, so this now matches Daniel's page.
+       The Supahands mark came from a Google thumbnail that clipped the final "s"
+       and had an opaque white ground; the letter was restored from the leading
+       "s" of the same wordmark and the white knocked out. Replace with an
+       official asset if one turns up. -->
+  <section class="section container">
+    <div class="section-head">
+      <span class="label label--blue">Previously</span>
+      <h2 class="headline">Where he worked before Blueprint</h2>
+    </div>
+    <ul class="employer-row">
+      <li class="employer-tile">
+        <img src="../assets/img/employers/ey.svg" alt="EY" width="69" height="69">
+        <span class="label label--slate">Senior Associate, Technology &amp; Consulting (AI &amp; Data)</span>
+      </li>
+      <li class="employer-tile">
+        <img src="../assets/img/employers/intelmatix.png" alt="Intelmatix" width="125" height="124">
+        <span class="label label--slate">Technology Consultant</span>
+      </li>
+      <li class="employer-tile">
+        <img src="../assets/img/employers/supahands.png" alt="Supahands" width="352" height="51">
+        <span class="label label--slate">Computer Vision Trainer</span>
+      </li>
+    </ul>
   </section>
 
   <!-- Bio -->
@@ -74,13 +172,15 @@
 
       <h2>Before Blueprint</h2>
 
-      <!-- PENDING FROM FOUNDER. The paragraph below is deliberately general because
-           PRODUCT.md records that the companies are not yet public. To finish it, provide:
-             1. Company names, roles and rough years.
+      <!-- PARTLY RESOLVED 19 Aug 2026. Education is now in the Background section
+           above, and EY, Intelmatix and Supahands are named by logo in the Past
+           employers section above. The paragraph below is still deliberately
+           general. To finish it, still needed:
+             1. Roles and rough years at each of the three.
              2. One or two AI systems he actually built or deployed, at whatever
                 level of detail is comfortable to publish.
-             3. Education, if it should appear.
-           Naming real employers is the single biggest credibility lift on this page. -->
+           NOTE: PRODUCT.md line 29 still says the companies are not named publicly.
+           That is now out of date for this page. Update it when convenient. -->
       <p>He is an AI engineer by trade, and he did that work inside industry leading technology companies before he started doing it for Malaysian employers.</p>
 
       <p>That is a different starting point from most training providers. He has had to make AI work against real company data, real deadlines, and real colleagues who never asked for any of it. A good deal of what he teaches comes out of that experience, including the unglamorous parts about what these tools are still bad at.</p>
