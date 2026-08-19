@@ -1488,6 +1488,10 @@ html.js .client-marquee.is-in { opacity: 1; transform: none; }
 .session-dur { font-size: 0.8125rem; color: var(--slate); }
 .session p { font-size: 0.9375rem; color: var(--slate); line-height: 1.6; }
 .session p + p { margin-top: 0.7rem; }
+/* A paragraph closing out a module after its list needs the same air a second
+   paragraph gets; without this it butts straight against the last item. */
+.session-points + p,
+.session-steps + p { margin-top: 0.9rem; }
 .session strong { color: var(--ink); font-weight: 600; }
 
 /* Session type. Blue family and neutrals only: red and amber stay inside the
@@ -1505,6 +1509,45 @@ html.js .client-marquee.is-in { opacity: 1; transform: none; }
 }
 .stype--practice { background: var(--panel-light); border-color: transparent; color: var(--blue-deep); }
 .stype--own { background: var(--blue-deep); border-color: transparent; color: var(--white); }
+
+/* The module number rides the time line rather than the heading, so the heading
+   stays the name of the thing and the rail still reads as a clock. */
+/* Hairline between the clock and the module number, the same divider the
+   wordmark uses. Written as a border rather than a separator glyph: a CSS
+   content escape here already shipped a NUL byte once. */
+.session-time .mod {
+  color: var(--blue);
+  margin-left: 0.7em;
+  padding-left: 0.7em;
+  border-left: 1px solid var(--silver);
+}
+
+.session-points {
+  list-style: none;
+  margin-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.session-points li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.9375rem;
+  color: var(--slate);
+  line-height: 1.55;
+}
+/* A notch smaller than the outcome bullet: this list sits inside a card, under
+   a heading, so it must not compete with the page-level marks. */
+.session-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--blue);
+}
 
 .session-steps {
   list-style: none;
