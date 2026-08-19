@@ -1,0 +1,925 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Company Profile | Blueprint AI Training</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Poppins:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+<!--
+  COMPANY PROFILE (print-first, A4 portrait, 8 pages)
+
+  HOW TO MAKE THE PDF
+    Open this file in Chrome or Edge, press Ctrl+P (Cmd+P on Mac), then:
+      Destination          Save as PDF
+      Paper size           A4
+      Margins              None
+      Background graphics  ON  (under "More settings" - without this the
+                                blue pages print white)
+    Save as blueprint-ai-training-company-profile.pdf
+
+  WHERE TO EDIT
+    Every field the founders still need to supply is marked FILL IN and
+    carries the class "todo", which prints as a dotted blue underline so
+    nothing ships blank by accident. Search this file for FILL IN.
+
+  PENDING CONFIRMATION
+    The module outlines for the two marketing programmes on page 6 were
+    drafted from the course descriptions already on workshop.html. Confirm
+    or rewrite them before this goes to a client.
+
+  COURSE NAMES
+    Founder ruling 19 Aug 2026 supersedes the earlier "no Claude in course
+    names" rule for these three programmes. Names appear here as given.
+-->
+
+<style>
+/* ---------- Tokens, inherited from the site ---------- */
+:root{
+  --band:#2b1e9c; --blue-deep:#0b2161;
+  --blue:#1e40c9; --blue-soft:#7fa4ff;
+  --pill:#bcd2ff; --panel-light:#e4ecff;
+  --white:#fff; --paper:#f4f4f2; --silver:#d8d8d6;
+  --slate:#4d4d4d; --ink:#1a1a1a;
+  --font:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-serif:"Source Serif 4",Georgia,serif;
+  --font-hero:"Poppins","Archivo",Arial,sans-serif;
+  --r-card:10px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body{
+  font-family:var(--font); color:var(--ink);
+  font-size:10pt; line-height:1.55;
+  background:var(--slate);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+
+/* ---------- Page frame ---------- */
+.page{
+  position:relative; overflow:hidden;
+  width:210mm; height:297mm;
+  padding:16mm 15mm 12mm;
+  background:var(--white);
+  margin:0 auto 8mm;
+  display:flex; flex-direction:column;
+}
+.page--dark{ background:var(--band); color:#fff; }
+.page:last-child{margin-bottom:0}
+
+/* Running foot, every page but the cover */
+.foot{
+  margin-top:auto; padding-top:5mm;
+  border-top:1px solid var(--silver);
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.5pt; letter-spacing:.04em; color:var(--slate);
+  text-transform:uppercase;
+}
+.foot b{font-weight:600; color:var(--ink)}
+
+/* ---------- Type ---------- */
+.eyebrow{
+  font-size:7.5pt; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--blue);
+}
+h1,h2,h3,h4{font-weight:400; line-height:1.15}
+.h-page{
+  font-family:var(--font-serif); font-size:23pt; font-weight:400;
+  letter-spacing:-.01em; margin:2.5mm 0 3mm; max-width:27ch;
+}
+.h-sec{ font-family:var(--font-serif); font-size:14pt; margin-bottom:2.5mm; }
+.lede{font-size:11pt; line-height:1.5; color:var(--slate); max-width:62ch}
+p+p{margin-top:2.5mm}
+.body p{max-width:66ch}
+strong{font-weight:600}
+
+/* ---------- Cover ---------- */
+.cover{ padding:0; justify-content:flex-start; }
+.cover-top{ padding:18mm 15mm 0; position:relative; z-index:2 }
+.cover-logo{ height:8mm; width:auto; filter:brightness(0) invert(1) }
+.cover-kicker{
+  margin-top:13mm; font-size:8pt; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--pill);
+}
+.cover-title{
+  font-family:var(--font-hero); font-weight:600;
+  font-size:34pt; line-height:1.05; letter-spacing:-.02em;
+  margin-top:4mm; color:#fff;
+}
+.cover-lede{
+  font-family:var(--font-hero); font-weight:500;
+  margin-top:5mm; font-size:12pt; line-height:1.45;
+  color:rgba(255,255,255,.86); max-width:46ch;
+}
+.cover-photo{
+  position:absolute; left:0; right:0; bottom:21mm;
+  z-index:1; padding:0 6mm;
+}
+.cover-photo img{width:100%; height:auto}
+.cover-foot{
+  position:absolute; left:0; right:0; bottom:0; z-index:3;
+  padding:0 15mm 11mm;
+  display:flex; justify-content:space-between; align-items:flex-end;
+  font-size:8pt; color:rgba(255,255,255,.8);
+}
+.cover-foot b{display:block; font-weight:600; color:#fff; font-size:9pt}
+
+/* ---------- Panels, cards, grids ---------- */
+.grid{display:grid; gap:5mm}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+
+.card{
+  border:1px solid var(--silver); border-radius:var(--r-card);
+  padding:5mm; background:var(--white);
+}
+.card--tint{background:var(--paper); border-color:transparent}
+.card--blue{background:var(--panel-light); border-color:transparent}
+.card h4{
+  font-family:var(--font-serif); font-size:11.5pt; font-weight:600;
+  margin-bottom:2mm;
+}
+.card p{font-size:9pt; color:var(--slate)}
+.card-num{
+  font-family:var(--font-serif); font-size:16pt; color:var(--blue);
+  line-height:1; margin-bottom:2.5mm; display:block;
+}
+
+.rule{height:1px; background:var(--silver); margin:6mm 0}
+
+/* Full-width image strip, used to close out page 02 */
+.strip{margin-top:auto}
+.strip img{width:100%; height:56mm; object-fit:cover; object-position:center 62%; border-radius:var(--r-card)}
+.strip figcaption{
+  font-family:var(--font-serif); font-size:12pt; color:var(--ink);
+  margin-top:3.5mm; max-width:118mm;
+}
+.strip ~ .foot{margin-top:6mm}
+
+/* Definition rows, used by At a glance and Contact */
+.facts{border-top:1px solid var(--silver)}
+.facts div{
+  display:flex; gap:4mm; padding:2.4mm 0;
+  border-bottom:1px solid var(--silver); font-size:9pt;
+}
+.facts dt{flex:0 0 30mm; color:var(--slate)}
+.facts dd{font-weight:500}
+.todo{ border-bottom:1px dotted var(--blue); color:var(--blue); font-weight:500; }
+
+/* Chip row */
+.chips{display:flex; flex-wrap:wrap; gap:2mm}
+.chip{
+  border:1px solid var(--silver); border-radius:999px;
+  padding:1.4mm 4mm; font-size:8.5pt; color:var(--slate);
+}
+
+/* Numbered principles */
+.principle{display:flex; gap:4mm; padding:3.5mm 0; border-bottom:1px solid var(--silver)}
+.principle:last-child{border-bottom:0}
+.principle b{
+  flex:0 0 7mm; font-family:var(--font-serif); font-size:13pt;
+  color:var(--blue); font-weight:400; line-height:1.3;
+}
+.principle h4{font-family:var(--font-serif); font-size:11.5pt; font-weight:600; margin-bottom:1mm}
+.principle p{font-size:9pt; color:var(--slate); max-width:72ch}
+
+/* Vision, mission and goal panel, and the values row beneath it */
+.vmg p{font-family:var(--font-serif); font-size:11.5pt; line-height:1.4; color:var(--ink)}
+.values{display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; margin-top:5mm}
+.values > div{border-top:2px solid var(--blue); padding-top:2.5mm}
+.values h4{font-family:var(--font-serif); font-size:11pt; font-weight:600; margin-bottom:1.5mm}
+.values p{font-size:8.5pt; color:var(--slate)}
+
+/* Format cards */
+.fmt{display:flex; flex-direction:column; height:100%}
+.fmt-tag{
+  font-size:7.5pt; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--blue); margin-bottom:1.5mm;
+}
+.fmt dl{margin-top:3mm; font-size:8.5pt}
+.fmt dt{font-weight:600; margin-top:2.5mm}
+.fmt dd{color:var(--slate)}
+.fmt dl dt:first-child{margin-top:0}
+
+/* Workshop table */
+.wtable{width:100%; border-collapse:collapse; font-size:8.5pt}
+.wtable th{
+  text-align:left; font-weight:600; font-size:7.5pt; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--slate);
+  padding:0 3mm 2mm 0; border-bottom:1px solid var(--ink);
+  vertical-align:bottom;
+}
+.wtable td{
+  padding:3.5mm 3mm 3.5mm 0; border-bottom:1px solid var(--silver);
+  vertical-align:top; color:var(--slate);
+}
+.wtable td:first-child{
+  color:var(--ink); font-weight:600; width:52mm;
+  font-family:var(--font-serif); font-size:10pt; line-height:1.25;
+}
+
+/* Module outline */
+.mod{margin-bottom:4.5mm}
+.mod-head{display:flex; align-items:baseline; gap:3mm; margin-bottom:2mm}
+.mod-head h4{font-family:var(--font-serif); font-size:11.5pt; font-weight:600}
+.mod-meta{font-size:8pt; color:var(--blue); font-weight:600; letter-spacing:.05em; text-transform:uppercase}
+.mod ul{list-style:none; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:1.5mm 5mm}
+.mod li{font-size:8.5pt; color:var(--slate); padding-left:4mm; position:relative}
+.mod li::before{
+  content:""; position:absolute; left:0; top:1.9mm;
+  width:1.8mm; height:1.8mm; border-radius:50%; background:var(--blue-soft);
+}
+
+/* Director cards */
+.dir{display:grid; grid-template-columns:32mm 1fr; gap:5mm; align-items:start}
+.dir-photo{border-radius:var(--r-card); overflow:hidden; background:var(--paper)}
+.dir-photo img{width:100%; height:42mm; object-fit:cover; object-position:center top}
+.dir h3{font-family:var(--font-serif); font-size:14pt; font-weight:600}
+.dir-role{font-size:8pt; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); font-weight:600; margin-bottom:2mm}
+.dir p{font-size:9pt; color:var(--slate)}
+.dir-sub{
+  font-size:7.5pt; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--slate); margin:3.5mm 0 1.5mm;
+}
+.dir-edu ul{padding:0}
+.dir-edu li{font-size:8.5pt; list-style:none; color:var(--ink)}
+.dir-edu li span{color:var(--slate)}
+.logos{display:flex; align-items:center; gap:6mm; flex-wrap:wrap}
+.logos img{height:6mm; width:auto; object-fit:contain}
+
+/* Client logo wall */
+.clients{display:grid; grid-template-columns:repeat(3,1fr); gap:4mm}
+.clients div{
+  border:1px solid var(--silver); border-radius:var(--r-card);
+  height:24mm; display:flex; align-items:center; justify-content:center;
+  padding:4mm;
+}
+.clients img{max-height:14mm; width:auto; object-fit:contain}
+
+/* Contact block */
+.contact{
+  background:var(--blue-deep); color:#fff; border-radius:var(--r-card);
+  padding:6mm; margin-top:6mm;
+}
+.contact h3{font-family:var(--font-serif); font-size:14pt; margin-bottom:2mm}
+.contact p{font-size:9.5pt; color:rgba(255,255,255,.82); max-width:60ch}
+.contact .facts{border-top-color:rgba(255,255,255,.22); margin-top:4mm}
+.contact .facts div{border-bottom-color:rgba(255,255,255,.22)}
+.contact .facts dt{color:rgba(255,255,255,.7)}
+.contact .facts dd{color:#fff}
+.contact .todo{color:var(--pill); border-bottom-color:var(--pill)}
+
+/* Engagement steps */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; margin-top:3mm}
+.steps div{border-top:2px solid var(--blue); padding-top:2.5mm}
+.steps b{display:block; font-size:8pt; color:var(--blue); letter-spacing:.08em; text-transform:uppercase}
+.steps p{font-size:8.5pt; color:var(--slate); margin-top:1mm}
+
+/* Screen-only helper bar */
+.hint{
+  max-width:210mm; margin:8mm auto; padding:5mm 6mm; border-radius:var(--r-card);
+  background:#fff; font-size:10pt; line-height:1.5;
+}
+.hint b{font-weight:600}
+.hint code{background:var(--paper); padding:.5mm 1.5mm; border-radius:3px; font-size:9pt}
+
+/* ---------- Print ---------- */
+@page{ size:A4 portrait; margin:0; }
+@media print{
+  body{background:#fff}
+  .page{ margin:0; break-after:page; page-break-after:always; }
+  .page:last-child{break-after:auto; page-break-after:auto}
+  .hint{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hint">
+  <b>To save this as a PDF:</b> press <code>Ctrl</code>+<code>P</code>
+  (<code>Cmd</code>+<code>P</code> on Mac), set Destination to <b>Save as PDF</b>,
+  Paper size <b>A4</b>, Margins <b>None</b>, and switch
+  <b>Background graphics</b> on under More settings. This bar does not print.
+</div>
+
+
+<!-- ===================== 1. COVER ===================== -->
+<section class="page page--dark cover">
+  <div class="cover-top">
+    <img class="cover-logo" src="assets/img/blueprint-logo.png" alt="Blueprint AI Training">
+    <p class="cover-kicker">Company Profile &middot; 2026</p>
+    <h1 class="cover-title">Human first,<br>AI second.</h1>
+    <p class="cover-lede">
+      We train people in Malaysian organisations to be AI&#8209;ready.
+    </p>
+  </div>
+
+  <div class="cover-photo">
+    <img src="assets/img/cover_group.webp" alt="The Blueprint AI Training team">
+  </div>
+
+  <div class="cover-foot">
+    <div>
+      <b>Blueprint AI Training</b>
+      Operated by Wawasan AI Training Sdn Bhd
+    </div>
+    <div style="text-align:right">
+      <b>HRD Corp Registered Training Provider</b>
+      blueprintaitraining.com
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== 2. WHO WE ARE ===================== -->
+<section class="page">
+  <p class="eyebrow">Who we are</p>
+  <h2 class="h-page">AI training that people still use after the course ends</h2>
+
+  <div class="body" style="display:grid; grid-template-columns:1fr 70mm; gap:8mm">
+    <div>
+      <p class="lede" style="margin-bottom:4mm">
+        Blueprint AI Training was started by two directors who kept seeing the
+        same thing: companies buying AI tools that their people never really used.
+      </p>
+      <p>
+        The idea is simple to say and surprisingly hard to find. Plenty of courses
+        leave a team feeling inspired for a week. We would rather they leave with
+        habits, built on their own work, that survive contact with a normal Monday.
+      </p>
+      <p>
+        As an HRD Corp registered training provider, we build every course to be
+        practical rather than theoretical. The gap in most Malaysian companies is
+        not knowledge about AI. It is comfort with it, and comfort is what our
+        workshops are designed to build.
+      </p>
+      <p>
+        We are not a translated franchise or a licensed curriculum from somewhere
+        else. The courses are designed in Malaysia, around the departments, the
+        deadlines and the way decisions really get made here. The two directors
+        who write the material are the two people who deliver it.
+      </p>
+      <p>
+        The name is a small promise. A blueprint exists to be built from, and so
+        do our courses.
+      </p>
+    </div>
+
+    <aside>
+      <p class="eyebrow" style="margin-bottom:3mm">At a glance</p>
+      <!-- FILL IN: every .todo below comes from the founders. -->
+      <dl class="facts">
+        <div><dt>Legal entity</dt><dd>Wawasan AI Training Sdn&nbsp;Bhd</dd></div>
+        <div><dt>Trading as</dt><dd>Blueprint AI Training</dd></div>
+        <div><dt>SSM registration</dt><dd class="todo">FILL IN</dd></div>
+        <div><dt>Incorporated</dt><dd class="todo">FILL IN</dd></div>
+        <div><dt>HRD Corp status</dt><dd>Registered Training Provider</dd></div>
+        <div><dt>HRD Corp reg. no.</dt><dd class="todo">FILL IN</dd></div>
+        <div><dt>Directors</dt><dd>Tey Jian Han<br>Daniel Chua</dd></div>
+        <div><dt>Based in</dt><dd class="todo">FILL IN</dd></div>
+        <div><dt>Coverage</dt><dd>Nationwide, at your premises</dd></div>
+        <div><dt>Language</dt><dd>English</dd></div>
+        <div><dt>Delivery</dt><dd>In person, hands&#8209;on</dd></div>
+      </dl>
+    </aside>
+  </div>
+
+  <figure class="strip">
+    <img src="assets/img/kl-dusk.jpg" alt="Kuala Lumpur at dusk">
+    <figcaption>
+      Built here, for how companies here actually run.
+    </figcaption>
+  </figure>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &middot; Company Profile</span><span>02</span></div>
+</section>
+
+
+<!-- ===================== 3. BELIEFS + DIFFERENTIATORS ===================== -->
+<section class="page">
+  <p class="eyebrow">What we stand for</p>
+  <h2 class="h-page">Vision, mission and goal</h2>
+
+  <!-- DRAFT: written from the positioning in PRODUCT.md. These three statements
+       are the founders' to own, so read them line by line before this document
+       goes to a client and rewrite anything that is not how you would say it. -->
+  <div class="grid g3" style="margin-bottom:5mm">
+    <div class="card card--blue vmg">
+      <p class="eyebrow" style="margin-bottom:2.5mm">Vision</p>
+      <p>A Malaysian workforce that uses AI confidently in everyday work, so
+      companies here compete on the same footing as anyone else.</p>
+    </div>
+    <div class="card card--blue vmg">
+      <p class="eyebrow" style="margin-bottom:2.5mm">Mission</p>
+      <p>To make people in Malaysian organisations AI&#8209;ready through practical
+      training, built on the work they already do and taught by the people who
+      designed it.</p>
+    </div>
+    <div class="card card--blue vmg">
+      <p class="eyebrow" style="margin-bottom:2.5mm">Goal</p>
+      <p>Every team we train leaves using AI on real work, and is still using it
+      months later. That is what we measure, not attendance.</p>
+    </div>
+  </div>
+
+  <p class="eyebrow">Our values</p>
+  <div class="values">
+    <div>
+      <h4>Practicality is the product</h4>
+      <p>If a session cannot be pointed back at real work, it does not go in the
+      course.</p>
+    </div>
+    <div>
+      <h4>Comfort matters more than knowledge</h4>
+      <p>Most teams already know AI exists. What stops them is hesitation, so
+      that is what we train away.</p>
+    </div>
+    <div>
+      <h4>Judgement stays human</h4>
+      <p>We teach people what to check, what not to paste in, and where AI's
+      limits are.</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="eyebrow">Why companies choose us</p>
+  <h3 class="h-sec" style="font-size:16pt; margin-bottom:4mm">Four differences you notice in the room</h3>
+
+  <div class="grid g2">
+    <div class="card card--tint">
+      <span class="card-num">01</span>
+      <h4>AI implementors, not career trainers</h4>
+      <p>Your trainers have actually built and deployed AI inside corporate
+      companies. What we teach is what worked there, not what a slide deck says
+      should work.</p>
+    </div>
+    <div class="card card--tint">
+      <span class="card-num">02</span>
+      <h4>Everyone works on their own problem</h4>
+      <p>Each participant brings a real task from their own job and leaves the room
+      with it solved, or close to it. Nobody practises on our sample data.</p>
+    </div>
+    <div class="card card--tint">
+      <span class="card-num">03</span>
+      <h4>Built for IT and non&#8209;IT alike</h4>
+      <p>Designed for the account manager, the HR executive and the finance team.
+      If your people can write an email, they can do everything we cover. No
+      coding, anywhere.</p>
+    </div>
+    <div class="card card--tint">
+      <span class="card-num">04</span>
+      <h4>The founders teach it themselves</h4>
+      <p>There is no bench of associate trainers. Book a session and one of the two
+      directors is the person standing in front of your team.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &middot; Company Profile</span><span>03</span></div>
+</section>
+
+
+<!-- ===================== 4. HOW WE DELIVER ===================== -->
+<section class="page">
+  <p class="eyebrow">How we deliver</p>
+  <h2 class="h-page">Three formats, one aim</h2>
+  <p class="lede" style="margin-bottom:6mm">
+    Everything we run is built to end the same way: people reaching for AI on their
+    own, without being told to. What changes is how much of the time is talking and
+    how much is doing.
+  </p>
+
+  <div class="grid g3" style="align-items:stretch">
+    <div class="card fmt">
+      <p class="fmt-tag">Fully theory</p>
+      <h4>Briefing</h4>
+      <dl>
+        <dt>What it is</dt>
+        <dd>A talk&#8209;led session with no laptops. What AI is doing to work in
+        Malaysia, what it means for your industry, and what a realistic plan looks
+        like.</dd>
+        <dt>Who it suits</dt>
+        <dd>Leadership teams deciding whether to invest, or a whole company that
+        needs the same starting picture.</dd>
+        <dt>Shape</dt>
+        <dd>Short. Works with a large room. Often the step that gets budget
+        approved for the training that follows.</dd>
+      </dl>
+    </div>
+
+    <div class="card fmt" style="border-color:var(--blue); border-width:1.5px">
+      <p class="fmt-tag">Theory + practical</p>
+      <h4>Workshop</h4>
+      <dl>
+        <dt>What it is</dt>
+        <dd>The default. Each concept is explained, then practised immediately on
+        the participant's own work, so nothing stays abstract.</dd>
+        <dt>Who it suits</dt>
+        <dd>Teams starting from zero. Most companies begin here, because most
+        people have never been shown how to work with AI properly.</dd>
+        <dt>Shape</dt>
+        <dd>One to two days, laptops required, capped so every person gets
+        attention. Everyone leaves having finished something real.</dd>
+      </dl>
+    </div>
+
+    <div class="card fmt">
+      <p class="fmt-tag">Fully practical</p>
+      <h4>Lab</h4>
+      <dl>
+        <dt>What it is</dt>
+        <dd>Almost no lecture. Your team brings live work and we sit with them
+        while they do it, fixing what goes wrong as it goes wrong.</dd>
+        <dt>Who it suits</dt>
+        <dd>Teams past the basics whose habits have not stuck, or a department with
+        one process they want rebuilt around AI.</dd>
+        <dt>Shape</dt>
+        <dd>Half&#8209;day sessions, often repeated. The format that turns a good
+        training day into a change you can still see months later.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="card card--blue" style="margin-top:5mm">
+    <p style="font-size:9.5pt; color:var(--ink)">
+      <strong>These stack.</strong> A briefing gets leadership aligned, a workshop
+      trains the team, and labs keep it alive afterwards. Each one also stands on
+      its own if that is all you need.
+    </p>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="eyebrow" style="margin-bottom:3mm">Ground every format covers</p>
+  <div class="chips">
+    <span class="chip">Working with AI assistants</span>
+    <span class="chip">Documents &amp; writing</span>
+    <span class="chip">Analysis &amp; decisions</span>
+    <span class="chip">Research &amp; summarising</span>
+    <span class="chip">Data safety &amp; guardrails</span>
+    <span class="chip">Checking AI's work</span>
+  </div>
+  <p style="font-size:9pt; color:var(--slate); margin-top:3mm; max-width:150mm">
+    The emphasis is set per company. A finance&#8209;heavy team and a
+    sales&#8209;heavy team leave with different sessions under the same headings.
+  </p>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &middot; Company Profile</span><span>04</span></div>
+</section>
+
+
+<!-- ===================== 5. THE PROGRAMMES ===================== -->
+<section class="page">
+  <p class="eyebrow">Our workshops</p>
+  <h2 class="h-page">Three programmes, run with Claude</h2>
+  <p class="lede" style="margin-bottom:6mm">
+    Participants work with Claude, one of the world's leading AI assistants, from
+    the first hour. Companies most commonly start their whole team on the
+    productivity and strategy programme, then send individual departments into the
+    specialist ones.
+  </p>
+
+  <table class="wtable">
+    <thead>
+      <tr>
+        <th>Programme</th>
+        <th>Who it is for</th>
+        <th>Format</th>
+        <th style="width:22mm">Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Claude Mastery for Business Productivity and Strategy</td>
+        <td>Whole companies and mixed departments starting from zero. The usual
+        first step, and the one that makes every later course land.</td>
+        <td>Theory + practical, laptops required</td>
+        <td>2 days</td>
+      </tr>
+      <tr>
+        <td>Claude Mastery for AI in Digital Marketing</td>
+        <td>Marketing, growth and sales teams responsible for campaigns, customer
+        research and performance.</td>
+        <td>Theory + practical, laptops required</td>
+        <td>1 to 2 days</td>
+      </tr>
+      <tr>
+        <td>Claude Mastery for Content Marketing</td>
+        <td>Content, brand, social and communications teams producing a continuous
+        volume of published work.</td>
+        <td>Theory + practical, laptops required</td>
+        <td>1 to 2 days</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid g3" style="margin-top:7mm">
+    <div class="card card--tint">
+      <h4>No prerequisites</h4>
+      <p>No coding and no prior AI experience. The curriculum suits both IT and
+      non&#8209;IT backgrounds.</p>
+    </div>
+    <div class="card card--tint">
+      <h4>Run on your work</h4>
+      <p>Participants bring their own reports, campaigns and content. The exercises
+      are your company's real tasks.</p>
+    </div>
+    <div class="card card--tint">
+      <h4>Scoped per company</h4>
+      <p>Duration, group size, venue and emphasis are agreed with you before every
+      run. You get a written outline first.</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="eyebrow">In development</p>
+  <h3 class="h-sec" style="font-size:14pt">Specialist courses, one department at a time</h3>
+  <p style="font-size:9pt; color:var(--slate); max-width:150mm; margin-bottom:3mm">
+    These go deeper into a single function. They are being built now, so tell us
+    which one your company needs first.
+  </p>
+  <div class="chips">
+    <span class="chip">AI for Data Analysis</span>
+    <span class="chip">Advanced AI for Procurement</span>
+    <span class="chip">AI for Human Resources</span>
+    <span class="chip">AI for Finance</span>
+    <span class="chip">AI for Operations</span>
+    <span class="chip">AI for Customer Service</span>
+  </div>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &middot; Company Profile</span><span>05</span></div>
+</section>
+
+
+<!-- ===================== 6. OUTLINES + OUTCOMES ===================== -->
+<section class="page">
+  <p class="eyebrow">Inside the programmes</p>
+  <h2 class="h-page" style="margin-bottom:5mm">What the sessions actually cover</h2>
+
+  <!-- CONFIRM: the first outline is the 2 day module already written for HRD Corp
+       submission. The two marketing outlines were drafted from the course
+       descriptions on workshop.html and need founder sign-off before this goes
+       to a client. -->
+
+  <div class="mod">
+    <div class="mod-head">
+      <h4>Claude Mastery for Business Productivity and Strategy</h4>
+      <span class="mod-meta">2 days</span>
+    </div>
+    <ul>
+      <li>What AI is, and what it is not</li>
+      <li>First conversations: asking, refining, pushing back</li>
+      <li>Delegating properly: context, examples, standards</li>
+      <li>Your own backlog, finished before day one ends</li>
+      <li>Documents and writing: reports, proposals, minutes</li>
+      <li>Analysis and decisions: long documents, options, briefs</li>
+      <li>Department deep&#8209;dives by role</li>
+      <li>Guardrails, data safety and personal AI workflows</li>
+    </ul>
+  </div>
+
+  <div class="mod">
+    <div class="mod-head">
+      <h4>Claude Mastery for AI in Digital Marketing</h4>
+      <span class="mod-meta">1 to 2 days</span>
+    </div>
+    <ul>
+      <li>Market and competitor research at speed</li>
+      <li>Customer research: segments, objections, language</li>
+      <li>Positioning and messaging you can defend</li>
+      <li>Campaign planning end to end</li>
+      <li>Ad copy and creative variants at volume</li>
+      <li>Reading performance data and deciding what to change</li>
+      <li>Briefing agencies and freelancers with AI</li>
+      <li>Guardrails: brand claims, data safety, checking output</li>
+    </ul>
+  </div>
+
+  <div class="mod">
+    <div class="mod-head">
+      <h4>Claude Mastery for Content Marketing</h4>
+      <span class="mod-meta">1 to 2 days</span>
+    </div>
+    <ul>
+      <li>Teaching Claude your brand voice</li>
+      <li>Content planning and editorial calendars</li>
+      <li>Long&#8209;form drafting: articles, guides, case studies</li>
+      <li>Social posts and scripts from one source piece</li>
+      <li>Repurposing: one asset into a month of content</li>
+      <li>Search and structure without writing for robots</li>
+      <li>Editing and quality control before anything publishes</li>
+      <li>Building a repeatable production workflow</li>
+    </ul>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="eyebrow">Afterwards</p>
+  <h3 class="h-sec" style="font-size:16pt; margin-bottom:4mm">What your team takes away</h3>
+  <div class="grid g4">
+    <div class="card card--blue">
+      <h4 style="font-size:10.5pt">Comfort replaces caution</h4>
+      <p>People open an AI assistant the way they open email, without making it a
+      big deal.</p>
+    </div>
+    <div class="card card--blue">
+      <h4 style="font-size:10.5pt">First drafts stop taking hours</h4>
+      <p>Reports, emails and summaries start from a competent draft instead of a
+      blank page.</p>
+    </div>
+    <div class="card card--blue">
+      <h4 style="font-size:10.5pt">Every role has its use case</h4>
+      <p>Each participant leaves with a workflow built for their own job, tested on
+      their own tasks.</p>
+    </div>
+    <div class="card card--blue">
+      <h4 style="font-size:10.5pt">Judgement stays human</h4>
+      <p>Your team knows what to check, what not to paste in, and where AI's limits
+      are.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &middot; Company Profile</span><span>06</span></div>
+</section>
+
+
+<!-- ===================== 7. THE DIRECTORS ===================== -->
+<section class="page">
+  <p class="eyebrow">The directors</p>
+  <h2 class="h-page">Founded and run by two people, not a franchise</h2>
+  <p class="lede" style="margin-bottom:6mm">
+    Both founders are directors of the company and both teach. Blueprint was set up
+    so that the people who design the material are the people who deliver it.
+  </p>
+
+  <div class="dir">
+    <div class="dir-photo">
+      <img src="assets/img/tey-jian-han.png" alt="Tey Jian Han">
+    </div>
+    <div>
+      <h3>Tey Jian Han</h3>
+      <p class="dir-role">Co&#8209;founder &amp; Director</p>
+      <p>An AI engineer by trade. He teaches the AI&#8209;readiness programmes and
+      writes about AI readiness as a leadership decision rather than an IT purchase.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5mm">
+        <div class="dir-edu">
+          <p class="dir-sub">Education and awards</p>
+          <ul>
+            <li><strong>MSc Business Analytics</strong><br>
+                <span>Imperial College London<br>Dean's List, Distinction</span></li>
+            <li style="margin-top:2mm"><strong>BSc Computer Science with Management</strong><br>
+                <span>King's College London<br>First Class Honours</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="dir-sub">Professional skills</p>
+          <p style="font-size:8.5pt">AI and software development<br>
+          Data analysis and data science<br>
+          Machine learning and generative AI</p>
+        </div>
+      </div>
+
+      <p class="dir-sub">Previously</p>
+      <div class="logos">
+        <img src="assets/img/employers/ey.svg" alt="EY">
+        <img src="assets/img/employers/intelmatix.png" alt="Intelmatix">
+        <img src="assets/img/employers/supahands.png" alt="Supahands">
+      </div>
+      <p style="font-size:8pt; color:var(--slate); margin-top:2mm">
+        Senior Associate, Technology &amp; Consulting (AI &amp; Data) &middot;
+        Technology Consultant &middot; Computer Vision Trainer
+      </p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="dir">
+    <div class="dir-photo">
+      <img src="assets/img/daniel-chua.png" alt="Daniel Chua">
+    </div>
+    <div>
+      <h3>Daniel Chua</h3>
+      <p class="dir-role">Co&#8209;founder &amp; Director</p>
+      <p>He builds AI tools inside a company and trains the staff there to use them.
+      That is more or less this job, done for one employer instead of many.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:5mm">
+        <div class="dir-edu">
+          <p class="dir-sub">Education and awards</p>
+          <ul>
+            <li><strong>Master's in Business Analytics</strong><br>
+                <span>Sunway University &middot; CGPA 3.91<br>Sunway Scholastic Award</span></li>
+            <li style="margin-top:2mm"><strong>Bachelor's in Computer Science</strong><br>
+                <span>Xiamen University &middot; CGPA 3.87<br>Chinese Ambassador Award</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="dir-sub">Professional skills</p>
+          <p style="font-size:8.5pt">AI and software development<br>
+          Data analysis and data science<br>
+          Machine learning and generative AI</p>
+        </div>
+      </div>
+
+      <p class="dir-sub">Previously</p>
+      <div class="logos">
+        <img src="assets/img/employers/moneylion.svg" alt="MoneyLion">
+        <img src="assets/img/employers/coingecko.svg" alt="CoinGecko">
+        <img src="assets/img/employers/coinw.svg" alt="CoinW">
+      </div>
+      <p style="font-size:8pt; color:var(--slate); margin-top:2mm">
+        Data Analyst &middot; Growth Marketer &middot; AI Developer
+      </p>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &middot; Company Profile</span><span>07</span></div>
+</section>
+
+
+<!-- ===================== 8. CLIENTS, HRD CORP, CONTACT ===================== -->
+<section class="page">
+  <p class="eyebrow">Track record</p>
+  <h2 class="h-page" style="margin-bottom:4mm">We work with notable modern and traditional businesses in Malaysia</h2>
+
+  <div class="clients">
+    <div><img src="assets/img/credentials/weil.png" alt="Weil Hotel"></div>
+    <div><img src="assets/img/credentials/cropped-Silent-Night-Favicon.png" alt="Silentnight"></div>
+    <div><img src="assets/img/credentials/brand-dormiflex.png" alt="Dormiflex"></div>
+    <div><img src="assets/img/credentials/brand-masterfoam01-2.png" alt="Masterfoam"></div>
+    <div><img src="assets/img/credentials/brand-rest-pedic.png" alt="Rest-Pedic"></div>
+    <div><img src="assets/img/credentials/nly-logo.png" alt="NLY Foam"></div>
+  </div>
+
+  <div class="rule"></div>
+
+  <!-- VERIFY: this stays at provider level on purpose. Do not state that a
+       specific course is claimable until that module is through HRD Corp. -->
+  <p class="eyebrow">Using your HRD levy</p>
+  <h3 class="h-sec" style="font-size:15pt">Registered with HRD Corp</h3>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:7mm">
+    <p style="font-size:9.5pt; color:var(--slate)">
+      Blueprint AI Training is a registered HRD Corp training provider. If your
+      company contributes to the HRD levy, that money leaves your account whether
+      you use it or not, and upskilling like this is exactly what it exists for.
+    </p>
+    <p style="font-size:9.5pt; color:var(--slate)">
+      What you can claim depends on the scheme your company is on and how the
+      training is scoped. Tell us your situation and we will walk you through what
+      applies and what we can support.
+    </p>
+  </div>
+
+  <p class="eyebrow" style="margin-top:6mm">How an engagement runs</p>
+  <div class="steps">
+    <div>
+      <b>01 &nbsp;Enquiry</b>
+      <p>Tell us your company size, industry and what your people struggle with.</p>
+    </div>
+    <div>
+      <b>02 &nbsp;Written outline</b>
+      <p>We come back with the format we would recommend, a session outline and a
+      figure, before you commit to anything.</p>
+    </div>
+    <div>
+      <b>03 &nbsp;Delivery</b>
+      <p>We run it at your office or a venue you arrange, scheduled around your
+      operations.</p>
+    </div>
+  </div>
+
+  <div class="contact">
+    <h3>Talk to the directors directly</h3>
+    <p>
+      No sales team and no call centre. Message us and one of the two people in
+      this profile will reply.
+    </p>
+    <!-- FILL IN: email and address. WhatsApp matches the number on the website. -->
+    <dl class="facts">
+      <div><dt>WhatsApp</dt><dd>+60 11&#8209;5323 8181</dd></div>
+      <div><dt>Email</dt><dd class="todo">FILL IN</dd></div>
+      <div><dt>Website</dt><dd>blueprintaitraining.com</dd></div>
+      <div><dt>Address</dt><dd class="todo">FILL IN</dd></div>
+    </dl>
+  </div>
+
+  <div class="foot">
+    <span><b>Wawasan AI Training Sdn Bhd</b> &middot; HRD Corp Registered Training Provider &middot; &copy; 2026</span>
+    <span>08</span>
+  </div>
+</section>
+
+</body>
+</html>
