@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Summary | Claude Mastery for Business Productivity and Automation</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Poppins:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+
+<!--
+  COURSE SUMMARY (print-first, A4 portrait, 3 pages)
+
+  WHAT THIS IS
+    The short, sendable version of course-productivity.html: key facts,
+    outcomes, and all 11 modules summarised to a sentence or two each.
+    The full hour-by-hour outline stays on course-productivity.html;
+    this is what goes to a buyer who wants the shape on three pages.
+
+  HOW TO MAKE THE PDF
+    Same recipe as profile.html. Open in Chrome or Edge, Ctrl+P:
+      Destination          Save as PDF
+      Paper size           A4
+      Margins              None
+      Background graphics  ON
+    Or regenerate from the command line with headless Chrome, printing
+    to Claude-Mastery-Business-Productivity-Automation.pdf.
+
+  KEEP IN SYNC
+    Module names, durations and the key facts are copied from
+    course-productivity.html. If a module is renamed or retimed there,
+    fix it here too.
+
+  GENERIC ON PURPOSE
+    The source outline carries a client's hospitality examples (a guest
+    card build, a hotel performance dataset). Those are written
+    generically here so this can go to any company.
+-->
+
+<style>
+/* ---------- Tokens, inherited from the site ---------- */
+:root{
+  --band:#2b1e9c; --blue-deep:#0b2161;
+  --blue:#1e40c9; --blue-soft:#7fa4ff;
+  --pill:#bcd2ff; --panel-light:#e4ecff;
+  --white:#fff; --paper:#f4f4f2; --silver:#d8d8d6;
+  --slate:#4d4d4d; --ink:#1a1a1a;
+  --font:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --font-serif:"Source Serif 4",Georgia,serif;
+  --font-hero:"Poppins","Archivo",Arial,sans-serif;
+  --r-card:10px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+
+html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+body{
+  font-family:var(--font); color:var(--ink);
+  font-size:10pt; line-height:1.55;
+  background:var(--slate);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+
+.page{
+  position:relative; overflow:hidden;
+  width:210mm; height:297mm;
+  padding:15mm 15mm 11mm;
+  background:var(--white);
+  margin:0 auto 8mm;
+  display:flex; flex-direction:column;
+}
+.page:last-child{margin-bottom:0}
+
+.foot{
+  margin-top:auto; padding-top:4.5mm;
+  border-top:1px solid var(--silver);
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-size:7.5pt; letter-spacing:.04em; color:var(--slate);
+  text-transform:uppercase;
+}
+.foot b{font-weight:600; color:var(--ink)}
+
+/* ---------- Type ---------- */
+.eyebrow{
+  font-size:7.5pt; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--blue);
+}
+h1,h2,h3,h4{font-weight:400; line-height:1.15}
+.h-page{
+  font-family:var(--font-serif); font-size:21pt; font-weight:400;
+  letter-spacing:-.01em; margin:2.5mm 0 3mm; max-width:27ch;
+}
+.h-sec{ font-family:var(--font-serif); font-size:13.5pt; margin-bottom:2.5mm; }
+.lede{font-size:10.5pt; line-height:1.5; color:var(--slate); max-width:64ch}
+p+p{margin-top:2.5mm}
+strong{font-weight:600}
+.rule{height:1px; background:var(--silver); margin:4mm 0}
+
+/* ---------- Cover header, page 1 ---------- */
+.masthead{
+  background:var(--band); color:#fff;
+  margin:-15mm -15mm 7mm; padding:15mm 15mm 11mm;
+}
+.masthead-logo{height:7mm; width:auto; filter:brightness(0) invert(1)}
+.masthead-kicker{
+  margin-top:10mm; font-size:8pt; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--pill);
+}
+.masthead h1{
+  font-family:var(--font-hero); font-weight:600;
+  font-size:25pt; line-height:1.08; letter-spacing:-.02em;
+  margin-top:3.5mm; color:#fff; max-width:20ch;
+}
+.masthead p{
+  font-family:var(--font-hero); font-weight:500;
+  margin-top:4mm; font-size:11pt; line-height:1.45;
+  color:rgba(255,255,255,.86); max-width:52ch;
+}
+
+/* ---------- Key facts ---------- */
+.keyfacts{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:2px solid var(--blue); border-bottom:1px solid var(--silver);
+}
+.keyfacts div{padding:3mm 4mm 3.5mm 0}
+.keyfacts dt{
+  font-size:7pt; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--slate); margin-bottom:1mm;
+}
+.keyfacts dd{
+  font-family:var(--font-serif); font-size:12pt; font-weight:600; color:var(--ink);
+  line-height:1.2;
+}
+.keyfacts dd small{display:block; font-family:var(--font); font-size:8pt; font-weight:400; color:var(--slate); margin-top:.8mm}
+
+/* ---------- Outcomes ---------- */
+.outs{display:grid; grid-template-columns:1fr 1fr; gap:3.5mm 6mm}
+.outs > div{border-top:1px solid var(--silver); padding-top:2.5mm}
+.outs h4{font-family:var(--font-serif); font-size:10.5pt; font-weight:600; margin-bottom:1mm}
+.outs p{font-size:8.5pt; color:var(--slate); line-height:1.45}
+
+/* ---------- The six jobs ---------- */
+.six{display:grid; grid-template-columns:repeat(6,1fr); gap:3mm}
+.six > div{border-top:2px solid var(--blue-soft); padding-top:2mm}
+.six b{display:block; font-family:var(--font-serif); font-size:10.5pt; font-weight:600; margin-bottom:.8mm}
+.six span{font-size:7.5pt; color:var(--slate); line-height:1.4; display:block}
+
+/* ---------- Day header ---------- */
+.dayhead{
+  display:flex; align-items:baseline; gap:4mm;
+  border-bottom:2px solid var(--blue); padding-bottom:2.5mm;
+  margin:6mm 0 1mm;
+}
+.page > .dayhead:first-child{margin-top:0}
+.dayhead .eyebrow{flex:0 0 auto}
+.dayhead h3{font-family:var(--font-serif); font-size:14pt; font-weight:600}
+.dayhead .when{margin-left:auto; font-size:8pt; color:var(--slate)}
+.dayline{font-size:9pt; color:var(--slate); margin:2.5mm 0 2mm; font-style:italic}
+.daynote{font-size:8.75pt; color:var(--slate); line-height:1.5; margin-bottom:4mm; max-width:96ch}
+
+/* ---------- Module rows ---------- */
+.mods{display:flex; flex-direction:column}
+.m{display:flex; gap:4mm; padding:2.5mm 0; border-bottom:1px solid var(--silver)}
+.m:last-child{border-bottom:0}
+.m-n{
+  flex:0 0 11mm; font-family:var(--font-serif); font-size:15pt;
+  color:var(--blue); font-weight:400; line-height:1; padding-top:.6mm;
+}
+.m-b{flex:1 1 auto}
+.m-head{display:flex; align-items:baseline; gap:3mm}
+.m-head h4{font-family:var(--font-serif); font-size:11pt; font-weight:600; flex:1 1 auto}
+.m-dur{
+  flex:0 0 auto; font-size:7.5pt; font-weight:600; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--blue); white-space:nowrap;
+}
+.m-b p{font-size:8.6pt; color:var(--slate); line-height:1.46; margin-top:1.1mm}
+.m--soft .m-n{color:var(--blue-soft)}
+.m--soft .m-head h4{font-weight:400; font-style:italic}
+
+/* ---------- Chips ---------- */
+.chips{display:flex; flex-wrap:wrap; gap:2mm}
+.chip{
+  border:1px solid var(--silver); border-radius:999px;
+  padding:1.2mm 3.6mm; font-size:8.4pt; color:var(--slate);
+}
+
+/* ---------- Cards ---------- */
+.grid{display:grid; gap:5mm}
+.g2{grid-template-columns:1fr 1fr}
+.card{
+  border:1px solid var(--silver); border-radius:var(--r-card);
+  padding:4.2mm; background:var(--white);
+}
+.card--tint{background:var(--paper); border-color:transparent}
+.card--blue{background:var(--panel-light); border-color:transparent}
+.card h4{font-family:var(--font-serif); font-size:11pt; font-weight:600; margin-bottom:2mm}
+.card p{font-size:8.6pt; color:var(--slate); line-height:1.46}
+.card p+p{margin-top:2mm}
+
+@page{size:A4 portrait; margin:0}
+@media print{
+  body{background:none}
+  .page{margin:0; break-after:page}
+  .page:last-child{break-after:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<section class="page">
+
+  <header class="masthead">
+    <img class="masthead-logo" src="assets/img/blueprint-logo.png" alt="Blueprint" width="590" height="128">
+    <p class="masthead-kicker">Course summary</p>
+    <h1>Claude Mastery for Business Productivity and Automation</h1>
+    <p>Two days that take a team from cautious to fluent. Day one is about
+    getting exactly what you need out of a conversation. Day two is about
+    never starting one from scratch again.</p>
+  </header>
+
+  <dl class="keyfacts">
+    <div><dt>Duration</dt><dd>2 full days<small>8:30am to 5:30pm</small></dd></div>
+    <div><dt>Structure</dt><dd>11 modules<small>Theory + practical</small></dd></div>
+    <div><dt>Technical level</dt><dd>No coding<small>Laptops required</small></dd></div>
+  </dl>
+
+  <div style="margin-top:6mm">
+    <p class="eyebrow">Who it is for</p>
+    <h2 class="h-sec" style="margin-top:2mm">The course a company runs first</h2>
+    <p class="lede">Built for whole companies and mixed departments starting from
+    zero: the account manager, the HR executive, the finance and operations teams,
+    the people whose week is emails, documents, spreadsheets and decisions.
+    Participants work with <strong>Claude</strong> from the first hour, and bring
+    their own backlog, so every exercise runs on your company's own documents
+    and numbers.</p>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="eyebrow">Learning outcomes</p>
+  <h2 class="h-sec" style="margin:2mm 0 4mm">What every participant can do by 5:30pm on day two</h2>
+  <div class="outs">
+    <div><h4>Brief AI properly</h4><p>Write a brief that gets a usable answer the first time, on the tasks their role involves.</p></div>
+    <div><h4>Analyse business data</h4><p>Take a spreadsheet through to a written review with charts and recommendations they would put in front of a manager.</p></div>
+    <div><h4>Think decisions through</h4><p>Use structured frameworks to pressure-test a decision with AI, and argue back when it is wrong.</p></div>
+    <div><h4>Build working tools</h4><p>Produce dashboards, calculators and small applications without writing a line of code.</p></div>
+    <div><h4>Set up a system that persists</h4><p>Load their department's context once, teach AI their recurring procedures, and stop re-explaining themselves.</p></div>
+    <div><h4>Handle data safely</h4><p>Know what should never go into a chat, how to check output, and where the limits sit.</p></div>
+  </div>
+
+  <div class="foot"><span><b>Blueprint AI Training</b> &nbsp;&middot;&nbsp; Course summary</span><span>01</span></div>
+</section>
+
+<!-- ============================ PAGE 2 ============================ -->
+<section class="page">
+
+  <p class="eyebrow">The two days</p>
+  <h2 class="h-page" style="max-width:34ch">Eleven modules across the two days</h2>
+  <p class="lede" style="margin-bottom:6mm">Each module is taught, then practised before the room moves on. The timings
+  show the designed shape of the programme. Emphasis, examples and the departmental
+  exercises are scoped with you before every run.</p>
+
+  <p class="eyebrow">The frame</p>
+  <h2 class="h-sec" style="margin:2mm 0 3.5mm">Six jobs, taught in this order</h2>
+  <div class="six">
+    <div><b>Think</b><span>Pressure-test a decision before you commit.</span></div>
+    <div><b>Write</b><span>Proposals, reports and difficult emails.</span></div>
+    <div><b>Read</b><span>Long documents summarised, insights pulled out.</span></div>
+    <div><b>Analyse</b><span>Revenue, costs and patterns in your own numbers.</span></div>
+    <div><b>Build</b><span>Dashboards and internal tools, with no code.</span></div>
+    <div><b>Research</b><span>Competitors, markets and customers, at speed.</span></div>
+  </div>
+
+  <div class="dayhead">
+    <span class="eyebrow">Day one</span>
+    <h3>Master the conversation</h3>
+    <span class="when">Modules 1&ndash;5</span>
+  </div>
+  <p class="dayline">"I can get exactly what I need out of AI, every time, in a single conversation."</p>
+  <p class="daynote">By 5:30pm every participant can open a blank chat, write a proper brief and finish a
+  deliverable in one sitting. They also feel the friction of re-explaining their job from
+  scratch every time, which is deliberate, and is what day two fixes.</p>
+
+  <div class="mods">
+    <div class="m">
+      <span class="m-n">01</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Introduction to AI and Claude for business strategy</h4><span class="m-dur">70 min</span></div>
+        <p>Where generative AI helps a business, and what leaders need to understand about models, tokens and context to match capability to task. Introduces the Blueprint 6 framework that the whole two days map to.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">02</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Effective AI communication and strategic briefing</h4><span class="m-dur">110 min</span></div>
+        <p>The five ingredients of a brief that works first time: Role, Context, Task, Format, Constraint. Practised across three business scenarios, then used to produce a data-informed recommendation from your own performance metrics.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">03</span>
+      <div class="m-b">
+        <div class="m-head"><h4>AI governance, data security and responsible use</h4><span class="m-dur">40 min</span></div>
+        <p>How to tell a legitimate AI tool from a data-harvesting one, and a classification framework for deciding what company information is safe to share. Closes on the Responsible AI checklist: verification, bias awareness and human oversight.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">04</span>
+      <div class="m-b">
+        <div class="m-head"><h4>AI-powered business data analysis</h4><span class="m-dur">65 min</span></div>
+        <p>The Analysis Ladder (Prepare, Describe, Diagnose, Prescribe), taken from raw spreadsheet through to strategic recommendation. Participants analyse a full performance dataset and produce an executive summary with recommendations.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">05</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Applied AI: individual business problem solving</h4><span class="m-dur">150 min</span></div>
+        <p>An open session where everyone takes a task from their current workload through to a finished deliverable, then presents it to the room. Ends with an overnight assignment to audit their department for automation opportunities.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card--tint" style="margin-top:4mm">
+    <h4>How the days are paced</h4>
+    <p>Registration and networking from 8:30am, morning and afternoon tea breaks, and a full
+    hour for lunch at noon on both days. Every module is followed by hands-on work on your
+    own material, so the room is never listening for long.</p>
+  </div>
+
+  <div class="foot"><span><b>Claude Mastery for Business Productivity and Automation</b> &nbsp;&middot;&nbsp; Day one</span><span>02</span></div>
+</section>
+
+<!-- ============================ PAGE 3 ============================ -->
+<section class="page">
+
+  <div class="dayhead">
+    <span class="eyebrow">Day two</span>
+    <h3>Master the system</h3>
+    <span class="when">Modules 6&ndash;11</span>
+  </div>
+  <p class="dayline">"I never start from scratch again, and neither does my team."</p>
+
+  <div class="mods">
+    <div class="m m--soft">
+      <span class="m-n"></span>
+      <div class="m-b">
+        <div class="m-head"><h4>Welcome back and overnight debrief</h4><span class="m-dur">45 min</span></div>
+        <p>Each HOD shares what their audit found: what can be automated, and what still needs a person to decide. The room then prioritises the opportunities worth doing first.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">06</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Strategic AI workspaces and persistent context</h4><span class="m-dur">75 min</span></div>
+        <p>Why starting every chat from zero costs so much, and how a persistent workspace fixes it. Each participant builds a departmental workspace loaded with the department's KPIs, SOPs and brand guidelines.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">07</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Building reusable AI decision playbooks</h4><span class="m-dur">75 min</span></div>
+        <p>Moving from ad-hoc outputs to standardised procedures using Skills. Each participant builds and validates two reusable playbooks for their workspace.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">08</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Interactive dashboard and report building</h4><span class="m-dur">40 min</span></div>
+        <p>Building interactive dashboards from business data through conversation alone, from basic visualisations up to monitoring tools with filters, alerts and KPI scorecards.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">09</span>
+      <div class="m-b">
+        <div class="m-head"><h4>AI-assisted strategic decision frameworks</h4><span class="m-dur">35 min</span></div>
+        <p>Claude put to work as a debate partner, through Six Thinking Hats, on a decision each participant is facing now. Every claim has to cite a number.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">10</span>
+      <div class="m-b">
+        <div class="m-head"><h4>No-code application building</h4><span class="m-dur">90 min</span></div>
+        <p>Three working builds in ninety minutes through the Ideate, Iterate, Output framework: a task board, a document personalisation tool, and a weekly planner.</p>
+      </div>
+    </div>
+    <div class="m">
+      <span class="m-n">11</span>
+      <div class="m-b">
+        <div class="m-head"><h4>Capstone project and strategic deployment planning</h4><span class="m-dur">80 min</span></div>
+        <p>Each participant presents their strongest deliverable, at a standard they could put in front of management, then leaves with a 30-day deployment plan and the Team Cascade Kit for training their team.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <p class="eyebrow">Take-home</p>
+  <h2 class="h-sec" style="margin:2mm 0 3.5mm">What leaves the room with them</h2>
+  <div class="chips">
+    <span class="chip">Prompt Strategy Cheat Sheet</span>
+    <span class="chip">Responsible AI Checklist</span>
+    <span class="chip">Blueprint 6 Reference Card</span>
+    <span class="chip">Team Cascade Kit</span>
+    <span class="chip">Continue Learning Resource Guide</span>
+  </div>
+  <p style="font-size:8.6pt; color:var(--slate); margin-top:2.5mm">Alongside the work they built. A participation certificate is issued on completion of both days.</p>
+
+  <div class="rule"></div>
+
+  <div class="grid g2">
+    <div class="card card--tint">
+      <h4>What we need from you</h4>
+      <p><strong>Every participant needs a laptop with an active Claude Pro
+      subscription, logged in and tested before they arrive.</strong> Module 1 starts
+      hands-on. On the day: wifi for the whole room, a projector and some wall space.</p>
+      <p>More importantly, a few working documents and a sample of performance data
+      from each department. We send a short questionnaire once dates are set.</p>
+    </div>
+    <div class="card card--blue">
+      <h4>Claiming with HRD Corp</h4>
+      <p>Blueprint AI Training is a registered HRD Corp training provider. If your
+      company contributes to the levy, this programme can be put against your
+      available balance.</p>
+      <p>What is claimable depends on the scheme your company is under and how the
+      training is scoped. Tell us your scheme and we will go through what applies
+      before you commit to dates.</p>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Claude Mastery for Business Productivity and Automation</b> &nbsp;&middot;&nbsp; Day two</span><span>03</span></div>
+</section>
+
+</body>
+</html>
