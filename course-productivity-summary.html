@@ -149,6 +149,18 @@ strong{font-weight:600}
 .six b{display:block; font-family:var(--font-serif); font-size:10.5pt; font-weight:600; margin-bottom:.8mm}
 .six span{font-size:7.5pt; color:var(--slate); line-height:1.4; display:block}
 
+/* ---------- At a glance ---------- */
+.glance{display:grid; grid-template-columns:1fr 1fr; gap:0 7mm; margin-bottom:6mm}
+.glance-col > b{
+  display:block; font-size:7.5pt; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--blue); border-bottom:2px solid var(--blue); padding-bottom:1.4mm; margin-bottom:1.4mm;
+}
+.g-row{display:flex; gap:2mm; align-items:baseline; padding:1.15mm 0; border-bottom:1px solid var(--silver)}
+.g-row:last-child{border-bottom:none}
+.g-n{flex:0 0 5mm; font-size:7.5pt; font-weight:600; color:var(--blue-soft)}
+.g-t{flex:1; font-size:8.2pt; line-height:1.3}
+.g-d{flex:0 0 auto; font-size:7.2pt; color:var(--slate); letter-spacing:.02em}
+
 /* ---------- Day header ---------- */
 .dayhead{
   display:flex; align-items:baseline; gap:4mm;
@@ -201,6 +213,18 @@ strong{font-weight:600}
 .card p{font-size:8.6pt; color:var(--slate); line-height:1.46}
 .card p+p{margin-top:2mm}
 
+.contact{
+  margin-top:6mm; background:var(--band); color:#fff;
+  border-radius:var(--r-card); padding:5.5mm 6mm;
+  display:flex; justify-content:space-between; align-items:flex-end; gap:6mm;
+}
+.contact h4{font-family:var(--font-serif); font-size:12pt; font-weight:600; margin-bottom:1.5mm}
+.contact p{font-size:8.6pt; color:rgba(255,255,255,.86); line-height:1.46; max-width:56ch}
+.contact-do{text-align:right; flex:0 0 auto}
+.contact-do b{display:block; font-size:11pt; letter-spacing:-.01em}
+.contact-do span{display:block; font-size:7.5pt; letter-spacing:.04em;
+  text-transform:uppercase; color:var(--blue-soft); margin-bottom:1mm}
+
 @page{size:A4 portrait; margin:0}
 @media print{
   body{background:none}
@@ -218,9 +242,6 @@ strong{font-weight:600}
     <img class="masthead-logo" src="assets/img/blueprint-logo.png" alt="Blueprint" width="590" height="128">
     <p class="masthead-kicker">Course summary</p>
     <h1>Claude Mastery for Business Productivity and Automation</h1>
-    <p>Two days that take a team from cautious to fluent. Day one is about
-    getting exactly what you need out of a conversation. Day two is about
-    never starting one from scratch again.</p>
   </header>
 
   <dl class="keyfacts">
@@ -229,28 +250,30 @@ strong{font-weight:600}
     <div><dt>Technical level</dt><dd>No coding<small>Laptops required</small></dd></div>
   </dl>
 
-  <div style="margin-top:6mm">
-    <p class="eyebrow">Who it is for</p>
-    <h2 class="h-sec" style="margin-top:2mm">The course a company runs first</h2>
-    <p class="lede">Built for whole companies and mixed departments starting from
-    zero: the account manager, the HR executive, the finance and operations teams,
-    the people whose week is emails, documents, spreadsheets and decisions.
-    Participants work with <strong>Claude</strong> from the first hour, and bring
-    their own backlog, so every exercise runs on your company's own documents
-    and numbers.</p>
+  <p class="eyebrow" style="margin-top:8mm">Learning outcomes</p>
+  <h2 class="h-sec" style="margin:2mm 0 4mm">Six jobs. What every participant can do by 5:30pm on day two</h2>
+  <div class="outs">
+    <div><h4>Read</h4><p>A long report, contract or policy in; the parts that matter, the risks buried in it and the questions worth asking next, out.</p></div>
+    <div><h4>Write</h4><p>Brief AI properly and get a proposal, report or difficult email back at a standard they would put in front of a manager.</p></div>
+    <div><h4>Analyse</h4><p>Take a spreadsheet through to a written review with charts and recommendations, and know which numbers the argument rests on.</p></div>
+    <div><h4>Automate</h4><p>Load their department's context once, teach AI their procedures as reusable Skills, and stop re-explaining themselves every Monday.</p></div>
+    <div><h4>Think</h4><p>Pressure-test a real decision from six perspectives, and argue back when the answer is wrong.</p></div>
+    <div><h4>Build</h4><p>Produce dashboards, calculators and small working applications without writing a line of code.</p></div>
   </div>
+  <p style="font-size:8.6pt; color:var(--slate); margin-top:3mm"><strong>Underneath all six:</strong> knowing what should never go into a chat, how to verify what comes out, and where the limits sit. Taught on day one, before anyone uploads anything.</p>
 
   <div class="rule"></div>
 
-  <p class="eyebrow">Learning outcomes</p>
-  <h2 class="h-sec" style="margin:2mm 0 4mm">What every participant can do by 5:30pm on day two</h2>
-  <div class="outs">
-    <div><h4>Brief AI properly</h4><p>Write a brief that gets a usable answer the first time, on the tasks their role involves.</p></div>
-    <div><h4>Analyse business data</h4><p>Take a spreadsheet through to a written review with charts and recommendations they would put in front of a manager.</p></div>
-    <div><h4>Think decisions through</h4><p>Use structured frameworks to pressure-test a decision with AI, and argue back when it is wrong.</p></div>
-    <div><h4>Build working tools</h4><p>Produce dashboards, calculators and small applications without writing a line of code.</p></div>
-    <div><h4>Set up a system that persists</h4><p>Load their department's context once, teach AI their recurring procedures, and stop re-explaining themselves.</p></div>
-    <div><h4>Handle data safely</h4><p>Know what should never go into a chat, how to check output, and where the limits sit.</p></div>
+  <p class="eyebrow">What they leave with</p>
+  <div class="chips" style="margin-top:2.5mm">
+    <span class="chip">A finished work deliverable</span>
+    <span class="chip">A configured departmental Project</span>
+    <span class="chip">Two reusable Skills</span>
+    <span class="chip">An interactive dashboard</span>
+    <span class="chip">A six-perspective decision document</span>
+    <span class="chip">Three working no-code tools</span>
+    <span class="chip">A 30-day deployment plan</span>
+    <span class="chip">The Team Cascade Kit</span>
   </div>
 
   <div class="foot"><span><b>Blueprint AI Training</b> &nbsp;&middot;&nbsp; Course summary</span><span>01</span></div>
@@ -260,20 +283,37 @@ strong{font-weight:600}
 <section class="page">
 
   <p class="eyebrow">The two days</p>
-  <h2 class="h-page" style="max-width:34ch">Eleven modules across the two days</h2>
-  <p class="lede" style="margin-bottom:6mm">Each module is taught, then practised before the room moves on. The timings
-  show the designed shape of the programme. Emphasis, examples and the departmental
-  exercises are scoped with you before every run.</p>
+  <h2 class="h-page" style="max-width:34ch; margin-bottom:5mm">Eleven modules across the two days</h2>
+
+  <div class="glance">
+    <div class="glance-col">
+      <b>Day one &middot; Master the conversation</b>
+      <div class="g-row"><span class="g-n">01</span><span class="g-t">Introduction to AI and Claude for productivity</span><span class="g-d">70</span></div>
+      <div class="g-row"><span class="g-n">02</span><span class="g-t">Effective AI communication</span><span class="g-d">110</span></div>
+      <div class="g-row"><span class="g-n">03</span><span class="g-t">AI governance, data security and responsible use</span><span class="g-d">40</span></div>
+      <div class="g-row"><span class="g-n">04</span><span class="g-t">AI-powered business data analysis</span><span class="g-d">65</span></div>
+      <div class="g-row"><span class="g-n">05</span><span class="g-t">Applied AI: individual business problem solving</span><span class="g-d">150</span></div>
+    </div>
+    <div class="glance-col">
+      <b>Day two &middot; Master the system</b>
+      <div class="g-row"><span class="g-n">06</span><span class="g-t">Projects: building a persistent workspace</span><span class="g-d">75</span></div>
+      <div class="g-row"><span class="g-n">07</span><span class="g-t">Skills: reusable procedures for recurring work</span><span class="g-d">75</span></div>
+      <div class="g-row"><span class="g-n">08</span><span class="g-t">Artifacts: interactive dashboards and reports</span><span class="g-d">50</span></div>
+      <div class="g-row"><span class="g-n">09</span><span class="g-t">Decision frameworks: Six Thinking Hats</span><span class="g-d">45</span></div>
+      <div class="g-row"><span class="g-n">10</span><span class="g-t">No-code application building</span><span class="g-d">80</span></div>
+      <div class="g-row"><span class="g-n">11</span><span class="g-t">Capstone and deployment planning</span><span class="g-d">70</span></div>
+    </div>
+  </div>
 
   <p class="eyebrow">The frame</p>
   <h2 class="h-sec" style="margin:2mm 0 3.5mm">Six jobs, taught in this order</h2>
   <div class="six">
-    <div><b>Think</b><span>Pressure-test a decision before you commit.</span></div>
+    <div><b>Read</b><span>Long documents and market material, pulled apart.</span></div>
     <div><b>Write</b><span>Proposals, reports and difficult emails.</span></div>
-    <div><b>Read</b><span>Long documents summarised, insights pulled out.</span></div>
     <div><b>Analyse</b><span>Revenue, costs and patterns in your own numbers.</span></div>
+    <div><b>Automate</b><span>Context loaded once, procedures taught, no re-explaining.</span></div>
+    <div><b>Think</b><span>Pressure-test a decision before you commit.</span></div>
     <div><b>Build</b><span>Dashboards and internal tools, with no code.</span></div>
-    <div><b>Research</b><span>Competitors, markets and customers, at speed.</span></div>
   </div>
 
   <div class="dayhead">
@@ -283,53 +323,47 @@ strong{font-weight:600}
   </div>
   <p class="dayline">"I can get exactly what I need out of AI, every time, in a single conversation."</p>
   <p class="daynote">By 5:30pm every participant can open a blank chat, write a proper brief and finish a
-  deliverable in one sitting. They also feel the friction of re-explaining their job from
-  scratch every time, which is deliberate, and is what day two fixes.</p>
+  deliverable in one sitting &mdash; and has felt the friction of re-explaining their job every
+  time, which is deliberate, and is what day two fixes.</p>
 
   <div class="mods">
     <div class="m">
       <span class="m-n">01</span>
       <div class="m-b">
-        <div class="m-head"><h4>Introduction to AI and Claude for business strategy</h4><span class="m-dur">70 min</span></div>
-        <p>Where generative AI helps a business, and what leaders need to understand about models, tokens and context to match capability to task. Introduces the Blueprint 6 framework that the whole two days map to.</p>
+        <div class="m-head"><h4>Introduction to AI and Claude for productivity</h4><span class="m-dur">70 min</span></div>
+        <p>Where generative AI helps a business, what to understand about models, tokens and context, and the Blueprint 6 frame the two days map to.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">02</span>
       <div class="m-b">
-        <div class="m-head"><h4>Effective AI communication and strategic briefing</h4><span class="m-dur">110 min</span></div>
-        <p>The five ingredients of a brief that works first time: Role, Context, Task, Format, Constraint. Practised across three business scenarios, then used to produce a data-informed recommendation from your own performance metrics.</p>
+        <div class="m-head"><h4>Effective AI communication</h4><span class="m-dur">110 min</span></div>
+        <p>The five ingredients of a brief that works first time &mdash; Role, Context, Task, Format, Constraint &mdash; practised across three business scenarios and then used on real performance data.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">03</span>
       <div class="m-b">
         <div class="m-head"><h4>AI governance, data security and responsible use</h4><span class="m-dur">40 min</span></div>
-        <p>How to tell a legitimate AI tool from a data-harvesting one, and a classification framework for deciding what company information is safe to share. Closes on the Responsible AI checklist: verification, bias awareness and human oversight.</p>
+        <p>A classification framework for deciding what information is safe to share, how to spot a data-harvesting tool, and the Responsible AI checklist: verification, bias awareness, human oversight.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">04</span>
       <div class="m-b">
-        <div class="m-head"><h4>AI-powered business data analysis</h4><span class="m-dur">65 min</span></div>
-        <p>The Analysis Ladder (Prepare, Describe, Diagnose, Prescribe), taken from raw spreadsheet through to strategic recommendation. Participants analyse a full performance dataset and produce an executive summary with recommendations.</p>
+        <div class="m-head"><h4>AI-powered business data analysis: from numbers to insights</h4><span class="m-dur">65 min</span></div>
+        <p>The Analysis Ladder &mdash; Prepare, Describe, Diagnose, Prescribe &mdash; taken from a raw spreadsheet through to an executive summary with recommendations.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">05</span>
       <div class="m-b">
         <div class="m-head"><h4>Applied AI: individual business problem solving</h4><span class="m-dur">150 min</span></div>
-        <p>An open session where everyone takes a task from their current workload through to a finished deliverable, then presents it to the room. Ends with an overnight assignment to audit their department for automation opportunities.</p>
+        <p>An open session where everyone takes a task from their current workload through to a finished deliverable and presents it, closing with an overnight departmental audit.</p>
       </div>
     </div>
   </div>
 
-  <div class="card card--tint" style="margin-top:4mm">
-    <h4>How the days are paced</h4>
-    <p>Registration and networking from 8:30am, morning and afternoon tea breaks, and a full
-    hour for lunch at noon on both days. Every module is followed by hands-on work on your
-    own material, so the room is never listening for long.</p>
-  </div>
 
   <div class="foot"><span><b>Claude Mastery for Business Productivity and Automation</b> &nbsp;&middot;&nbsp; Day one</span><span>02</span></div>
 </section>
@@ -349,85 +383,74 @@ strong{font-weight:600}
       <span class="m-n"></span>
       <div class="m-b">
         <div class="m-head"><h4>Welcome back and overnight debrief</h4><span class="m-dur">45 min</span></div>
-        <p>Each HOD shares what their audit found: what can be automated, and what still needs a person to decide. The room then prioritises the opportunities worth doing first.</p>
+        <p>Each department shares what its audit found, and the room prioritises the opportunities worth doing first.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">06</span>
       <div class="m-b">
-        <div class="m-head"><h4>Strategic AI workspaces and persistent context</h4><span class="m-dur">75 min</span></div>
-        <p>Why starting every chat from zero costs so much, and how a persistent workspace fixes it. Each participant builds a departmental workspace loaded with the department's KPIs, SOPs and brand guidelines.</p>
+        <div class="m-head"><h4>Projects: building a persistent workspace</h4><span class="m-dur">75 min</span></div>
+        <p>Each participant builds a departmental Project loaded with its KPIs, SOPs and brand guidelines, adds Connectors where they earn their place, and meets Claude Cowork as the shared team surface beside it.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">07</span>
       <div class="m-b">
-        <div class="m-head"><h4>Building reusable AI decision playbooks</h4><span class="m-dur">75 min</span></div>
-        <p>Moving from ad-hoc outputs to standardised procedures using Skills. Each participant builds and validates two reusable playbooks for their workspace.</p>
+        <div class="m-head"><h4>Skills: reusable procedures for recurring work</h4><span class="m-dur">75 min</span></div>
+        <p>Moving from ad-hoc outputs to standardised procedures: each participant builds and validates two reusable Skills for their workspace.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">08</span>
       <div class="m-b">
-        <div class="m-head"><h4>Interactive dashboard and report building</h4><span class="m-dur">40 min</span></div>
-        <p>Building interactive dashboards from business data through conversation alone, from basic visualisations up to monitoring tools with filters, alerts and KPI scorecards.</p>
+        <div class="m-head"><h4>Artifacts: interactive dashboards and reports</h4><span class="m-dur">50 min</span></div>
+        <p>Building an interactive dashboard as an Artifact, from a first visualisation through to filters, alerts and a KPI scorecard.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">09</span>
       <div class="m-b">
-        <div class="m-head"><h4>AI-assisted strategic decision frameworks</h4><span class="m-dur">35 min</span></div>
-        <p>Claude put to work as a debate partner, through Six Thinking Hats, on a decision each participant is facing now. Every claim has to cite a number.</p>
+        <div class="m-head"><h4>Decision frameworks: Six Thinking Hats with Claude</h4><span class="m-dur">45 min</span></div>
+        <p>Claude as a debate partner, through Six Thinking Hats, run by the whole room together in Cowork, on a decision each participant is facing now &mdash; every claim required to cite a number.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">10</span>
       <div class="m-b">
-        <div class="m-head"><h4>No-code application building</h4><span class="m-dur">90 min</span></div>
-        <p>Three working builds in ninety minutes through the Ideate, Iterate, Output framework: a task board, a document personalisation tool, and a weekly planner.</p>
+        <div class="m-head"><h4>No-code application building</h4><span class="m-dur">80 min</span></div>
+        <p>Three working builds through Ideate, Iterate, Output: a task board, a document personalisation tool, and a weekly planner that shows where the week actually goes.</p>
       </div>
     </div>
     <div class="m">
       <span class="m-n">11</span>
       <div class="m-b">
-        <div class="m-head"><h4>Capstone project and strategic deployment planning</h4><span class="m-dur">80 min</span></div>
-        <p>Each participant presents their strongest deliverable, at a standard they could put in front of management, then leaves with a 30-day deployment plan and the Team Cascade Kit for training their team.</p>
+        <div class="m-head"><h4>Capstone project and strategic deployment planning</h4><span class="m-dur">70 min</span></div>
+        <p>Each participant presents their strongest deliverable, then leaves with a 30-day deployment plan, an ROI figure in hours returned per week, and the Team Cascade Kit for training their own team.</p>
       </div>
     </div>
   </div>
 
-  <div class="rule"></div>
-
-  <p class="eyebrow">Take-home</p>
-  <h2 class="h-sec" style="margin:2mm 0 3.5mm">What leaves the room with them</h2>
-  <div class="chips">
-    <span class="chip">Prompt Strategy Cheat Sheet</span>
-    <span class="chip">Responsible AI Checklist</span>
-    <span class="chip">Blueprint 6 Reference Card</span>
-    <span class="chip">Team Cascade Kit</span>
-    <span class="chip">Continue Learning Resource Guide</span>
+  <div class="card card--tint" style="margin-top:4mm">
+    <h4>Taught by people who have shipped this in production</h4>
+    <p>Most AI training is delivered by professional trainers. Both of ours built AI systems
+    inside companies first. <strong>Tey Jian Han</strong> built AI agents at EY.
+    <strong>Daniel Chua</strong> built machine learning models at MoneyLion, a US-listed
+    fintech, then internal AI systems at a global crypto exchange firm, where he also
+    trained the staff who used them.</p>
+    <p>It shows up most in the sessions about what not to do: where AI invents things under
+    pressure, what it costs at volume, and which processes should never be automated. Module 3
+    is taught by people who have watched it happen.</p>
   </div>
-  <p style="font-size:8.6pt; color:var(--slate); margin-top:2.5mm">Alongside the work they built. A participation certificate is issued on completion of both days.</p>
 
-  <div class="rule"></div>
-
-  <div class="grid g2">
-    <div class="card card--tint">
-      <h4>What we need from you</h4>
-      <p><strong>Every participant needs a laptop with an active Claude Pro
-      subscription, logged in and tested before they arrive.</strong> Module 1 starts
-      hands-on. On the day: wifi for the whole room, a projector and some wall space.</p>
-      <p>More importantly, a few working documents and a sample of performance data
-      from each department. We send a short questionnaire once dates are set.</p>
+  <div class="contact">
+    <div>
+      <h4>Talk to us about running it</h4>
+      <p>Tell us your company size, your industry and what your people struggle
+      with, and we will come back with how these two days should run for you.</p>
     </div>
-    <div class="card card--blue">
-      <h4>Claiming with HRD Corp</h4>
-      <p>Blueprint AI Training is a registered HRD Corp training provider. If your
-      company contributes to the levy, this programme can be put against your
-      available balance.</p>
-      <p>What is claimable depends on the scheme your company is under and how the
-      training is scoped. Tell us your scheme and we will go through what applies
-      before you commit to dates.</p>
+    <div class="contact-do">
+      <span>WhatsApp</span>
+      <b>+60 11 5323 8181</b>
     </div>
   </div>
 
