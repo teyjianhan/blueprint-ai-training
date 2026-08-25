@@ -1,0 +1,410 @@
+<title>AI Marketing Course Handover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+:root{
+  --ground:#F6F8F8;
+  --surface:#FFFFFF;
+  --surface-2:#EFF3F4;
+  --ink:#16202B;
+  --muted:#5E6C78;
+  --line:#DDE4E7;
+  --line-soft:#E9EEF0;
+  --accent:#0F5C6B;
+  --accent-soft:#E3F0F2;
+  --open:#A8501E;
+  --open-soft:#F9EDE4;
+  --good:#2C6E49;
+  --good-soft:#E6F1EA;
+  --shadow:0 1px 2px rgba(22,32,43,.04), 0 6px 20px rgba(22,32,43,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1518;
+    --surface:#161E23;
+    --surface-2:#1C262C;
+    --ink:#E4EAED;
+    --muted:#93A3AD;
+    --line:#2A363D;
+    --line-soft:#222D33;
+    --accent:#59AEBE;
+    --accent-soft:#16303686;
+    --open:#DE9260;
+    --open-soft:#2E211786;
+    --good:#6FBF8F;
+    --good-soft:#17281E86;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1518;
+  --surface:#161E23;
+  --surface-2:#1C262C;
+  --ink:#E4EAED;
+  --muted:#93A3AD;
+  --line:#2A363D;
+  --line-soft:#222D33;
+  --accent:#59AEBE;
+  --accent-soft:#16303686;
+  --open:#DE9260;
+  --open-soft:#2E211786;
+  --good:#6FBF8F;
+  --good-soft:#17281E86;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px 96px}
+
+h1,h2,h3,h4,.ui{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;}
+h1,h2,h3{text-wrap:balance;margin:0}
+a{color:var(--accent)}
+
+/* ---------- header ---------- */
+header.masthead{padding:56px 0 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:Archivo,sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;
+}
+h1{font-size:clamp(30px,4.6vw,44px);font-weight:700;letter-spacing:-.02em;line-height:1.08}
+.standfirst{
+  margin:16px 0 0;max-width:64ch;color:var(--muted);font-size:17px;
+}
+.meta-row{
+  display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:22px;
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;color:var(--muted);
+}
+.meta-row b{color:var(--ink);font-weight:600}
+
+/* ---------- sections ---------- */
+section{margin-top:52px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+h2{font-size:23px;font-weight:700;letter-spacing:-.01em}
+.sec-rule{height:1px;background:var(--line);margin:14px 0 22px}
+.lede{color:var(--muted);max-width:66ch;margin:0 0 22px}
+p{margin:0 0 14px;max-width:70ch}
+h3{font-size:17px;font-weight:600;margin:26px 0 8px;letter-spacing:-.005em}
+
+/* ---------- status pills ---------- */
+.pill{
+  font-family:Archivo,sans-serif;font-size:10px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;padding:4px 9px;border-radius:3px;white-space:nowrap;
+  border:1px solid transparent;
+}
+.pill.locked{background:var(--good-soft);color:var(--good);border-color:var(--good)}
+.pill.open{background:var(--open-soft);color:var(--open);border-color:var(--open)}
+.pill.tested{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+
+/* ---------- decided list ---------- */
+.calls{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.call{background:var(--surface);padding:15px 18px;display:grid;grid-template-columns:170px 1fr;gap:6px 22px}
+.call dt{font-family:Archivo,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--accent);padding-top:3px}
+.call dd{margin:0;font-size:15.5px}
+@media(max-width:640px){.call{grid-template-columns:1fr;gap:3px}}
+
+/* ---------- tables ---------- */
+.twrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{
+  font-family:Archivo,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);text-align:left;
+  padding:11px 14px;border-bottom:1px solid var(--line);white-space:nowrap;
+  background:var(--surface-2);
+}
+td{padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td.t{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--accent);white-space:nowrap;font-variant-numeric:tabular-nums}
+td.dur{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+tr.total td{border-top:2px solid var(--line);font-weight:600;background:var(--surface-2)}
+tr.deliverable td{background:var(--accent-soft)}
+th.num,td.num{text-align:right;font-variant-numeric:tabular-nums}
+.row-label{font-family:Archivo,sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- open questions ---------- */
+.q{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:6px;padding:16px 20px;margin-bottom:12px;box-shadow:var(--shadow);
+}
+.q h4{font-size:15.5px;font-weight:600;margin:0 0 6px;font-family:Archivo,sans-serif;color:var(--open)}
+.q p{font-size:14.5px;color:var(--muted);margin:0}
+.q p + p{margin-top:8px}
+.q .rec{color:var(--ink)}
+.q .rec b{color:var(--accent)}
+
+/* ---------- option cards ---------- */
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:20px 0 8px}
+.opt{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+.opt.pick{border:2px solid var(--accent)}
+.opt h4{font-family:Archivo,sans-serif;font-size:15px;font-weight:700;margin:0}
+.opt .days{font-family:"JetBrains Mono",monospace;font-size:22px;font-weight:600;color:var(--accent);line-height:1}
+.opt p{font-size:14px;color:var(--muted);margin:0}
+.opt .tag{font-family:Archivo,sans-serif;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--accent)}
+
+/* ---------- verified findings ---------- */
+.finding{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow)}
+.finding-head{display:flex;align-items:center;gap:11px;margin-bottom:9px;flex-wrap:wrap}
+.finding-head h4{font-family:Archivo,sans-serif;font-size:15.5px;font-weight:600;margin:0}
+.finding p{font-size:14.5px;margin:0 0 8px}
+.finding p:last-child{margin-bottom:0}
+code{
+  font-family:"JetBrains Mono",monospace;font-size:.86em;
+  background:var(--surface-2);border:1px solid var(--line-soft);
+  padding:1px 5px;border-radius:3px;
+}
+.callout{
+  background:var(--open-soft);border:1px solid var(--open);
+  padding:16px 20px;border-radius:6px;margin:16px 0;font-size:15px;
+}
+.callout b{color:var(--open)}
+
+ul{padding-left:20px;margin:0 0 14px;max-width:70ch}
+li{margin-bottom:7px}
+li::marker{color:var(--accent)}
+
+footer{margin-top:64px;padding-top:24px;border-top:2px solid var(--ink);color:var(--muted);font-size:14px}
+footer b{color:var(--ink)}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Blueprint · Course Design · Handover</div>
+  <h1>AI in Digital Marketing</h1>
+  <p class="standfirst">Working state of the two-day workshop design. What's settled, what was tested against live tools, and the one decision that unblocks everything else.</p>
+  <div class="meta-row">
+    <span><b>Status</b> · mid-design, one open decision</span>
+    <span><b>Compiled</b> · 24 Aug 2026</span>
+    <span><b>Next</b> · partner discussion</span>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><h2>Where this stands</h2></div>
+  <div class="sec-rule"></div>
+  <p>The curriculum is largely designed. The problem is that it doesn't fit. Day 1 runs about <b>7h15</b> and Day 2 about <b>6h15</b>, against roughly 12 teaching hours in a two-day container. Every round of editing has meant cutting good material to fit.</p>
+  <p>So the decision to take away is not <em>what to teach</em>. It's <em>what container to teach it in</em>. Three options are set out below, with a recommendation.</p>
+  <div class="callout">
+    <b>The unlock.</b> The website is not a design exercise, it's a funnel. Problem pages and solution pages are conversion assets, and Meta ads on Day 2 route traffic into them. That single framing is what makes the two days one course rather than two topics sharing a room.
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Settled</h2><span class="pill locked">Locked</span></div>
+  <div class="sec-rule"></div>
+  <p class="lede">Decisions already taken. These don't need relitigating in the partner discussion.</p>
+  <dl class="calls">
+    <div class="call"><dt>Audience</dt><dd>All marketers, no narrowing. Performance, web and content people sit at cross-role tables, one business per table, so a designer and a performance marketer produce one campaign between them.</dd></div>
+    <div class="call"><dt>The spine</dt><dd>PASE — Practical, Action, Social, Emotional. Applied to page copy and CTAs on Day 1, to ad hooks and angles on Day 2. It appears on both days, which is what makes it read as the course's framework rather than a module.</dd></div>
+    <div class="call"><dt>The website</dt><dd>A funnel, built for conversion. Module renamed from "web design" to <b>Build the funnel</b>, so it's judged on whether it converts, not whether it's pretty.</dd></div>
+    <div class="call"><dt>Site structure</dt><dd>Fixed for everyone: home, problem pages, solution pages. Maximum six. Compressed version of the two-pillar architecture from the Chye proposal.</dd></div>
+    <div class="call"><dt>Page selection</dt><dd>The content schedule's top six Month 1 rows become the six pages built that afternoon. Prioritisation turns directly into what gets built.</dd></div>
+    <div class="call"><dt>SEO / AEO / GEO</dt><dd>One block, taught early, then written into a project instructions file that governs everything Claude Code generates. Pages come out compliant on the first pass instead of being fixed afterwards.</dd></div>
+    <div class="call"><dt>Keyword data</dt><dd>Ubersuggest excluded on cost. <b>Google Keyword Planner</b> is the free volume source — participants already create a Google Ads account for it. Free competitor signal comes from crawling rival sites for structure, titles, schema and content depth.</dd></div>
+    <div class="call"><dt>Meta</dt><dd>The agentic showpiece. Official Meta MCP builds the campaign, ad set, creative and ads. Everything paused by default, so no spend risk in the room.</dd></div>
+    <div class="call"><dt>Fallback account</dt><dd>Attendees without a Business Suite role use a Blueprint account. Recommendation on the table: create a separate empty training ad account with no payment method rather than exposing the live one.</dd></div>
+    <div class="call"><dt>Machines</dt><dd>Claude Code in the browser is the primary path, not the fallback — corporate laptops without admin rights will fail a local install, and every later module depends on setup succeeding.</dd></div>
+    <div class="call"><dt>GTM</dt><dd>Moved to Day 2, where the Meta Pixel and conversion tags give it a reason to exist. GA4 is hardcoded on Day 1.</dd></div>
+    <div class="call"><dt>Content course</dt><dd>Not removed — renamed. It's <b>creative production</b>, not content marketing. Gets 30 minutes as a taste on Day 2, which sells the deeper course.</dd></div>
+  </dl>
+</section>
+
+<section>
+  <div class="sec-head"><h2>The funnel mapping</h2></div>
+  <div class="sec-rule"></div>
+  <p class="lede">Problem and solution pages are two awareness stages, not two content types. This table carries both days: on Day 1 it decides which pages get built and how each is written; on Day 2 it decides which audience sees which ad and where each ad lands.</p>
+  <div class="twrap">
+    <table>
+      <thead><tr><th></th><th>Problem pages</th><th>Solution pages</th></tr></thead>
+      <tbody>
+        <tr><td class="row-label">Visitor knows</td><td>Something's wrong</td><td>What they want to buy</td></tr>
+        <tr><td class="row-label">Searches like</td><td>"why does my lower back hurt"</td><td>"chiropractor cheras", "dry needling KL"</td></tr>
+        <tr><td class="row-label">Funnel stage</td><td>Top — problem-aware</td><td>Bottom — commercial intent</td></tr>
+        <tr><td class="row-label">Organic role</td><td>Informational SEO, AEO answers, the volume play</td><td>Money keywords, local SEO, the conversion play</td></tr>
+        <tr><td class="row-label">Meta role</td><td>Cold audiences, demand creation</td><td>Retargeting warm visitors</td></tr>
+        <tr><td class="row-label">Google Ads role</td><td>Rarely worth buying</td><td>Exactly what you buy</td></tr>
+        <tr><td class="row-label">PASE weighting</td><td>Emotional and Practical lead</td><td>Practical and Social proof lead</td></tr>
+        <tr><td class="row-label">Page job</td><td>Name the pain, route to the solution page</td><td>Book the appointment</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:16px">It also makes the Day 1 → Day 2 dependency physical rather than thematic: <b>you cannot retarget visitors to your dry needling page unless the pixel was on it yesterday.</b></p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Day 1 — own it and be found</h2><span class="pill open">Over by ~1h15</span></div>
+  <div class="sec-rule"></div>
+  <div class="twrap">
+    <table>
+      <thead><tr><th>Time</th><th>Block</th><th class="num">Dur</th></tr></thead>
+      <tbody>
+        <tr><td class="t">09:00</td><td>Marketing foundations, organic vs paid, why the website is the asset now — Google plus LLMs, and LLMs crawl websites, not social</td><td class="dur">45m</td></tr>
+        <tr><td class="t">09:45</td><td>How search works now: SEO, AEO and GEO as one block → written into the project instructions file</td><td class="dur">45m</td></tr>
+        <tr><td class="t">10:30</td><td>Break</td><td class="dur">15m</td></tr>
+        <tr><td class="t">10:45</td><td>Setup: browser Claude Code, GitHub repo <em>(assumes pre-workshop setup session ran)</em></td><td class="dur">30m</td></tr>
+        <tr><td class="t">11:15</td><td>Competitor teardown → the proposal dashboard. Free signal vs paid data, honestly labelled</td><td class="dur">1h15</td></tr>
+        <tr><td class="t">12:30</td><td>Lunch</td><td class="dur">60m</td></tr>
+        <tr><td class="t">13:30</td><td>A/B test game, CRO principles, PASE for page copy <em>(energy slot after lunch)</em></td><td class="dur">45m</td></tr>
+        <tr><td class="t">14:15</td><td>Content schedule → picks your six pages</td><td class="dur">45m</td></tr>
+        <tr><td class="t">15:00</td><td>Break</td><td class="dur">15m</td></tr>
+        <tr><td class="t">15:15</td><td>Build the funnel: six pages, plus 21st.dev polish</td><td class="dur">2h</td></tr>
+        <tr><td class="t">17:15</td><td>Deploy to Vercel — every URL goes live, opened on screen one by one</td><td class="dur">30m</td></tr>
+        <tr class="total"><td class="t">—</td><td>Teaching time</td><td class="dur">7h15</td></tr>
+        <tr class="deliverable"><td class="t">→</td><td><b>Leaves with</b> a live, indexed, tracked funnel; a competitor dashboard; a three-month content schedule</td><td class="dur"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:16px"><b>Still homeless on Day 1:</b> connecting GSC and GA4, and the scheduled tasks for ongoing content, reporting and competitor tracking. There is no room for them in the timings above.</p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Day 2 — drive demand and prove it</h2><span class="pill locked">Fits</span></div>
+  <div class="sec-rule"></div>
+  <div class="twrap">
+    <table>
+      <thead><tr><th>Time</th><th>Block</th><th class="num">Dur</th></tr></thead>
+      <tbody>
+        <tr><td class="t">09:00</td><td>Your funnel from yesterday: awareness stages mapped to your pages</td><td class="dur">30m</td></tr>
+        <tr><td class="t">09:30</td><td>Competitor teardown for ads: Meta Ad Library plus SERP</td><td class="dur">1h</td></tr>
+        <tr><td class="t">10:30</td><td>Break</td><td class="dur">15m</td></tr>
+        <tr><td class="t">10:45</td><td>PASE for hooks and angles, by funnel stage</td><td class="dur">45m</td></tr>
+        <tr><td class="t">11:30</td><td>Pixel and GTM, build audiences from yesterday's pages</td><td class="dur">45m</td></tr>
+        <tr><td class="t">12:15</td><td>Lunch</td><td class="dur">60m</td></tr>
+        <tr><td class="t">13:15</td><td>Google Ads: earn vs buy, RSA assets, one paused Search campaign <em>(if included)</em></td><td class="dur">1h</td></tr>
+        <tr><td class="t">14:15</td><td>Creative: one ad asset — teaser for the production course</td><td class="dur">30m</td></tr>
+        <tr><td class="t">14:45</td><td>Break</td><td class="dur">15m</td></tr>
+        <tr><td class="t">15:00</td><td>Meta agentic build via MCP: campaign, ad set, creative, ads — all paused</td><td class="dur">1h30</td></tr>
+        <tr><td class="t">16:30</td><td>Capstone: Claude reads GSC, GA4 and Meta data and writes the monthly report</td><td class="dur">45m</td></tr>
+        <tr class="total"><td class="t">—</td><td>Teaching time</td><td class="dur">6h15</td></tr>
+        <tr class="deliverable"><td class="t">→</td><td><b>Leaves with</b> paused campaigns on both platforms and a working monthly report</td><td class="dur"></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:16px"><b>Why Google before Meta.</b> The manual, tedious platform goes while energy is high. Meta's agentic build then closes Day 2 the way the live URLs close Day 1. And it gives a clean narrative escalation: Google captures demand that already exists, but there's a hard ceiling on how much of it there is — Meta is how you create demand that doesn't.</p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Tool verification</h2><span class="pill tested">Tested live</span></div>
+  <div class="sec-rule"></div>
+  <p class="lede">Checked against the real services rather than assumed. These results constrain what can actually be taught.</p>
+
+  <div class="finding">
+    <div class="finding-head"><h4>Meta official MCP</h4><span class="pill locked">Viable</span></div>
+    <p>Meta-hosted remote server at <code>https://mcp.facebook.com/ads</code>. Claude and Claude Code are both supported clients. <b>No Meta developer app required</b> for the standard path — Facebook OAuth, minutes to connect. Registered here at user scope and confirmed connecting.</p>
+    <p>Per Meta's documentation it can pull reporting, create and edit campaigns, ad sets and ads, build creatives, upload image and video assets, manage custom audiences and catalogs, and run A/B tests. <b>All ads are paused by default until manually set live</b>, and account owners can block campaign creation or cap budgets from Business Suite → Settings → Integrations → Ads MCP server, enforced server-side.</p>
+    <p><b>Still untested:</b> the write path on a live Malaysian account. Meta's docs carry a staged-rollout warning ("you may not have access to all tools yet"), so this must be proven before the curriculum depends on it.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-head"><h4>Google Ads official MCP</h4><span class="pill open">Not workshop-viable</span></div>
+    <p>Google's server is a local Python process via pipx, not a hosted endpoint. Setup needs a Google Cloud project, the Google Ads API enabled, OAuth credentials or gcloud ADC, and a <b>developer token with Explorer access</b> — obtained through the API Center with unpredictable approval time.</p>
+    <p>It is also <b>read-only</b>. The entire toolset is <code>search</code>, <code>get_resource_metadata</code> and <code>list_accessible_customers</code>. No campaign creation. Google Ads via MCP is reporting only.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-head"><h4>AdWhispr</h4><span class="pill open">Paid, and no Malaysia</span></div>
+    <p>Covers Meta, Google and TikTok with both research and execution, including <code>launch_search_campaign</code> and <code>launch_pmax_campaign</code> — genuine Google Ads write access, which the official Google server cannot do.</p>
+    <p>Two limits found by testing. Campaign execution is <b>Pro-only</b>; the free tier is research. And its keyword research, which pulls live Google Keyword Planner data and works well, <b>does not support Malaysia</b>. Supported geos are US, GB, CA, AU, DE, FR, ES, IT, NL, IN, BR, MX and JP. Verified in both directions with the same seed keywords.</p>
+    <p>Same cost objection as Ubersuggest, plus a geo gap on the half that would have mattered most here. Suitable as a "what a paid tool unlocks" demo, not as a required tool.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>The decision to take away</h2><span class="pill open">Blocking</span></div>
+  <div class="sec-rule"></div>
+  <p class="lede">Roughly 13h30 of teaching against a 12-hour container. Pick the container and everything else follows.</p>
+
+  <div class="options">
+    <div class="opt">
+      <span class="tag">Option A</span>
+      <div class="days">2 days</div>
+      <h4>Cut hard</h4>
+      <p>Drop Google Ads entirely. Reduce the funnel build to customising a prepared template rather than building. One sale, cleanest brochure line.</p>
+      <p><b>Cost:</b> the flagship deliverable weakens noticeably.</p>
+    </div>
+    <div class="opt">
+      <span class="tag">Option B</span>
+      <div class="days">3 days</div>
+      <h4>Premium intensive</h4>
+      <p>Everything fits, one sale, one client relationship. Price it as an intensive rather than a padded two-day.</p>
+      <p><b>Cost:</b> HR approves a three-day block far less readily than two days.</p>
+    </div>
+    <div class="opt pick">
+      <span class="tag">Option C · Recommended</span>
+      <div class="days">2 + 2</div>
+      <h4>Two courses</h4>
+      <p>Split into <b>AI for Web and Organic Growth</b> and <b>AI for Paid Marketing and Performance</b>. Nothing gets cut. Four claim days instead of two, from the same client.</p>
+      <p><b>Cost:</b> two sales instead of one.</p>
+    </div>
+  </div>
+
+  <h3>What Option C looks like</h3>
+  <div class="twrap">
+    <table>
+      <thead><tr><th>Course</th><th>Day 1</th><th>Day 2</th><th>Leaves with</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>A</b><br>Web &amp; Organic</td>
+          <td>Foundations, how search works now, setup, competitor teardown → dashboard</td>
+          <td>Content schedule → six pages, build the funnel, CRO, deploy, GSC and GA4, scheduled tasks</td>
+          <td>A live, indexed, tracked funnel</td>
+        </tr>
+        <tr>
+          <td><b>B</b><br>Paid &amp; Performance</td>
+          <td>Funnel and awareness mapping, competitor ad teardown, PASE, pixel and audiences, creative production</td>
+          <td>Google Ads earn vs buy, Meta agentic build, crosspost, reporting capstone</td>
+          <td>Paused campaigns on both platforms, plus a working report</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:16px">The obvious worry is that a client buys A and never buys B, and that B depends on A for somewhere to send the ads. But that dependency is only about the <em>workshop deliverable</em>, not a real prerequisite — most companies already have a website. Course B opens with "bring your existing site and pixel access" and sells standalone. Both doors stay open.</p>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Still open</h2><span class="pill open">Needs an answer</span></div>
+  <div class="sec-rule"></div>
+
+  <div class="q">
+    <h4>Google Ads — in or out?</h4>
+    <p>No agentic path exists, so it's manual UI work, which is an energy drop after the Meta showpiece and breaks the "AI does the work" narrative. But search is the highest-intent traffic there is, and for the clinic-type businesses Blueprint serves, "chiropractor near me" is where the money is. Omitting it leaves a visible hole on the brochure.</p>
+    <p class="rec"><b>Recommendation:</b> include it, 45–60 minutes, reframed. Not a platform module — the <b>earn versus buy</b> decision. Claude splits yesterday's keyword list into what you earn and what you buy, writes the RSA assets from the buy list using PASE, and they build one paused Search campaign pointing at a Day 1 solution page. PMax gets ten minutes as a concept, not a build.</p>
+  </div>
+
+  <div class="q">
+    <h4>Own business or shared case study?</h4>
+    <p>Own business is far better for the "applied to your own workflow" differentiator, but timing becomes unpredictable and some attendees arrive with no content, no logo and no clear idea. Cross-role tables push toward one business per table as the middle path.</p>
+  </div>
+
+  <div class="q">
+    <h4>Meta ad account for attendees without a role</h4>
+    <p>Agreed that Blueprint's account is the fallback. Open: whether to create a <b>separate empty training ad account</b> with no payment method, rather than giving every attendee agent access to the live account with its real billing and campaign data.</p>
+  </div>
+
+  <div class="q">
+    <h4>Machines and pre-work</h4>
+    <p>Own laptops with admin rights, or company-locked? The browser-first path covers most of this, but the pre-workshop setup session — the thing that reclaims 45 minutes on Day 1 — needs scheduling and a support channel.</p>
+  </div>
+
+  <div class="q">
+    <h4>Where do the scheduled tasks actually run?</h4>
+    <p>A scheduled Claude task needs somewhere to execute after attendees leave the room. Claude Code's own scheduling, a cloud agent, or something on their machine that stops when the laptop closes? This changes what can honestly be promised.</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>To resume:</b> load this file in a new session and say which container was chosen — A, B or C — and whether Google Ads is in. That's enough to draft the full outline against the right shape. The two reference artifacts sit in <code>Downloads</code>: <code>chye-clinic-seo-proposal (1).html</code> is the competitor dashboard target, <code>Persistence-Chiropractic-Monthly-Content-Schedule.html</code> is the content schedule target.</p>
+  <p style="margin-bottom:0"><b>Also worth knowing:</b> the Meta MCP write path is confirmed connecting but its campaign-creation path on a Malaysian account has not been proven yet. Test that before the curriculum commits to it as the Day 2 showpiece.</p>
+</footer>
+
+</div>
