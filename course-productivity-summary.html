@@ -20,8 +20,15 @@
     hour-by-hour outline stays on course-productivity.html.
 
   PAGE MAP
-    1  Masthead (with the HRD Corp badges), key facts, course overview,
-       learning outcomes.
+    1  Masthead (with the HRD Corp badges), key facts, a one-paragraph
+       course overview, what is included, who should attend, and the
+       learning outcomes. Restructured 2026-09-29 on the founders'
+       instruction, from the course slides: the overview was cut to one
+       paragraph, the included Claude Pro seat and certificate were added,
+       the eight departments came from the "suitable for anyone" slide, and
+       the outcomes now read as the six Claude capabilities plus the six
+       tool areas. The page is full to the millimetre; anything added here
+       has to come out of something else.
     2  The two programme directors in a 2x2 grid: portrait and profile each, with
        education, employer logos and skills.
     3  The two days at a glance: a calendar day view, one column per day,
@@ -181,11 +188,51 @@ strong{font-weight:600}
 .overview p strong{color:var(--ink)}
 .overview p+p{margin-top:3mm}
 
-/* ---------- Outcomes ---------- */
-.outs{display:grid; grid-template-columns:1fr 1fr; gap:3.5mm 7mm}
-.outs > div{border-top:1px solid var(--silver); padding-top:2.6mm}
-.outs h4{font-family:var(--font-serif); font-size:11pt; font-weight:600; margin-bottom:1mm}
-.outs p{font-size:8.8pt; color:var(--slate); line-height:1.45}
+/* ---------- What's included ---------- */
+/* Uneven columns: the certificate title is the longer of the two and earns
+   the extra width, so both cards hold their title on one line. */
+.incl{display:grid; grid-template-columns:0.85fr 1.15fr; gap:3.5mm}
+.incl > div{
+  border:1px solid var(--silver); border-radius:var(--r-card);
+  background:var(--paper); padding:2.8mm 4mm 3mm;
+  display:flex; align-items:center; gap:2.6mm;
+}
+.incl svg{flex:0 0 auto; width:5mm; height:5mm; color:var(--blue)}
+.incl h4{font-family:var(--font-serif); font-size:10pt; font-weight:600; line-height:1.25}
+
+/* ---------- Who should attend: department chips ----------
+   Eight departments, 4 x 2. Icons are inline SVG at one size, stroked in
+   the house blue, matching the treatment used on the calendar page. */
+.chips{display:grid; grid-template-columns:repeat(4,1fr); gap:2.4mm}
+.chips div{
+  border:1px solid var(--silver); border-radius:var(--r-card); background:var(--white);
+  padding:1.8mm 2mm 2mm; text-align:center;
+}
+.chips svg{width:4.2mm; height:4.2mm; margin:0 auto .7mm; display:block; color:var(--blue)}
+.chips span{display:block; font-size:8.4pt; color:var(--ink); line-height:1.2}
+
+/* ---------- Learning outcomes ---------- */
+.capband{
+  background:var(--band); color:#fff; border-radius:var(--r-card);
+  padding:2.2mm 4.5mm 2.5mm; display:flex; align-items:center; gap:4mm;
+}
+.capband b{
+  flex:0 0 auto; font-size:7pt; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--pill);
+}
+.capband ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:2mm}
+.capband li{
+  border:1px solid rgba(255,255,255,.45); border-radius:999px;
+  padding:.7mm 3mm .9mm; font-size:8.4pt; line-height:1.2;
+}
+.caps{display:grid; grid-template-columns:repeat(3,1fr); gap:2.8mm 3.5mm; margin-top:3mm}
+.caps > div{border-top:1px solid var(--silver); padding-top:2.2mm}
+.caps h4{
+  display:flex; align-items:center; gap:1.8mm;
+  font-family:var(--font-serif); font-size:10.2pt; font-weight:600; margin-bottom:.7mm;
+}
+.caps svg{flex:0 0 auto; width:4mm; height:4mm; color:var(--blue)}
+.caps p{font-size:8.1pt; color:var(--slate); line-height:1.38}
 
 /* ---------- Trainers page: 2x2 grid ----------
    Row 1: Jian Han portrait (left), Jian Han profile (right).
@@ -353,38 +400,68 @@ strong{font-weight:600}
     <div><dt>Technical level</dt><dd>No coding<small>Laptops required</small></dd></div>
   </dl>
 
-  <!-- Course overview: sits before the learning outcomes by design (founder request, 2026-09-09). -->
-  <p class="eyebrow" style="margin-top:7mm">Course overview</p>
-  <h2 class="h-sec" style="margin:2mm 0 3.5mm">Two days that take a team from cautious to fluent</h2>
+  <!-- Course overview: sits before the learning outcomes by design (founder request, 2026-09-09).
+       Cut to a single paragraph on 2026-09-29 at the founders' request: the detail
+       lives in the module outline on pages 4 and 5. -->
+  <p class="eyebrow" style="margin-top:5.5mm">Course overview</p>
+  <h2 class="h-sec" style="margin:2mm 0 3mm">Two days that take a team from cautious to fluent</h2>
   <div class="overview">
-    <p>This is the programme a company runs first. It is built for whole companies and mixed
-    departments starting from zero: the account manager, the HR executive, the finance and
-    operations teams, the people whose week is emails, documents, spreadsheets and decisions.
-    No coding, and no previous AI experience is assumed. Participants work with
-    <strong>Claude</strong>, one of the world's leading AI assistants, from the first hour, on
-    their own laptops and on a task from their own workload. Where the company approves it, the
-    exercises run on its own material; where it does not, we supply realistic mock data and
-    nothing sensitive leaves the room.</p>
-    <p>Day one is about getting exactly what you need out of a conversation: briefing AI properly,
-    using it responsibly, teaching it your procedures as reusable Skills, and taking a spreadsheet
-    through to a recommendation. Day two is about never starting from scratch again: a persistent
-    Project for your department, whole tasks delegated to Claude Cowork, automations that run on a
-    schedule, and working applications built without code. Every module is taught, then practised,
-    before the room moves on, and participants leave with finished deliverables rather than a
-    folder of notes.</p>
+    <p>Built for whole companies starting from zero, not for technical teams. No coding and no
+    previous AI experience needed. Participants work with <strong>Claude</strong> on their own
+    laptops from the first hour, on real tasks from their own week, and every module is taught
+    and then practised.</p>
   </div>
 
-  <div class="rule" style="margin:7mm 0 6mm"></div>
+  <p class="eyebrow" style="margin-top:5.5mm; margin-bottom:2.6mm">What is included</p>
+  <div class="incl">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c0 4.7 2.3 7 7 7-4.7 0-7 2.3-7 7 0-4.7-2.3-7-7-7 4.7 0 7-2.3 7-7z"/><path d="M18.5 16.5c0 2.2 1.1 3.3 3.3 3.3-2.2 0-3.3 1.1-3.3 3.3 0-2.2-1.1-3.3-3.3-3.3 2.2 0 3.3-1.1 3.3-3.3z"/></svg><h4>Claude Pro, free for the workshop</h4></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5.5"/><path d="M8.4 13.6L7 21.5l5-2.4 5 2.4-1.4-7.9"/></svg><h4>Certificate of recognition, digital and physical</h4></div>
+  </div>
 
-  <p class="eyebrow">Learning outcomes</p>
-  <h2 class="h-sec" style="margin:2mm 0 4mm">Six jobs. What every participant can do by 5:30pm on day two</h2>
-  <div class="outs">
-    <div><h4>Read</h4><p>A long report, contract or policy in; the parts that matter, the risks buried in it and the questions worth asking next, out.</p></div>
-    <div><h4>Write</h4><p>Brief AI properly and get a proposal, report or difficult email back at a standard they would put in front of a manager.</p></div>
-    <div><h4>Analyse</h4><p>Take a spreadsheet through to a written review with charts and recommendations, and know which numbers the argument rests on.</p></div>
-    <div><h4>Automate</h4><p>Load their department's context once, teach AI their procedures as Skills, delegate whole tasks to Cowork, and put the recurring ones on a schedule.</p></div>
-    <div><h4>Think</h4><p>Pressure-test a real decision from six perspectives, and argue back when the answer is wrong.</p></div>
-    <div><h4>Build</h4><p>Produce dashboards, calculators and small working applications without writing a line of code.</p></div>
+  <p class="eyebrow" style="margin-top:5.5mm">Who should attend</p>
+  <h2 class="h-sec" style="margin:2mm 0 3mm">Suitable for anyone in the company, regardless of position or experience</h2>
+  <div class="chips">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M17 11a3 3 0 1 0-2-5.2"/><path d="M18 20c0-2.6-1-4.3-2.8-5"/></svg><span>HR</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V11"/><path d="M12 20V5"/><path d="M19 20v-6"/><path d="M3 20h18"/></svg><span>Finance</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/><path d="M7 16l3-3 2.5 2.5L17 11"/></svg><span>Sales</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.3 2.8h-.6a1.8 1.8 0 0 0-1.8 1.8v.2a1.8 1.8 0 0 1-.9 1.55l-.6.35a1.8 1.8 0 0 1-1.8 0l-.18-.1a1.8 1.8 0 0 0-2.45.66l-.3.52a1.8 1.8 0 0 0 .66 2.45l.17.1a1.8 1.8 0 0 1 .9 1.55v.7a1.8 1.8 0 0 1-.9 1.55l-.17.1a1.8 1.8 0 0 0-.66 2.45l.3.52a1.8 1.8 0 0 0 2.45.66l.18-.1a1.8 1.8 0 0 1 1.8 0l.6.35a1.8 1.8 0 0 1 .9 1.55v.2a1.8 1.8 0 0 0 1.8 1.8h.6a1.8 1.8 0 0 0 1.8-1.8v-.2a1.8 1.8 0 0 1 .9-1.55l.6-.35a1.8 1.8 0 0 1 1.8 0l.18.1a1.8 1.8 0 0 0 2.45-.66l.3-.52a1.8 1.8 0 0 0-.66-2.45l-.17-.1a1.8 1.8 0 0 1-.9-1.55v-.7a1.8 1.8 0 0 1 .9-1.55l.17-.1a1.8 1.8 0 0 0 .66-2.45l-.3-.52a1.8 1.8 0 0 0-2.45-.66l-.18.1a1.8 1.8 0 0 1-1.8 0l-.6-.35a1.8 1.8 0 0 1-.9-1.55v-.2a1.8 1.8 0 0 0-1.8-1.8z"/><circle cx="12" cy="12" r="2.9"/></svg><span>Operations</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2.5L10.8 13.2"/><path d="M21.5 2.5l-6.8 19.4-3.9-8.7-8.7-3.9z"/></svg><span>Marketing</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.4-.3L4.5 20l1.2-3.3a6.8 6.8 0 0 1-2.2-5c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2z"/><path d="M8.6 11.5h.01M12 11.5h.01M15.4 11.5h.01"/></svg><span>Customer service</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 5 8.5 4.5 4 4.5v13c4.5 0 6.5.5 8 2 1.5-1.5 3.5-2 8-2v-13c-4.5 0-6.5.5-8 2z"/><path d="M12 6.5v13"/></svg><span>Procurement</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a5.5 5.5 0 0 0-3.2 10c.6.5.9 1.1.9 1.8v.7h4.6v-.7c0-.7.3-1.3.9-1.8A5.5 5.5 0 0 0 12 3z"/><path d="M9.7 19h4.6"/><path d="M10.4 21.2h3.2"/></svg><span>Management</span></div>
+  </div>
+
+  <p class="eyebrow" style="margin-top:5.5mm">Learning outcomes</p>
+  <h2 class="h-sec" style="margin:2mm 0 3mm">What your team can do after the two days</h2>
+  <div class="capband">
+    <b>Key capabilities of Claude</b>
+    <ul><li>Read</li><li>Write</li><li>Think</li><li>Analyse</li><li>Automate</li><li>Build</li></ul>
+  </div>
+  <div class="caps">
+    <div>
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z"/></svg>Agentic AI</h4>
+      <p>Claude does the work itself instead of telling you how to do it.</p>
+    </div>
+    <div>
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 0 1-14.4 6.1"/><path d="M3.5 12a8.5 8.5 0 0 1 14.4-6.1"/><path d="M17.4 2.4v3.6h-3.6"/><path d="M6.6 21.6V18h3.6"/></svg>Automation</h4>
+      <p>The work you repeat every week runs on its own, whether anyone remembers or not.</p>
+    </div>
+    <div>
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 7L3.5 12l5 5"/><path d="M15.5 7l5 5-5 5"/></svg>Vibe-coding</h4>
+      <p>You describe the tool you need in English and Claude builds it for you.</p>
+    </div>
+    <div>
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.8"/><path d="M5 6v12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V6"/><path d="M5 12c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8"/></svg>Knowledge base</h4>
+      <p>Your policies, templates and past work, in one place Claude can read.</p>
+    </div>
+    <div>
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 2.5V8"/><path d="M14.8 2.5V8"/><path d="M6.5 8h11v4.6a4.6 4.6 0 0 1-4.6 4.6h-1.8a4.6 4.6 0 0 1-4.6-4.6z"/><path d="M12 17.2v4.3"/></svg>MCP connections</h4>
+      <p>Claude connects to Google Workspace, Microsoft Teams &amp; more to work on your files.</p>
+    </div>
+    <div>
+      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>And many more</h4>
+      <p>Skills, Artifacts, Cowork. Eleven modules, every one of them hands-on.</p>
+    </div>
   </div>
 
   <div class="foot"><span><b>Blueprint AI Training</b> &nbsp;&middot;&nbsp; Course summary</span><span>01</span></div>
